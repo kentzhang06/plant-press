@@ -2,17 +2,19 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const PlantSchema = new Schema({
-    handle: {
+    plantName: {
       type: String,
       required: true
     },
-    email: {
+    plantType: {
       type: String,
       required: true
     },
-    password: {
+    plantBio: {
       type: String,
-      required: true
+    },
+    plantSpecies: {
+      type: String,
     }
   }, {
     timestamps: true
