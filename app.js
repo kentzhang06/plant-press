@@ -5,7 +5,6 @@ const app = express();
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const path = require('path');
-// const Plant = require('./models/Plant');
 
 //require routes
 const users = require("./routes/api/users");
@@ -28,17 +27,6 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-// app.get("/plant", (req, res) => {
-//   const plant  = new Plant({
-//     plantName: "testplant",
-//     plantType: "testtype",
-//     plantBio: "testbio",
-//     plantSpecies: "testspecies"
-//   })
-//   plant.save()
-//   res.send("plant test")
-// })
 
 
 // Routes
