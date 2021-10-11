@@ -16,6 +16,7 @@ router.post('/create',
       }
 
       const newPlant = new Plant({
+        userId: req.user.id,
         name: req.body.name,
         type: req.body.type,
         info: req.body.info,
@@ -29,7 +30,7 @@ router.post('/create',
 router.patch('/:plantId',
     passport.authenticate('jwt', { session: false }
     ), (req, res) => {
-      const { errors, isValid } = validatePostInput(req.body);
+      const { errors, isValid } = validatePlantInput(req.body);
 
       if (!isValid) {
         return res.status(422).json(errors);

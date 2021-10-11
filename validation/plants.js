@@ -9,17 +9,12 @@ module.exports = function validatePlantInput(data) {
   data.info = validText(data.info) ? data.info : '';
   data.species = validText(data.species) ? data.species : '';
 
-
-  // if (!Validator.isLength(data.text, { min: 5, max: 140 })) {
-  //   errors.text = 'Tweet must be between 5 and 140 characters';
-  // }
-
   if (Validator.isEmpty(data.name)) {
-    errors.text = 'Text field is required';
+    errors.text = 'Name is required';
   }
 
   if (Validator.isEmpty(data.type)) {
-    errors.text = 'Text field is required';
+    errors.text = 'Type is required';
   }
 
   return {
