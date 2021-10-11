@@ -2,18 +2,22 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const PlantSchema = new Schema({
-    plantName: {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    },
+    name: {
       type: String,
       required: true
     },
-    plantType: {
+    type: {
       type: String,
       required: true
     },
-    plantBio: {
+    info: {
       type: String,
     },
-    plantSpecies: {
+    species: {
       type: String,
     }
   }, {
