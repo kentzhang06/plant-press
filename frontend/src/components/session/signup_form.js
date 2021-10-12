@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import { ImLeaf, ImInfo } from 'react-icons/im';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -9,20 +10,11 @@ class SignupForm extends React.Component {
       handle: '',
       password: '',
       password2: ''
-
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props.signedIn === true) {
-  //     this.props.history.push('/pp');
-  //   }
-
-  //   // this.setState({errors: this.props.errors})
-  // }
 
   update(field) {
     return e => this.setState({
@@ -39,58 +31,85 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user)
-      // .then(() => this.props.login(user))
-      // .then(() => this.props.history.push('/'));
+    this.props.signup(user);
   }
 
   renderErrors() {
     return(
-      <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.props.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <div className='d-flex justify-content-center'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
   render() {
     return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
-                placeholder="Confirm Password"
-              />
-            <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+      <>
+      <div className='container'>
+        <div className='d-flex justify-content-center space-above'>
+          <Link to='/'>
+            <h1 className='title'>
+              PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
+            </h1>
+          </Link>&nbsp;&nbsp;
+        </div>
+        <form className='session-form' onSubmit={this.handleSubmit}>
+          <div className='d-flex justify-content-center'>
+            <h2 className='subtitle'>Create New Account</h2>
           </div>
+
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email"
+              className='session-input'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="text"
+              value={this.state.handle}
+              onChange={this.update('handle')}
+              placeholder="Handle"
+              className='session-input'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              placeholder="Password"
+              className='session-input'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="password"
+              value={this.state.password2}
+              onChange={this.update('password2')}
+              placeholder="Confirm Password"
+              className='session-input'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center form-padding form-margin'>
+            <button className='session-button'>Sign Up!</button>
+          </div>
+          {this.renderErrors()}
         </form>
       </div>
+      <div className='info-icon-bottom'>
+        <ImInfo />
+      </div>
+      </>
     );
   }
 }
