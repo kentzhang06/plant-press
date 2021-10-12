@@ -10,9 +10,9 @@ async function postImage({image, description}) {
   return result.data
 }
 
-async function getImage() {
-  const result = await axios.get('/api/uploads/images/:key', )
-}
+// async function getImage() {
+//   const result = await axios.get('/api/uploads/images/:key', )
+// }
 
 class PhotoForm extends React.Component {
   constructor(props) {
