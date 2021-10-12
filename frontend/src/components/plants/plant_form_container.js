@@ -1,0 +1,18 @@
+import { connect } from 'react-redux';
+import { createPlant } from '../../actions/plant_actions';
+import PlantForm from './plant_form'
+
+const mapStateToProps = state => ({
+  plant: {
+    name: "",
+    type: "",
+    info: "",
+    species: ""
+  }
+})
+
+const mapDispatchToProps = dispatch => ({
+  createPlant: (plantForm) => dispatch(createPlant(plantForm))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlantForm);

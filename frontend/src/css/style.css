@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,800;1,400;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap');
+
+body {
+  background-color: #85FFBD;
+  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
+  font-family: 'Karla', sans-serif;
+  letter-spacing: -0.05em;
+  height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2em;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.white {
+  color: white;
+}
+
+.leaf-icon {
+  color: darkgreen;
+}
+
+.title {
+  color: white;
+  text-shadow: green 2px 2px 5px;
+  padding: 2% 10%;
+  border-radius: 5px;
+  display: inline;
+  white-space: nowrap;
+}
+
+.title:hover {
+  color: darkgreen;
+  text-shadow: none;
+  transition: 0.5s;
+}
+
+.subtitle {
+  color: purple
+}
+
+.space-above {
+  margin-top: 15%;
+}
+
+.session-form {
+  margin-top: 10% ;
+}
+
+.session-input {
+  border: none;
+  width: 75%;
+  background-color: ghostwhite;
+  padding: 0.9% 7%;
+  border-radius: 20px;
+  font-size: 1.2em;
+  color: purple;
+}
+
+.session-input:focus {
+  outline: none;
+  transition: 0.5s;
+}
+
+::placeholder {
+  color: plum;
+  letter-spacing: -0.05em;
+}
+:-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
+::-ms-input-placeholder {color: purple; letter-spacing: -0.05em;} 
+
+.session-button {
+  border: none;
+  padding: 1% 7%;
+  border-radius: 20px;
+  background-color: mediumvioletred;
+  color: white;
+}
+
+.session-button:hover {
+  background-color: purple;
+  transition: 0.5s ease-in-out;
+}
+
+.session-errors {
+  margin: 4% 0;
+  color: purple;
+  font-size: 1em;
+  width: 70%;
+}
+
+.form-padding {
+  padding: 1.5% 0;
+}
+
+.form-margin {
+  margin-top: 2%;
+}
+
+.info-icon-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5%;
+  font-size: 1.6em;
+  color: purple;
+  display: inline;
+}
