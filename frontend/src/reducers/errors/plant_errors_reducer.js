@@ -1,6 +1,6 @@
 import { RECEIVED_PLANT_ERRORS, CLEAR_PLANT_ERRORS } from "../../actions/plant_actions";
 
-const PlantsErrorsReducer = (state = [], type) => {
+const PlantsErrorsReducer = (state = [], action) => {
     Object.freeze(state);
 
     switch (action.type) {
