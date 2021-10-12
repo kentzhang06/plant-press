@@ -31,8 +31,8 @@ export const clearPlantErrors = () => ({
     type: CLEAR_PLANT_ERRORS
 })
 
-export const fetchMyPlants = () => dispatch => (
-    PlantAPIUtil.fetchMyPlants()
+export const fetchPlants = (userId) => dispatch => (
+    PlantAPIUtil.fetchPlants(userId)
         .then(plants => dispatch(receivedMyPlants(plants)))
 )
 
