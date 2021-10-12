@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchMyPlants = () => {
-    return axios.get('/api/plants/myplants')
+export const fetchPlants = (userId) => {
+    return axios.get(`/api/plants/user/${userId}`)
 }
 
 export const createPlant = plantForm => {
