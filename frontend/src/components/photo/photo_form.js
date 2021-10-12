@@ -10,17 +10,13 @@ async function postImage({image, description}) {
   return result.data
 }
 
-// async function getImage() {
-//   const result = await axios.get('/api/uploads/images/:key', )
-// }
-
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       description: "",
-      images: [],
+      imageUrl: "",
       file: ""
     }
 
@@ -30,10 +26,10 @@ class PhotoForm extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const {file, description, images} = this.state;
+    const {file, description} = this.state;
     const result = await postImage({image: file, description})
     console.log(result);
-    this.setState( {images: [result.imagePath, ...images]} )
+    this.setState( {imageUrl: result.imagePath} )
   }
 
   fileSelected(e) {

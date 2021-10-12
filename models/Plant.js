@@ -19,7 +19,11 @@ const PlantSchema = new Schema({
     },
     species: {
       type: String,
-    }
+    },
+    plantPosts: [{
+      type: Schema.Types.ObjectId,
+      ref: 'posts'
+    }]
   }, {
     timestamps: true
   })
