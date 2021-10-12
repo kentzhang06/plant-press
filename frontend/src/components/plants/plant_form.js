@@ -22,10 +22,7 @@ class PlantForm extends React.Component {
         ...provided,
         color: state.isSelected ? 'purple' : 'green',
         backgroundColor: state.isSelected ? 'lightgreen' : 'white'
-      }),
-      // control: () => ({
-      //   width: 300
-      // }),
+      })
     }
   }
 
@@ -43,14 +40,14 @@ class PlantForm extends React.Component {
   }
 
   render() {
-    let { name, type, info, species } = this.state;
+    let { name, info, species } = this.state;
 
     return (
       <>
         <div className='container'>
           <div className='d-flex justify-content-center space-above'>
             <Link to='/'>
-              <h1 className='title-dark'>
+              <h1 className='title'>
                 PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
               </h1>
             </Link>&nbsp;&nbsp;
@@ -72,7 +69,7 @@ class PlantForm extends React.Component {
 
             <div className='d-flex justify-content-center form-padding form-margin'>
               <div className='pos-relative custom-select'>
-                <div className='d-flex justify-content-center'><h3>Select Plant Type</h3></div>
+                <div className='d-flex justify-content-center'><h3>Add Plant Type</h3></div>
                 <Select onChange={this.handleChange} options={this.options} styles={this.customStyles} />
 
               </div>

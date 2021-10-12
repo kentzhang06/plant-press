@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.05em;
   font-weight: 900;
 }
 
@@ -65,7 +65,7 @@ a {
 }
 
 .subtitle {
-  color: purple
+  color: purple;
 }
 
 .space-above {
