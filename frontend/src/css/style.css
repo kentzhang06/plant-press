@@ -23,6 +23,11 @@ h2 {
   font-weight: 900;
 }
 
+h3 {
+  font-size: 1.1em;
+  font-weight: 900;
+}
+
 a {
   text-decoration: none;
 }
@@ -51,6 +56,14 @@ a {
   transition: 0.5s;
 }
 
+.title-dark {
+  color: darkgreen;
+  padding: 2% 10%;
+  border-radius: 5px;
+  display: inline;
+  white-space: nowrap;
+}
+
 .subtitle {
   color: purple
 }
@@ -75,11 +88,14 @@ a {
 
 .session-input:focus {
   outline: none;
+  box-shadow: 0 0 20px darkgreen;
   transition: 0.5s;
 }
 
 ::placeholder {
-  color: plum;
+  font-family: Arial;
+  font-size: 0.75em;
+  color: #888;
   letter-spacing: -0.05em;
 }
 :-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
@@ -121,4 +137,9 @@ a {
   font-size: 1.6em;
   color: purple;
   display: inline;
+}
+
+.custom-select {
+  width: 50%;
+  color: purple;
 }
