@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { ImLeaf, ImInfo } from 'react-icons/im';
 
 class SignupForm extends React.Component {
@@ -36,13 +36,15 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.props.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <div className='d-flex justify-content-center'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -51,9 +53,13 @@ class SignupForm extends React.Component {
       <>
       <div className='container'>
         <div className='d-flex justify-content-center space-above'>
-          <h1 className='title'>PlantPress<ImLeaf/></h1>
+          <Link to='/'>
+            <h1 className='title'>
+              PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
+            </h1>
+          </Link>&nbsp;&nbsp;
         </div>
-        <form>
+        <form className='session-form' onSubmit={this.handleSubmit}>
           <div className='d-flex justify-content-center'>
             <h2 className='subtitle'>Create New Account</h2>
           </div>

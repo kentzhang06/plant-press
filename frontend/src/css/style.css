@@ -7,7 +7,7 @@ body {
   background-color: #85FFBD;
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
-  letter-spacing: -1px;
+  letter-spacing: -0.05em;
   height: 100vh;
   width: 100%;
 }
@@ -18,9 +18,13 @@ h1 {
 }
 
 h2 {
-  font-size: 1em;
+  font-size: 1.2em;
   letter-spacing: -1px;
   font-weight: 900;
+}
+
+a {
+  text-decoration: none;
 }
 
 
@@ -28,11 +32,23 @@ h2 {
   color: white;
 }
 
+.leaf-icon {
+  color: darkgreen;
+}
+
 .title {
   color: white;
   text-shadow: green 2px 2px 5px;
   padding: 2% 10%;
   border-radius: 5px;
+  display: inline;
+  white-space: nowrap;
+}
+
+.title:hover {
+  color: darkgreen;
+  text-shadow: none;
+  transition: 0.5s;
 }
 
 .subtitle {
@@ -40,14 +56,18 @@ h2 {
 }
 
 .space-above {
-  margin-top: 10%;
+  margin-top: 15%;
+}
+
+.session-form {
+  margin-top: 10% ;
 }
 
 .session-input {
   border: none;
   width: 75%;
   background-color: ghostwhite;
-  padding: 0.8% 7%;
+  padding: 0.9% 7%;
   border-radius: 20px;
   font-size: 1.2em;
   color: purple;
@@ -60,9 +80,10 @@ h2 {
 
 ::placeholder {
   color: plum;
+  letter-spacing: -0.05em;
 }
-:-ms-input-placeholder {color: purple;}
-::-ms-input-placeholder {color: purple;}
+:-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
+::-ms-input-placeholder {color: purple; letter-spacing: -0.05em;} 
 
 .session-button {
   border: none;
@@ -70,6 +91,18 @@ h2 {
   border-radius: 20px;
   background-color: mediumvioletred;
   color: white;
+}
+
+.session-button:hover {
+  background-color: purple;
+  transition: 0.5s ease-in-out;
+}
+
+.session-errors {
+  margin: 4% 0;
+  color: purple;
+  font-size: 1em;
+  width: 70%;
 }
 
 .form-padding {
@@ -87,4 +120,5 @@ h2 {
   padding: 5%;
   font-size: 1.6em;
   color: purple;
+  display: inline;
 }
