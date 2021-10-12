@@ -61,7 +61,7 @@ class SignupForm extends React.Component {
         </div>
         <form className='session-form' onSubmit={this.handleSubmit}>
           <div className='d-flex justify-content-center'>
-            <h2 className='subtitle'>Create New Account</h2>
+            <h2 className='subtitle'>Create New Account!</h2>
           </div>
 
           <div className='d-flex justify-content-center form-padding'>
