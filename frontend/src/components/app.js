@@ -7,13 +7,15 @@ import SignupFormContainer from './session/signup_form_container';
 import HomePageContainer from './home_page/home_page_container';
 import PlantFormContainer from './plants/plant_form_container'
 
-import PhotoForm from './photo/photo_form';
+import CreatePostFormContainer from './post/create_post_form_container';
+import EditPostFormContainer from './post/edit_post_form_container';
 
 const App = () => (
     <div>
 
         <Switch>
-            <Route exact path="/photo" component={PhotoForm} />
+            <Route exact path="/post" component={CreatePostFormContainer} />
+            {/* <Route exact path="/post/:postId" component={EditPostFormContainer} /> */}
             <ProtectedRoute exact path="/pp" component={HomePageContainer} />
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />

@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-export const uploadImage = () => {
-  const result = await axios.post(
+export const uploadImage = (formData) => {
+  return axios.post(
     '/api/uploads/images',
     formData,
     { headers: {'Content-Type': 'multipart/form-data'}}
-  )
-  return result.data;
+  );
 }
 
 export const fetchPlantPosts = (plantId) => {

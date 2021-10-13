@@ -1,5 +1,6 @@
 import * as PostAPIUtil from "../util/post_api_util";
 
+
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
@@ -26,17 +27,26 @@ const receivePostErrors = errors => ({
   errors
 })
 
+
 export const clearPostErrors = () => ({
   type: CLEAR_POST_ERRORS
 })
 
+export const uploadImage = async ({image, description}) => {
+  const formData = new FormData();
+  formData.append("image", image)
+  formData.append("description", description)
+  const result = await PostAPIUtil.uploadImage(formData);
+  return result.data;
+}
+
 export const fetchPlantPosts = (plantId) => dispatch => (
-  PostAPIUtil.receivePlantPosts(plantId)
+  PostAPIUtil.fetchPlantPosts(plantId)
     .then(posts => dispatch(receivePosts(posts)))
 )
 
 export const fetchAllPosts = () => dispatch => (
-  PostAPIUtil.receiveAllPosts()
+  PostAPIUtil.fetchAllPosts()
     .then(posts => dispatch(receivePosts(posts)))
 )
 
