@@ -14,7 +14,7 @@ class HomePage extends React.Component {
         <>
           <div className='container-fluid'>
 
-            <div className='row d-flex justify-content-center'>
+            <div className='d-flex justify-content-center'>
 
             </div>
 

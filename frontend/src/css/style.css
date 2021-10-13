@@ -249,3 +249,29 @@ footer {
   border-radius: 10px;
   margin: 10px;
 }
+
+.push-center {
+  margin-top: 40%;
+  margin-bottom: 15%;
+}
+
+.splash-login {
+  font-size: 1.2em;
+  font-weight: 900;
+  color: #222;
+  padding: 1% 5%;
+  background-color: white;
+  margin: 0 25% 0 25%;
+  /* width: 50vw; */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px green;
+
+}
+
+.splash-signup {
+  font-size: 1em;
+  font-weight: 900;
+  color: #222;
+  padding: 3%
+}
