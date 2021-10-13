@@ -5,14 +5,25 @@ const passport = require('passport');
 const Reminder = require('../../models/Reminder');
 const validateReminderInput = require('../../validation/reminders');
 const Plant = require('../../models/Plant');
+const User = require('../../models/User');
 
 router.get('/plant/:plantId', (req, res) => {
-  Reminder.find({plant: req.params.plantId})
+  Reminder.find({plantId: req.params.plantId})
   .then(reminders => res.json(reminders))
   .catch(err =>
     res.status(404).json({noReminderFound: "No reminders for this plant"})
     );
 })
+
+router.get('/user/:userId',
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Reminder.find( { userId: req.params.userId} )
+    .then(reminders => res.json(reminders))
+    .catch(err => res.status(404).json({ noRemindersFOUND: "NOTHING FROM THIS USER"}))
+  }
+)
+
 
 router.post('/plant/:plantId/create',
   passport.authenticate('jwt', {session: false }),
@@ -25,6 +36,7 @@ router.post('/plant/:plantId/create',
 
     const newReminder = new Reminder({
       plantId: req.params.plantId,
+      userId: req.user.id,
       reminderType: req.body.reminderType,
       reminderText: req.body.reminderText,
     })
@@ -67,13 +79,14 @@ router.patch('/:reminderId',
 )
 
 router.delete('/:reminderId',
-  passport.authenticate('jwt', { sesssion: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Reminder.findByIdAndDelete(req.params.reminderId)
       .then(reminder => res.json(reminder.id))
-      .catch(err => res.status(404).json({ noReminderFound: "this reminder does not exist"}))
+      .catch(err => res.status(404).json({ noReminderFound: "This reminder does not exist" }))
   }
 )
+
 
 
 
