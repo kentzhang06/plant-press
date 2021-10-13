@@ -7,8 +7,10 @@ import { HiOutlinePhotograph, HiPhotograph } from 'react-icons/hi';
 
 export const Footer = (props) => {
 
+  
   const location = useLocation();
-
+  
+  if (!props.userId) return null;
   return (
     <footer className='container-fluid'>
       <div className='row'>
@@ -19,7 +21,7 @@ export const Footer = (props) => {
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
           <NavLink to={`/user/${props.userId}`}>
-            { location.pathname === `/user/${props.userId}` ? <RiPlantFill /> : <RiPlantLine /> }
+            { location.pathname == `/user/${props.userId}` ? <RiPlantFill className='indigo' /> : <RiPlantLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon home my-auto'>

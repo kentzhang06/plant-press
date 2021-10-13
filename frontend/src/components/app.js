@@ -9,6 +9,7 @@ import PlantFormContainer from './plants/plant_form_container';
 import { Welcome } from './home_page/welcome';
 import PlantCollectionContainer from './plants/plant_collection_container';
 import PlantDetailsContainer from './plants/plant_details_container';
+import FooterContainer from './home_page/footer_container';
 
 import PhotoForm from './photo/photo_form';
 
@@ -23,6 +24,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route path="/" component={Welcome} />
         </Switch>
+        <FooterContainer />
     </div>
 );
 

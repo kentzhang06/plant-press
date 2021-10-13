@@ -16,17 +16,20 @@ class PlantCollection extends React.Component {
     }
 
     return (
-      <div>
-        <ul>
-          {console.log(this.props.userPlants)}
-          {this.props.userPlants.map(plant =>
-            <Link to={`/plant/${plant._id}`}>
-              <li key={plant._id}>{plant.name}</li>
-            </Link>
-          )}
-          {/* will eventually be a plant item component */}
-        </ul>
-      </div>
+      <div className='container-fluid'>
+          <ul className='plants-row'>
+            {this.props.userPlants.map(plant =>
+
+              <li className='plant-box' key={plant._id}>
+                <Link to={`/plant/${plant._id}`}>
+                  <div className='plant-img'></div>
+                  {plant.name}
+                </Link>
+              </li>
+
+            )}
+          </ul>
+        </div>
     )
   }
 }
