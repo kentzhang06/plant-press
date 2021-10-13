@@ -9,10 +9,13 @@ import PlantFormContainer from './plants/plant_form_container'
 import PlantCollectionContainer from './plants/plant_collection_container';
 import PlantDetailsContainer from './plants/plant_details_container'
 
+import PhotoForm from './photo/photo_form';
+
 const App = () => (
     <div>
 
         <Switch>
+            <Route exact path="/photo" component={PhotoForm} />
             <ProtectedRoute exact path="/pp" component={HomePageContainer} />
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
             <ProtectedRoute exact path="/plant/:plantId" component={PlantDetailsContainer}/>
