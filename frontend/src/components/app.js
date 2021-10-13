@@ -10,13 +10,12 @@ import { Welcome } from './home_page/welcome';
 
 const App = () => (
     <div>
-
         <Switch>
-            <ProtectedRoute exact path="/pp" component={HomePageContainer} />
+            <ProtectedRoute exact path="/dashboard" component={HomePageContainer} />
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route exact path="/" component={Welcome} />
+            <Route path="/" component={Welcome} />
         </Switch>
     </div>
 );

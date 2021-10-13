@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <div className='d-flex justify-content-center'>
+      <div className='row'>
         <ul className='session-errors'>
           {Object.keys(this.props.errors).map((error, i) => (
             <li key={`error-${i}`}>
@@ -102,6 +102,11 @@ class SignupForm extends React.Component {
 
           <div className='d-flex justify-content-center form-padding form-margin'>
             <button className='session-button'>Sign Up!</button>
+          </div>
+          <div className='d-flex justify-content-center form-padding form-margin'>
+            <Link className='indigo bold' to='/login'>
+              Log In
+            </Link>
           </div>
           {this.renderErrors()}
         </form>

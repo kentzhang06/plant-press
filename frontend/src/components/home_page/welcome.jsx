@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ImLeaf } from 'react-icons/im'
 
 export const Welcome = (props) => {
@@ -10,11 +11,15 @@ export const Welcome = (props) => {
         </h1>
       </div>
 
-      <div className='d-flex justify-content-center splash-login'>
-        Log In
-      </div>
+      <Link to='/login'>
+        <div className='d-flex justify-content-center splash-login'>
+            Log In
+        </div>
+      </Link>
       <div className='d-flex justify-content-center splash-signup'>
-        Create A New Account
+        <Link to='/signup'>
+          Create A New Account
+        </Link>
       </div>
 
     </div>
