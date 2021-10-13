@@ -9,7 +9,7 @@ export const fetchPlantReminder = plantId => {
 }
 
 export const createReminder = reminderForm => {
-  return axios.post('/api/reminders/create', reminderForm)
+  return axios.post(`/api/reminders/plant/${reminderForm.plantId}/create`, reminderForm)
 }
 
 export const updateReminder = reminderForm => {

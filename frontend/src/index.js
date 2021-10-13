@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (localStorage.jwtToken) {
         setAuthToken(localStorage.jwtToken);
-        
+
         const decodedUser = jwt_decode(localStorage.jwtToken);
-        
+
         const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
-        
+
         store = configureStore(preloadedState);
-        
+
         const currentTime = Date.now() / 1000;
 
         if (decodedUser.exp < currentTime) {
@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
+
+    window.getState = store.getState;
 
     const root = document.getElementById("root");
 
