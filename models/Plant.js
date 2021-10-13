@@ -19,7 +19,11 @@ const PlantSchema = new Schema({
     },
     species: {
       type: String,
-    }
+    },
+    plantReminders: [{
+      type: Schema.Types.ObjectId,
+      ref: 'reminders'
+    }]
   }, {
     timestamps: true
   })
