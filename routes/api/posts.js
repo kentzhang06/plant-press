@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Post = require('../../models/Post');
+const Plant = require('../../models/Plant');
 const validatePostInput = require('../../validation/posts');
 
-router.get('/plant/:plantId', (req, res) => {
-  Post.find({plant: req.params.plantId})
+router.get('/plants/:plantId', (req, res) => {
+  Post.find( {plantId: req.params.plantId} )
     .then(posts => res.json(posts))
     .catch(err =>
       res.status(404).json({ noPostFound: 'No posts found from this plant'})
@@ -14,14 +15,16 @@ router.get('/plant/:plantId', (req, res) => {
 
 router.get('/index', (req, res) => {
   Post.find()
-    .sort({ date: -1 })
+    .sort({ createdAt: -1 })
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ noPostsFound: 'No posts found'}));
-})
+});
 
-router.post('/plant/:plantId/create',
+router.post('/:plantId/create',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+    console.log(req.body);
+    console.log('TESTTT REQ BODY')
     const { errors, isValid} = validatePostInput(req.body);
 
     if (!isValid) {
@@ -35,7 +38,22 @@ router.post('/plant/:plantId/create',
       imageUrl: req.body.imageUrl
     });
 
-    newPost.save().then(post => res.json(post));
+    
+    let postObj = null;
+    newPost.save()
+      .then(post => {
+        
+        postObj = post.toJSON();
+        
+        Plant.findOneAndUpdate(
+          { _id: req.params.plantId },
+          {
+            $push: { plantPosts: postObj._id }
+          }
+        ).then(() => res.json(post))
+        .catch(err => res.json(err));
+        
+      })
   }
 );
 
@@ -68,6 +86,6 @@ router.delete('/:postId',
       .then(post => res.json(post.id))
       .catch(err => res.status(404).json({ noPostFound: "This post does not exist"}))
   }
-)
+);
 
 module.exports = router;

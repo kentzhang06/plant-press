@@ -3,14 +3,23 @@ import React from 'react';
 class PlantDetails extends React.Component {
 
   componentDidMount() {
-    // this.props.fetchPlant(this.props.plantId);
+    this.props.fetchPlant(this.props.plantId);
+    this.props.fetchReminders(this.props.plantId)
   }
 
   render() {
-    // let { name, type, info, species } = this.props.plant;
+    if (!this.props.plant) return null;
+
+    let { name, type, info, species } = this.props.plant;
     return(
       <div>
-        plant name, type, info, species, older posts w/ pics
+        <p>{name}</p>
+        <p>{type}</p>
+        <p>{species}</p>
+        <p>{info}</p>
+        <ul>
+          {this.props.reminders.map(reminder => <li>{reminder.reminderType + ": " + reminder.reminderText}</li>) }
+        </ul>
       </div>
     )
   }

@@ -16,7 +16,10 @@ const PostSchema = new Schema({
   imageUrl: {
     type: String,
     required: true
-  }
+  },
+  
+}, {
+  timestamps: true
 })
 
 const Post = mongoose.model('Post', PostSchema);
