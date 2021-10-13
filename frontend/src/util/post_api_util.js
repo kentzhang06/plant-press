@@ -26,5 +26,5 @@ export const updatePost = (post) => {
 }
 
 export const deletePost = (postId) => {
-  return axios.delete(`api/posts/${post.id}`);
+  return axios.delete(`api/posts/${postId}`);
 }
