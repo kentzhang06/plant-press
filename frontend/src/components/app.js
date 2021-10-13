@@ -8,7 +8,7 @@ import HomePageContainer from './home_page/home_page_container';
 import PlantFormContainer from './plants/plant_form_container';
 import { Welcome } from './home_page/welcome';
 import PlantCollectionContainer from './plants/plant_collection_container';
-import PlantDetailsContainer from './plants/plant_details_container'
+import PlantDetailsContainer from './plants/plant_details_container';
 
 import CreatePostFormContainer from './post/create_post_form_container';
 import EditPostFormContainer from './post/edit_post_form_container';
