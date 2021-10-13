@@ -1,5 +1,4 @@
 import { RECEIVE_REMINDER_ERRORS, RECEIVE_REMINDER } from "../../actions/reminder_actions";
-import RemindersReducer from "../entities/reminders_reducer";
 
 const ReminderErrorsReducer = (state = [], action) => {
   Object.freeze(state);

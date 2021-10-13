@@ -1,13 +1,13 @@
 import * as PlantAPIUtil from "../util/plant_api_util"
 
-export const RECEIVE_MY_PLANTS = "RECEIVE_PLANTS";
+export const RECEIVE_PLANTS = "RECEIVE_PLANTS";
 export const RECEIVE_PLANT = "RECEIVE_PLANT";
 export const REMOVE_PLANT = "REMOVE_PLANT";
 export const RECEIVED_PLANT_ERRORS = "RECEIVED_PLANT_ERRORS";
 export const CLEAR_PLANT_ERRORS = "CLEAR_PLANT_ERRORS";
  
-const receivedMyPlants = plants => ({
-    type: RECEIVE_MY_PLANTS,
+const receivedPlants = plants => ({
+    type: RECEIVE_PLANTS,
     plants
 })
 
@@ -33,19 +33,19 @@ export const clearPlantErrors = () => ({
 
 export const fetchPlants = (userId) => dispatch => (
     PlantAPIUtil.fetchPlants(userId)
-        .then(plants => dispatch(receivedMyPlants(plants)))
+        .then(result => dispatch(receivedPlants(result.data)))
 )
 
 export const createPlant = (plantForm) => dispatch => (
     PlantAPIUtil.createPlant(plantForm)
-        .then(plant => dispatch(receivedPlant(plant)), 
+        .then(result => dispatch(receivedPlant(result.data)), 
         err => dispatch(receivedPlantErrors(err.response.data))
         )
 )
 
 export const updatePlant = (plantForm) => dispatch => (
     PlantAPIUtil.updatePlant(plantForm)
-        .then(plant => dispatch(receivedPlant(plant)), 
+        .then(result => dispatch(receivedPlant(result.data)), 
         err => dispatch(receivedPlantErrors(err.response.data))
         )
 )

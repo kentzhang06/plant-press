@@ -13,7 +13,7 @@ export const createReminder = reminderForm => {
 }
 
 export const updateReminder = reminderForm => {
-  return axios.post(`/api/reminders/${reminderForm._id}/edit`, reminderForm)
+  return axios.post(`/api/reminders/${reminderForm.id}/edit`, reminderForm)
 }
 
 export const deleteReminder = reminderId => {

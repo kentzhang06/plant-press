@@ -1,4 +1,4 @@
-import * as ReminderAPIUtil from require('../util/reminder_api_util');
+import * as ReminderAPIUtil from '../util/reminder_api_util';
 
 export const RECEIVE_REMINDER = "RECEIVE_REMINDER";
 export const RECEIVE_MY_REMINDERS = "RECEIVE_MY_REMINDERS";
@@ -38,27 +38,27 @@ const removeReminder = reminderId => ({
 
 export const fetchMyReminders = () => dispatch => (
   ReminderAPIUtil.fetchMyReminders()
-    .then(reminders => dispatch(receivedMyReminders(reminders)),
+    .then(result => dispatch(receivedMyReminders(result.data)),
     err => dispatch(receivedMyReminders(err.response.data))
     )
 )
 
 export const createReminder = reminder => dispatch => (
   ReminderAPIUtil.createReminder(reminder)
-    .then(reminder => dispatch(receivedReminder(reminder)),
+    .then(result => dispatch(receivedReminder(result.data)),
     err => dispatch(receivedReminderErrors(err.response.data))
     )
 )
 export const updateReminder = reminder => dispatch => (
   ReminderAPIUtil.updateReminder(reminder)
-    .then(reminder => dispatch(receivedReminder(reminder)),
+    .then(result => dispatch(receivedReminder(result.data)),
     err => dispatch(receivedReminderErrors(err.response.data))
     )
 )
 
 export const fetchPlantReminder = plantId => dispatch => (
   ReminderAPIUtil.fetchPlantReminder(plantId)
-    .then(reminders => dispatch(receivedPlantReminders(reminders)),
+    .then(result => dispatch(receivedPlantReminders(result.data)),
     err => dispatch(receivedReminderErrors(err.response.data))
     )
 )
@@ -66,6 +66,6 @@ export const fetchPlantReminder = plantId => dispatch => (
 export const deletePlant = (reminderId) => dispatch => (
   ReminderAPIUtil.deleteReminder(reminderId)
       .then(() => dispatch(removeReminder(reminderId)),
-      err  => dispatch(receivedPlantErrors(err.response.data))
+      err  => dispatch(receivedReminderErrors(err.response.data))
       )
 )
