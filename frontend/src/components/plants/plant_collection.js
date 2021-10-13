@@ -18,9 +18,10 @@ class PlantCollection extends React.Component {
     return (
       <div>
         <ul>
+          {console.log(this.props.userPlants)}
           {this.props.userPlants.map(plant =>
             <Link to={`/plant/${plant._id}`}>
-              <li key={plant.id}>{plant.name}</li>
+              <li key={plant._id}>{plant.name}</li>
             </Link>
           )}
           {/* will eventually be a plant item component */}
