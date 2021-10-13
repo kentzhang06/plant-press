@@ -8,7 +8,7 @@ body {
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
   letter-spacing: -0.05em;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
 }
 
@@ -23,13 +23,69 @@ h2 {
   font-weight: 900;
 }
 
-a {
-  text-decoration: none;
+h3 {
+  font-size: 1.05em;
+  font-weight: 900;
 }
 
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h5 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 12%;
+  background-color: #85FFBD;
+  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, lightgreen 100%) no-repeat 50% fixed;
+  width: 100%;
+  box-shadow: 0px 0px 20px green;
+}
+
+.icon {
+  font-size: 2.4em;
+  padding: 3% 0;
+  color: forestgreen;
+}
+
+.icon:hover {
+  color: indigo;
+}
+
+.icon-active {
+  color: indigo;
+}
+
+.home {
+  font-size: 3em;
+}
 
 .white {
   color: white;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .leaf-icon {
@@ -51,8 +107,16 @@ a {
   transition: 0.5s;
 }
 
+.title-dark {
+  color: darkgreen;
+  padding: 2% 10%;
+  border-radius: 5px;
+  display: inline;
+  white-space: nowrap;
+}
+
 .subtitle {
-  color: purple
+  color: purple;
 }
 
 .space-above {
@@ -75,11 +139,14 @@ a {
 
 .session-input:focus {
   outline: none;
+  box-shadow: 0 0 20px darkgreen;
   transition: 0.5s;
 }
 
 ::placeholder {
-  color: plum;
+  font-family: Arial;
+  font-size: 0.75em;
+  color: #888;
   letter-spacing: -0.05em;
 }
 :-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
@@ -102,7 +169,11 @@ a {
   margin: 4% 0;
   color: purple;
   font-size: 1em;
-  width: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-padding {
@@ -114,11 +185,97 @@ a {
 }
 
 .info-icon-bottom {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   padding: 5%;
   font-size: 1.6em;
   color: purple;
   display: inline;
+}
+
+.custom-select {
+  width: 50%;
+  color: purple;
+}
+
+.break {
+  background-color: #1a1a1a;
+  padding: 3% 0 0 3%;
+  color: white;
+}
+
+.break-icon {
+  font-size: 0.9em;
+  color: red
+}
+
+.reminder-row {
+  height: 15%;
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  background-color: purple;
+  border-top: 1px solid plum;
+  border-bottom: 2px solid indigo;
+  font-size: 20px;
+  font-weight: 900;
+  padding: 3%;
+  color: white;
+}
+
+.note {
+  font-size: 0.8em;
+}
+
+.done {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid #333;
+  color: purple;
+}
+
+.logout-btn {
+  height: 15%;
+  border: none;
+  background-color: #333;
+  padding: 5% 3%;
+  border-bottom: 1px solid #333;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9em;
+  font-weight: 900;
+}
+
+.img-box {
+  height: 80px;
+  width: 80px;
+  background-color: purple;
+  background: linear-gradient(45deg, purple 0%, plum 50%, yellow 100%) no-repeat 50% fixed;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.push-center {
+  margin-top: 120px;
+  margin-bottom: 15%;
+}
+
+.splash-login {
+  font-size: 1.2em;
+  font-weight: 900;
+  color: #222;
+  padding: 1% 5%;
+  background-color: white;
+  margin: 0 25% 0 25%;
+  /* width: 50vw; */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px green;
+
+}
+
+.splash-signup {
+  font-size: 1em;
+  font-weight: 900;
+  color: #222;
+  padding: 3%
 }
