@@ -16,24 +16,12 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props.currentUser === true) {
-  //     this.props.history.push('/');
-  //   }
-
-  //   // Set or clear errors
-  //   // this.setState({errors: this.props.errors})
-  // }
-
-  // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
 
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
 
@@ -43,19 +31,20 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user)
-      .then(() => this.props.history.push('/'));
+      .then(() => this.props.history.push('/dashboard'));
   }
 
-  // Render the session errors if there are any
   renderErrors() {
     return(
-      <ul>
-        {Object.keys(this.props.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.props.errors[error]}
-          </li>
-        ))}
-      </ul>
+      <div className='row'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -95,6 +84,11 @@ class LoginForm extends React.Component {
 
           <div className='d-flex justify-content-center form-padding form-margin'>
             <button className='session-button'>Log In!</button>
+          </div>
+          <div className='d-flex justify-content-center form-padding form-margin'>
+            <Link className='indigo bold' to='/signup'>
+              Create A New Account
+            </Link>
           </div>
           {this.renderErrors()}
         </form>
