@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
-import { updatePost } from '../../actions/post_actions';
+import { updatePost, fetchPlantPosts } from '../../actions/post_actions';
 import PostForm from './post_form';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     formType: 'Update Post',
-    errors: state.errors.postErrors
+    errors: state.errors.postErrors,
+    post: state.entities.posts[ownProps.match.params.postId]
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updatePost: (post) => dispatch(updatePost(post))
+    fetchPlantPosts: (plantId) => dispatch(fetchPlantPosts(plantId)),
+    formAction: (post) => dispatch(updatePost(post))
   }
 }
 

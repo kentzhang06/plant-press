@@ -6,13 +6,14 @@ import PostForm from './post_form';
 const mapStateToProps = (state) => {
   return {
     formType: 'Create Post',
-    errors: state.errors.postErrors
+    errors: state.errors.postErrors,
+    currentUserId: state.session.user.id
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createPost: (post) => dispatch(createPost(post))
+    formAction: (post) => dispatch(createPost(post))
   }
 }
 

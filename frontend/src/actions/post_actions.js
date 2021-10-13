@@ -42,24 +42,24 @@ export const uploadImage = async ({image, description}) => {
 
 export const fetchPlantPosts = (plantId) => dispatch => (
   PostAPIUtil.fetchPlantPosts(plantId)
-    .then(posts => dispatch(receivePosts(posts)))
+    .then(posts => dispatch(receivePosts(posts.data)))
 )
 
 export const fetchAllPosts = () => dispatch => (
   PostAPIUtil.fetchAllPosts()
-    .then(posts => dispatch(receivePosts(posts)))
+    .then(posts => dispatch(receivePosts(posts.data)))
 )
 
 export const createPost = (post) => dispatch => (
   PostAPIUtil.createPost(post)
-    .then(post => dispatch(receivePost(post)),
+    .then(post => dispatch(receivePost(post.data)),
     err => dispatch(receivePostErrors(err.response.data))
     )
 )
 
 export const updatePost = (post) => dispatch => (
   PostAPIUtil.updatePost(post)
-    .then(post => dispatch(receivePost(post)),
+    .then(post => dispatch(receivePost(post.data)),
     err => dispatch(receivePostErrors(err.response.data))
     )
 )

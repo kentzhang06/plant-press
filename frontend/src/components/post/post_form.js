@@ -5,23 +5,44 @@ class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       imageUrl: "",
       caption: "",
-      file: ""
+      file: "",
+      userId: this.props.currentUserId,
+      plantId: this.props.match.params.plantId
     }
-
+    
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
     this.handlePostSubmit = this.handlePostSubmit.bind(this);
     this.fileSelected = this.fileSelected.bind(this);
   }
 
+  componentDidMount() {
+    const { fetchPlantPosts, formType, match } = this.props;
+
+    if (formType === 'Update Post') {
+      fetchPlantPosts(match.params.plantId)
+        .then(() => {
+          console.log(this.props.post);
+          this.setState(this.props.post);
+          this.setState( {id: match.params.postId} );
+        })
+    }
+  }
+
   async handleImageSubmit(e) {
     e.preventDefault();
     const {file, description} = this.state;
-    const result = await uploadImage({image: file, description});
+    let result = null;
+
+    if (file) {
+      result = await uploadImage({image: file, description});
+      this.setState( {imageUrl: `/api/uploads/${result.imagePath}`} )
+    }
     console.log(result);
-    this.setState( {imageUrl: result.imagePath} )
+    console.log(this.state);
   }
 
   fileSelected(e) {
@@ -35,14 +56,25 @@ class PhotoForm extends React.Component {
 
   handlePostSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.formAction(this.state);
   }
 
   render () {
     const { imageUrl, caption } = this.state;
+    const { formType } = this.props;
+
     const displayImage = (imageUrl) ?
-      <img src={`/api/uploads/${imageUrl}`} alt="" width="400px" height="400px"></img>
+      <img src={imageUrl} alt="" width="400px" height="400px"></img>
       : 
+      <div></div>;
+
+    const displayImageButton = (formType === 'Create Post') ?
+      <div>
+        <input onChange={this.fileSelected} type="file" accept="image/*"></input>
+        <br/><br/>
+        <button type="submit">Upload Image</button>
+      </div>
+      :
       <div></div>;
 
     return(
@@ -50,9 +82,7 @@ class PhotoForm extends React.Component {
         <form onSubmit={this.handleImageSubmit}> 
           <input onChange={e => this.setCaption(e)} type="text" value={caption} placeholder="...Enter a caption"></input>
           <br/><br/>
-          <input onChange={this.fileSelected} type="file" accept="image/*"></input>
-          <br/><br/>
-          <button type="submit">Upload Image</button>
+          { displayImageButton }
         </form>
 
         <button onClick={this.handlePostSubmit}> Create Post </button>

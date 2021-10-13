@@ -17,11 +17,11 @@ export const fetchAllPosts = () => {
 }
 
 export const createPost = (post) => {
-  return axios.post(`/api/posts/${post.plantId}/create`);
+  return axios.post(`/api/posts/${post.plantId}/create`, post);
 }
 
 export const updatePost = (post) => {
-  return axios.patch(`api/posts/${post.id}`);
+  return axios.patch(`api/posts/${post.id}`, post);
 }
 
 export const deletePost = (postId) => {

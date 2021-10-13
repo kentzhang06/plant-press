@@ -16,11 +16,11 @@ import EditPostFormContainer from './post/edit_post_form_container';
 const App = () => (
     <div>
         <Switch>
-            <Route exact path="/post" component={CreatePostFormContainer} />
-            {/* <Route exact path="/post/:postId" component={EditPostFormContainer} /> */}
             <ProtectedRoute exact path="/dashboard" component={HomePageContainer} />
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
             <ProtectedRoute exact path="/plant/:plantId" component={PlantDetailsContainer}/>
+            <ProtectedRoute exact path="/plant/:plantId/post" component={CreatePostFormContainer} />
+            <ProtectedRoute exact path="/plant/:plantId/post/:postId" component={EditPostFormContainer} />
             <ProtectedRoute exact path="/user/:userId" component={PlantCollectionContainer}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

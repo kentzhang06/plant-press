@@ -10,12 +10,15 @@ const PostsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_POSTS:
-      return action.posts;
+      action.posts.forEach(ele => {
+        newState[ele._id] = ele;
+      });
+      return newState;
     case RECEIVE_POST:
-      newState[action.post.id] = action.post;
+      newState[action.post._id] = action.post;
       return newState;
     case REMOVE_POST:
-      delete newState[action.post.id];
+      delete newState[action.postId];
       return newState;
     default:
       return state;

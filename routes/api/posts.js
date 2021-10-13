@@ -23,6 +23,8 @@ router.get('/index', (req, res) => {
 router.post('/:plantId/create',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+    console.log(req.body);
+    console.log('TESTTT REQ BODY')
     const { errors, isValid} = validatePostInput(req.body);
 
     if (!isValid) {
