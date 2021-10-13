@@ -56,7 +56,8 @@ footer {
   position: fixed;
   bottom: 0;
   height: 12%;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: #85FFBD;
+  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, lightgreen 100%) no-repeat 50% fixed;
   width: 100%;
   box-shadow: 0px 0px 20px green;
 }
@@ -64,7 +65,7 @@ footer {
 .icon {
   font-size: 2.4em;
   padding: 3% 0;
-  color: seagreen;
+  color: forestgreen;
 }
 
 .icon:hover {
@@ -209,8 +210,8 @@ footer {
   height: 15%;
   /* background-color: rgba(255, 255, 255, 0.3); */
   background-color: purple;
-  border-top: 1px solid #333;
-  border-bottom: 2px solid seagreen;
+  border-top: 1px solid plum;
+  border-bottom: 2px solid indigo;
   font-size: 20px;
   font-weight: 900;
   padding: 3%;
@@ -223,6 +224,28 @@ footer {
 
 .done {
   background-color: rgba(255, 255, 255, 0.3);
-  border: none;
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid #333;
   color: purple;
+}
+
+.logout-btn {
+  height: 15%;
+  border: none;
+  background-color: #333;
+  padding: 5% 3%;
+  border-bottom: 1px solid #333;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9em;
+  font-weight: 900;
+}
+
+.img-box {
+  height: 80px;
+  width: 80px;
+  background-color: purple;
+  background: linear-gradient(45deg, purple 0%, plum 50%, yellow 100%) no-repeat 50% fixed;
+  border-radius: 10px;
+  margin: 10px;
 }

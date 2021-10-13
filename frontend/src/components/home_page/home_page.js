@@ -4,12 +4,19 @@ import { FaRegBell, FaBell } from 'react-icons/fa';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
-
+    const { logout } = this.props;
     return(
         <>
           <div className='container-fluid'>
+
+            <div className='row d-flex justify-content-center'>
+
+            </div>
 
             <div className='row d-flex justify-content-center break'>
               <h4><FaBell className='break-icon'/>&nbsp;Reminders</h4>
@@ -33,6 +40,10 @@ class HomePage extends React.Component {
               <div className='col d-flex justify-content-end align-items-center'>
                 <ImCheckboxChecked />
               </div>
+            </div>
+
+            <div className='row d-flex justify-content-center'>
+              <button onClick={logout} className='logout-btn'>Log Out</button>
             </div>
 
           </div>
