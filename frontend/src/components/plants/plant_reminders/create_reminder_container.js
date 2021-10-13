@@ -10,9 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  createReminder: reminder => dispatch(createReminder(reminder)),
-  fetchMyReminders: () => dispatch(fetchMyReminders()),
-  fetchPlantReminder: plantId => dispatch(fetchPlantReminder(plantId))
+  createReminder: reminder => dispatch(createReminder(reminder))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateReminder);
