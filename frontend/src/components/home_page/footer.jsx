@@ -18,8 +18,8 @@ export const Footer = (props) => {
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/'>
-            { location.pathname === '/collection' ? <RiPlantFill /> : <RiPlantLine /> }
+          <NavLink to={`/user/${props.userId}`}>
+            { location.pathname === `/user/${props.userId}` ? <RiPlantFill /> : <RiPlantLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon home my-auto'>
