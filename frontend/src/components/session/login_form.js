@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
             <button className='session-button'>Log In!</button>
           </div>
           <div className='d-flex justify-content-center form-padding form-margin'>
-            <Link className='indigo bold' to='/signup'>
+            <Link className='purple bold' to='/signup'>
               Create A New Account
             </Link>
           </div>
