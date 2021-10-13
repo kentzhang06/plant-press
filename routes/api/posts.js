@@ -5,15 +5,15 @@ const Post = require('../../models/Post');
 const Plant = require('../../models/Plant');
 const validatePostInput = require('../../validation/posts');
 
-router.get('/:plantId', (req, res) => {
-  Post.find({plantId: req.params.plantId})
+router.get('/plants/:plantId', (req, res) => {
+  Post.find( {plantId: req.params.plantId} )
     .then(posts => res.json(posts))
     .catch(err =>
       res.status(404).json({ noPostFound: 'No posts found from this plant'})
     );
 });
 
-router.get('/index/posts', (req, res) => {
+router.get('/index', (req, res) => {
   Post.find()
     .sort({ createdAt: -1 })
     .then(posts => res.json(posts))

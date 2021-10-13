@@ -10,7 +10,7 @@ export const uploadImage = () => {
 }
 
 export const fetchPlantPosts = (plantId) => {
-  return axios.get(`/api/posts/${plantId}`);
+  return axios.get(`/api/posts/plants/${plantId}`);
 }
 
 export const fetchAllPosts = () => {
@@ -23,4 +23,8 @@ export const createPost = (post) => {
 
 export const updatePost = (post) => {
   return axios.patch(`api/posts/${post.id}`);
+}
+
+export const deletePost = (postId) => {
+  return axios.delete(`api/posts/${post.id}`);
 }
