@@ -8,7 +8,8 @@ const validatePlantInput = require('../../validation/plants');
 
 router.get('/user/:userId', (req, res) => {
   passport.authenticate('jwt', { session: false }),
-  Plant.find({user: req.params.userId})
+  Plant.find({userId: req.params.user_id})
+
     .then(plants => res.json(plants))
     .catch(err =>
       res.status(404).json({ noPlantFound: 'No plants found from this user' }
