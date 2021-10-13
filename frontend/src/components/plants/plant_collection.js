@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class PlantCollection extends React.Component {
   // constructor(props) {
@@ -10,7 +11,6 @@ class PlantCollection extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if (!this.props.userPlants) { 
       return null
     }
@@ -19,7 +19,9 @@ class PlantCollection extends React.Component {
       <div>
         <ul>
           {this.props.userPlants.map(plant =>
-            <li>{plant.name}</li>
+            <Link to={`/plant/${plant._id}`}>
+              <li key={plant.id}>{plant.name}</li>
+            </Link>
           )}
           {/* will eventually be a plant item component */}
         </ul>
