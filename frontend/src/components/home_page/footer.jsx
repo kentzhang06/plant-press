@@ -23,17 +23,17 @@ export const Footer = (props) => {
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon home my-auto'>
-          <NavLink to='/' className={ location.pathname === '/dashboard' ? 'indigo' : null }>
+          <NavLink to='/dashboard' className={ location.pathname === '/dashboard' ? 'indigo' : null }>
             <SiHomeassistant />
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/'>
+          <NavLink to='/reminders'>
             { location.pathname === '/reminders' ? <FaBell /> : <FaRegBell /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/'>
+          <NavLink to='/info'>
             { location.pathname === '/info' ? <RiInformationFill /> : <RiInformationLine /> }
           </NavLink>
         </div>
