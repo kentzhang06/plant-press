@@ -36,6 +36,11 @@ export const fetchPlants = (userId) => dispatch => (
         .then(result => dispatch(receivedPlants(result.data)))
 )
 
+export const fetchPlant = (plantId) => dispatch => (
+    PlantAPIUtil.fetchPlant(plantId)
+        .then(result => dispatch(receivedPlant(result.data)))
+)
+
 export const createPlant = (plantForm) => dispatch => (
     PlantAPIUtil.createPlant(plantForm)
         .then(result => dispatch(receivedPlant(result.data)), 

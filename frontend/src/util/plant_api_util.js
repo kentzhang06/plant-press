@@ -15,3 +15,7 @@ export const updatePlant = plantForm => {
 export const deletePlant = plantId => {
     return axios.delete(`api/plants/${plantId}`)
 }
+
+export const fetchPlant = (plantId) => {
+    return axios.get(`/api/plants/${plantId}`)
+}
