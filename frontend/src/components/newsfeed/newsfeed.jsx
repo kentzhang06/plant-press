@@ -25,6 +25,7 @@ class NewsFeed extends React.Component {
     console.log(this.state);
     // history.push(`/newsfeed?keyword=${this.state.keyword}`);
     fetchAllPosts(this.state.keyword);
+    this.setState({keyword: this.state.keyword});
   }
 
   render() {
