@@ -61,6 +61,7 @@ footer {
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, lightgreen 100%) no-repeat 50% fixed;
   max-width: 600px;
   box-shadow: 0px 0px 20px green;
+  z-index: 5;
 }
 
 .icon {
@@ -293,18 +294,33 @@ footer {
   padding: 3%
 }
 
-.plants-row {
+.flex-row-start {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  padding: 0;
-  list-style-type: none;
+  justify-content: flex-start;
 }
 
-.plant-img {
-  width: 28vw;
-  height: 28vw;
-  background-color: pink;
-  padding: 4vw;
+.plant-row {
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid seagreen;
+  background-color: lightgreen;
+}
+
+.plant-row:hover {
+  background-color: plum;
+}
+
+.plant-row-img {
+  background-color: purple;
+  background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%) no-repeat 50% fixed;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plant-row-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
