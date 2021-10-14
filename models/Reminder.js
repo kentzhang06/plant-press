@@ -15,6 +15,9 @@ const ReminderSchema = new Schema({
   },
   reminderText: {
     type: String
+  },
+  frequency: {
+    type: Number
   }
 }, {
   timestamps: true
