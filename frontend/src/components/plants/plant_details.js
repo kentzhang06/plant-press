@@ -75,5 +75,3 @@ class PlantDetails extends React.Component {
 }
 
 export default PlantDetails;
-
-{/* <Link to={`/plant/${plantId}/reminder/${reminder._id}`}></Link> */}
