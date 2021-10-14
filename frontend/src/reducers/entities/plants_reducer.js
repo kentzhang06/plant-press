@@ -12,7 +12,7 @@ const PlantsReducer = (state = {}, action) => {
             });
             return myPlants;
         case RECEIVE_PLANT:
-            newState[action.plant[0]._id] = action.plant[0];
+            newState[action.plant._id] = action.plant;
             return newState;
         case REMOVE_PLANT:
             delete newState[action.plantId] 
