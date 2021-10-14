@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { Footer } from './footer';
 
 const mSTP = (state, ownProps) => ({
-  userId: state.session.user.id,
+  user: state.session.user,
 });
 
 // const mDTP = dispatch => ({
