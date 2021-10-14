@@ -12,8 +12,8 @@ export const fetchPlantPosts = (plantId) => {
   return axios.get(`/api/posts/plants/${plantId}`);
 }
 
-export const fetchAllPosts = () => {
-  return axios.get(`/api/posts/index`);
+export const fetchAllPosts = (keyword) => {
+  return axios.get(`/api/posts/index?keyword=${keyword}`);
 }
 
 export const createPost = (post) => {

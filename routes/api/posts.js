@@ -15,10 +15,26 @@ router.get('/plants/:plantId', (req, res) => {
 });
 
 router.get('/index', (req, res) => {
-  Post.find()
-    .sort({ createdAt: -1 })
-    .then(posts => res.json(posts))
-    .catch(err => res.status(404).json({ noPostsFound: 'No posts found'}));
+
+  Plant.find({
+      $or:[
+        {"name": {'$regex': req.query.keyword, '$options': 'i'}},
+        {"type": {'$regex': req.query.keyword, '$options': 'i'}},
+        {"info": {'$regex': req.query.keyword, '$options': 'i'}},
+        {"species": {'$regex': req.query.keyword, '$options': 'i'}}
+      ]})
+    .then(plants => {
+      let relativePosts = [];
+      plants.forEach(plant => {
+        relativePosts = Object.assign(relativePosts, plant.plantPosts);
+      });
+
+      Post.find({
+        _id: { $in: relativePosts }
+      }).then(posts => res.json(posts))
+
+    });
+
 });
 
 router.get('/following', passport.authenticate('jwt', { session: false }),
@@ -32,6 +48,7 @@ router.get('/following', passport.authenticate('jwt', { session: false }),
 router.post('/:plantId/create',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
+
     const { errors, isValid} = validatePostInput(req.body);
 
     if (!isValid) {
