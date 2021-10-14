@@ -50,6 +50,11 @@ export const fetchAllPosts = () => dispatch => (
     .then(posts => dispatch(receivePosts(posts.data)))
 )
 
+export const fetchFollowingPosts = () => dispatch => (
+  PostAPIUtil.fetchFollowingPosts()
+    .then(result => dispatch(receivePosts(result.data)))
+)
+
 export const createPost = (post) => dispatch => (
   PostAPIUtil.createPost(post)
     .then(post => dispatch(receivePost(post.data)),

@@ -27,3 +27,7 @@ export const updatePost = (post) => {
 export const deletePost = (postId) => {
   return axios.delete(`api/posts/${postId}`);
 }
+
+export const fetchFollowingPosts = () => {
+  return axios.get('/api/posts/following')
+}
