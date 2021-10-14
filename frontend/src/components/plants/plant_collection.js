@@ -12,7 +12,6 @@ class PlantCollection extends React.Component {
     if (!this.props.userPlants) {
       return null
     }
-    console.log(this.props)
 
     return (
       <div className='container-fluid'>

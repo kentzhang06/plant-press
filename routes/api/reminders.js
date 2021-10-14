@@ -37,7 +37,6 @@ router.post('/plant/:plantId/create',
     const newReminder = new Reminder({
       plantId: req.params.plantId,
       userId: req.user.id,
-      reminderType: req.body.reminderType,
       reminderText: req.body.reminderText,
       frequency: req.body.frequency
     })
@@ -69,7 +68,6 @@ router.patch('/:reminderId',
     Reminder.findOneAndUpdate(
       { _id: req.params.reminderId },
       {
-        reminderType: req.body.reminderType,
         reminderText: req.body.reminderText,
         frequency: req.body.frequency,
         updatedAt: req.body.updatedAt
