@@ -1,14 +1,10 @@
-import React from 'react';import { Footer } from './footer';
+import React from 'react';
 import FooterContainer from './footer_container';
 
-import { FaRegBell, FaBell } from 'react-icons/fa';
+import { FaBell } from 'react-icons/fa';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { logout } = this.props;
     return(
