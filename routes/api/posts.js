@@ -26,7 +26,7 @@ router.get('/index', (req, res) => {
     .then(plants => {
       let relativePosts = [];
       plants.forEach(plant => {
-        relativePosts = Object.assign(relativePosts, plant.plantPosts);
+        relativePosts.push(...plant.plantPosts);
       });
 
       Post.find({
