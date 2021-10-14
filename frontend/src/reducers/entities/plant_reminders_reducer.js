@@ -5,10 +5,11 @@ const PlantReminderReducer = (state = {}, action) => {
   let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_PLANT_REMINDERS:
+      let nextState = {};
       action.reminders.forEach(reminder => {
-        newState[reminder._id] = reminder;
+        nextState[reminder._id] = reminder;
       });
-      return newState;
+      return nextState;
     case RECEIVE_REMINDER:
       newState[action.reminder._id] = action.reminder;
       return newState;
