@@ -13,6 +13,8 @@ import PlantDetailsContainer from './plants/plant_details_container';
 import CreatePostFormContainer from './post/create_post_form_container';
 import EditPostFormContainer from './post/edit_post_form_container';
 
+import NewsFeedContainer from './newsfeed/newsfeed_container';
+
 const App = () => (
     <div>
         <Switch>
@@ -24,6 +26,7 @@ const App = () => (
             <ProtectedRoute exact path="/user/:userId" component={PlantCollectionContainer}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            <Route exact path="/newsfeed" component={NewsFeedContainer} />
             <Route path="/" component={Welcome} />
         </Switch>
     </div>

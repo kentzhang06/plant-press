@@ -14,7 +14,8 @@ router.get('/plants/:plantId', (req, res) => {
 });
 
 router.get('/index', (req, res) => {
-  Post.find()
+  //{"caption": new RegExp('.*' + req.query.keyword + '.*')}
+  Post.find( {"caption": {'$regex': req.query.keyword, '$options': 'i'}} )
     .sort({ createdAt: -1 })
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ noPostsFound: 'No posts found'}));
@@ -23,8 +24,7 @@ router.get('/index', (req, res) => {
 router.post('/:plantId/create',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log(req.body);
-    console.log('TESTTT REQ BODY')
+
     const { errors, isValid} = validatePostInput(req.body);
 
     if (!isValid) {

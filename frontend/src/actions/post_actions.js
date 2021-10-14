@@ -45,8 +45,8 @@ export const fetchPlantPosts = (plantId) => dispatch => (
     .then(posts => dispatch(receivePosts(posts.data)))
 )
 
-export const fetchAllPosts = () => dispatch => (
-  PostAPIUtil.fetchAllPosts()
+export const fetchAllPosts = (keyword) => dispatch => (
+  PostAPIUtil.fetchAllPosts(keyword)
     .then(posts => dispatch(receivePosts(posts.data)))
 )
 
