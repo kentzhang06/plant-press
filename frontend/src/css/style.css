@@ -213,9 +213,20 @@ footer {
   color: purple;
 }
 
+.heading {
+  background-color: indigo;
+  color: white;
+  padding: 5% 0 2% 3%;
+}
+
+.heading-icon {
+  font-size: 1em;
+  color: plum;
+}
+
 .break {
   background-color: #1a1a1a;
-  padding: 3% 0 0 3%;
+  padding: 5% 0 2% 3%;
   color: white;
 }
 
@@ -316,6 +327,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 3em;
+  color: white;
+  font-weight: 900;
+  text-shadow: #333 1px 1px 20px;
 }
 
 .plant-row-text {
@@ -324,3 +339,31 @@ footer {
   align-items: center;
 }
 
+.plant-row-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.plant-row-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: indigo;
+}
+
+.plant-row-type {
+  font-size: 0.9em;
+  font-style: italic;
+  color: purple;
+}
+
+.plant-row-light {
+  background-color: lightyellow;
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid darkgreen;
+}
+
+.row-end {
+  height: 120px;
+}
