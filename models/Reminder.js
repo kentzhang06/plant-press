@@ -10,9 +10,6 @@ const ReminderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  reminderType: {
-    type: String
-  },
   reminderText: {
     type: String
   },
