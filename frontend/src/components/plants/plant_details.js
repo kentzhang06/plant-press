@@ -36,7 +36,7 @@ class PlantDetails extends React.Component {
         <p>{info}</p>
         <ul>
 
-          {this.props.reminders.map(reminder => <li key ={reminder.id}>{reminder.reminderType + ": " + reminder.reminderText}</li>) }
+          {/* {this.props.reminders.map(reminder => <li key ={reminder.id}>{reminder.reminderType + ": " + reminder.reminderText}</li>) } */}
 
           {console.log(this.props.reminders)}
           {this.props.reminders.map(reminder =>
