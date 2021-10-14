@@ -11,14 +11,15 @@ class PlantCollection extends React.Component {
   }
 
   render() {
-    if (!this.props.userPlants) { 
+    if (!this.props.userPlants) {
       return null
     }
+    console.log(this.props)
 
     return (
       <div>
         <ul>
-          {console.log(this.props.userPlants)}
+          {/* {console.log(this.props.userPlants)} */}
           {this.props.userPlants.map(plant =>
             <Link to={`/plant/${plant._id}`}>
               <li key={plant._id}>{plant.name}</li>

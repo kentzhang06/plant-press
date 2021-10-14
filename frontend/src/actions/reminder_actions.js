@@ -63,7 +63,7 @@ export const fetchPlantReminder = plantId => dispatch => (
     )
 )
 
-export const deletePlant = (reminderId) => dispatch => (
+export const deletePlantReminder = (reminderId) => dispatch => (
   ReminderAPIUtil.deleteReminder(reminderId)
       .then(() => dispatch(removeReminder(reminderId)),
       err  => dispatch(receivedReminderErrors(err.response.data))

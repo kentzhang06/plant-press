@@ -1,52 +1,80 @@
-// import React from 'react';
+import React from 'react';
 
-// class EditReminder extends React.Component {
-//   constructor(props){
-//     super(props);
+class EditReminder extends React.Component {
+  constructor(props){
+    super(props);
 
-//     this.state = {
-//       reminderType: "",
-//       reminderText: "",
-//       userId: this.props.currentUserId,
-//       plantId: this.props.plantId
-//     }
+    // const { reminderType, reminderText } = this.props.reminder;
 
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//   }
+    console.log(this.props)
 
-//   handleSubmit(e) {
-//     e.preventDefault();
-//     this.props.updateReminder(this.state);
-//   }
+    this.state = {
+      reminderType: this.props.reminder.reminderType,
+      reminderText: this.props.reminder.reminderText,
+      userId: this.props.reminder.userId,
+      plantId: this.props.plantId,
+      id: this.props.reminder._id
+    }
 
-//   update(field){
-//     return e => this.setState({ [field]: e.currentTarget.value })
-//   }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteReminderSubmit = this.deleteReminderSubmit.bind(this);
+  }
 
-//   render () {
-//     console.log(this.props)
-//     return(
-//       <div>
-//         <form className="create-reminder-form" onSubmit={this.handleSubmit}>
-//           <input type="text"
-//             value={this.state.reminderType}
-//             onChange={this.update('reminderType')}
-//             placeholder="Reminder Type"
-//           />
+  componentDidMount() {
+    this.props.fetchPlantReminder(this.props.plantId);
+  }
 
-//           <input type="text"
-//             value={this.state.reminderText}
-//             onChange={this.update('reminderText')}
-//             placeholder="Reminder Text"
-//           />
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.updateReminder(this.state);
+  }
 
-//           <button className="create-reminder-button">
-//             Edit Reminder
-//           </button>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
+  deleteReminderSubmit(e){
+    e.preventDefault();
+    this.props.deletePlantReminder(this.state.id)
+    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+  }
 
-// export default EditReminder;
+  update(field){
+    return e => this.setState({ [field]: e.currentTarget.value })
+  }
+
+  render () {
+    // console.log(this.props);
+    // console.log(this.props.reminder)
+    const {deletePlantReminder} = this.props;
+
+    if (this.props.currentUserId === this.props.reminder.userId){
+      return(
+        <div>
+          <form className="create-reminder-form" onSubmit={this.handleSubmit}>
+            <input type="text"
+              value={this.state.reminderType}
+              onChange={this.update('reminderType')}
+            />
+
+            <input type="text"
+              value={this.state.reminderText}
+              onChange={this.update('reminderText')}
+            />
+
+            <button className="create-reminder-button">
+              Edit Reminder
+            </button>
+
+          </form>
+
+          <button onClick={this.deleteReminderSubmit} className="delete-reminder-button">
+              Delete Reminder
+          </button>
+        </div>
+      )
+    } else {
+      <div>
+        unavailable
+      </div>
+    }
+  }
+}
+
+export default EditReminder;

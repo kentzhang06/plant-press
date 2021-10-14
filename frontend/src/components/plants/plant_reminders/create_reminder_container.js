@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createReminder, fetchPlantReminder, fetchMyReminders } from '../../../actions/reminder_actions';
+import { createReminder } from '../../../actions/reminder_actions';
 import CreateReminder from './create_reminder';
 
 const mapStateToProps = (state, ownProps) => ({

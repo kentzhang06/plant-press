@@ -11,7 +11,7 @@ const MyRemindersReducer = (state = {}, action) => {
       newState[action.reminder._id] = action.reminder;
       return newState;
     case REMOVE_REMINDER:
-      delete newState[action.reminder._id];
+      delete newState[action.reminderId];
       return newState;
     default:
       return state;
