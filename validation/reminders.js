@@ -6,6 +6,7 @@ module.exports = function validateReminderInput(data) {
 
   data.reminderType = validText(data.reminderType) ? data.reminderType : '';
   data.reminderText = validText(data.reminderText) ? data.reminderText : '';
+  // data.frequency = validText(data.frequency) ? data.frequency : '';
 
 
   if (Validator.isEmpty(data.reminderType)) {
@@ -14,6 +15,10 @@ module.exports = function validateReminderInput(data) {
 
   if (Validator.isEmpty(data.reminderText)) {
     errors.text = 'Text for reminder is required';
+  }
+
+  if (!Validator.isNumeric(data.frequency)) {
+    errors.text = "Must input reminder frequency";
   }
 
   return {
