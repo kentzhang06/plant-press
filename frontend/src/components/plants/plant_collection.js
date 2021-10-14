@@ -9,9 +9,10 @@ class PlantCollection extends React.Component {
   }
 
   render() {
-    if (!this.props.userPlants) { 
+    if (!this.props.userPlants) {
       return null
     }
+    console.log(this.props)
 
     return (
       <div className='container-fluid'>
