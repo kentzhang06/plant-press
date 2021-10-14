@@ -19,13 +19,13 @@ class PlantCollection extends React.Component {
           <h4><RiPlantFill className='heading-icon'/>&nbsp;My Collection</h4>
         </div>
         {this.props.userPlants.map((plant, i) => (
-          <Link to={`/plant/${plant._id}`}>
-            <div className='row plant-row' key={plant._id}>
+          <Link key={i} to={`/plant/${plant._id}`}>
+            <div className='row plant-row'>
               <div className='col-4 plant-row-img'>
                 {plant.name.slice(0,1)}
               </div>
               <div className='col-8 plant-row-text'>
-                <div plant-row-info>
+                <div className='plant-row-info'>
                   <p className='plant-row-name'>{plant.name}</p>
                   <p className='plant-row-type'>{plant.type}</p>
                 </div>
@@ -39,7 +39,7 @@ class PlantCollection extends React.Component {
                 <GoPlus />
               </div>
               <div className='col-8 plant-row-text'>
-                <div plant-row-info>
+                <div className='plant-row-info'>
                   <p className='plant-row-name'>
                     Add A Plant
                   </p>
