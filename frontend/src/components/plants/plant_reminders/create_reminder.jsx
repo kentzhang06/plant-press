@@ -7,6 +7,7 @@ class CreateReminder extends React.Component {
     this.state = {
       reminderType: "",
       reminderText: "",
+      frequency: "",
       userId: this.props.currentUserId,
       plantId: this.props.plantId
     }
@@ -16,7 +17,8 @@ class CreateReminder extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createReminder(this.state);
+    this.props.createReminder(this.state)
+    .then(this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   update(field){
@@ -38,6 +40,14 @@ class CreateReminder extends React.Component {
             value={this.state.reminderText}
             onChange={this.update('reminderText')}
             placeholder="Reminder Text"
+          />
+
+          <input type="number"
+            value={this.state.frequency}
+            onChange={this.update('frequency')}
+            placeholder="Frequency"
+            min="1"
+            max="7"
           />
 
           <button className="create-reminder-button">

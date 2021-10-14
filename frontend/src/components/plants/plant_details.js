@@ -26,11 +26,16 @@ class PlantDetails extends React.Component {
           {this.props.reminders.map(reminder =>
             <Link to={`/plant/${plantId}/reminder/${reminder._id}`}>
           <li idx={reminder._id}>
-              {reminder.reminderType + ": " + reminder.reminderText}
+              {reminder.reminderType + ": " + reminder.reminderText + " " + reminder.frequency + " time(s) per week"}
           </li>
             </Link>
           )}
+        <Link to={`/plant/${plantId}/reminder`}>
+          Create New Reminder
+        </Link>
         </ul>
+
+
       </div>
     )
   }
