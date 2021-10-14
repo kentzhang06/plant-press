@@ -36,6 +36,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/plants", plants);
 app.use("/api/uploads", uploads);
+app.use("/api/posts", posts);
 app.use("/api/reminders", reminders);
 
 const port = process.env.PORT || 5000;

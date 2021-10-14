@@ -7,6 +7,20 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import './css/style.css';
 
+import { 
+  fetchPlantPosts,
+  fetchAllPosts,
+  createPost,
+  updatePost,
+  deletePost
+  } from './actions/post_actions';
+
+import {
+    fetchFollows,
+    followPlant,
+    unfollowPlant
+} from './actions/follow_actions'
+
 document.addEventListener("DOMContentLoaded", () => {
     let store;
 
@@ -28,6 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
+
+    //TEST START
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    window.fetchPlantPosts = fetchPlantPosts;
+    window.fetchAllPosts = fetchAllPosts;
+    window.createPost = createPost;
+    window.updatePost = updatePost;
+    window.deletePost = deletePost;
+    window.fetchFollows = fetchFollows;
+    window.followPlant = followPlant;
+    window.unfollowPlant = unfollowPlant;
+
+    //TEST END
 
     const root = document.getElementById("root");
 

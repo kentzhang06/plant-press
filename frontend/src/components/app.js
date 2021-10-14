@@ -11,7 +11,8 @@ import PlantCollectionContainer from './plants/plant_collection_container';
 import PlantDetailsContainer from './plants/plant_details_container';
 import FooterContainer from './home_page/footer_container';
 
-import PhotoForm from './photo/photo_form';
+import CreatePostFormContainer from './post/create_post_form_container';
+import EditPostFormContainer from './post/edit_post_form_container';
 
 const App = () => (
     <div>
@@ -19,6 +20,8 @@ const App = () => (
             <ProtectedRoute exact path="/dashboard" component={HomePageContainer} />
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
             <ProtectedRoute exact path="/plant/:plantId" component={PlantDetailsContainer}/>
+            <ProtectedRoute exact path="/plant/:plantId/post" component={CreatePostFormContainer} />
+            <ProtectedRoute exact path="/plant/:plantId/post/:postId" component={EditPostFormContainer} />
             <ProtectedRoute exact path="/user/:userId" component={PlantCollectionContainer}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

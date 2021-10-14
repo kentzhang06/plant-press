@@ -15,8 +15,6 @@ router.get('/images/:key', (req, res) => {
   const readStream = getFileStream(key);
 
   const result = readStream.pipe(res);
-  console.log("BIG RESULT HEREEEE");
-  console.log(result);
 
 })
 

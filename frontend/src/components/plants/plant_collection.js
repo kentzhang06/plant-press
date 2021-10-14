@@ -54,14 +54,3 @@ class PlantCollection extends React.Component {
 }
 
 export default PlantCollection;
-
-{/* <ul className='plants-row'>
-  {this.props.userPlants.map(plant =>
-    <li className='plant-box' key={plant._id}>
-      <Link to={`/plant/${plant._id}`}>
-        <div className='plant-img'></div>
-        {plant.name}
-      </Link>
-    </li>
-  )}
-</ul> */}
