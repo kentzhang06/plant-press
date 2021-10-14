@@ -224,6 +224,14 @@ footer {
   color: plum;
 }
 
+.heading-img {
+  width: 600px;
+  height: 300px;
+  background-color: white;
+  margin-left: -12px;
+  background-size: cover;
+}
+
 .break {
   background-color: #1a1a1a;
   padding: 5% 0 2% 3%;
@@ -335,7 +343,7 @@ footer {
 
 .plant-row-text {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
