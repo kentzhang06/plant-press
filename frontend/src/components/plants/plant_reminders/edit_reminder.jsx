@@ -28,13 +28,13 @@ class EditReminder extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateReminder(this.state)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   deleteReminderSubmit(e){
     e.preventDefault();
     this.props.deletePlantReminder(this.state.id)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   update(field){

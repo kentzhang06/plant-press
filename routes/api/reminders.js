@@ -15,10 +15,10 @@ router.get('/plant/:plantId', (req, res) => {
     );
 })
 
-router.get('/user/:userId',
+router.get('/',
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Reminder.find( { userId: req.params.userId} )
+    Reminder.find( { userId: req.user.id} )
     .then(reminders => res.json(reminders))
     .catch(err => res.status(404).json({ noRemindersFOUND: "NOTHING FROM THIS USER"}))
   }
@@ -71,7 +71,8 @@ router.patch('/:reminderId',
       {
         reminderType: req.body.reminderType,
         reminderText: req.body.reminderText,
-        frequency: req.body.frequency
+        frequency: req.body.frequency,
+        updatedAt: req.body.updatedAt
       },
       {new: true}
     )

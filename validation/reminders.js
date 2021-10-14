@@ -17,7 +17,7 @@ module.exports = function validateReminderInput(data) {
     errors.text = 'Text for reminder is required';
   }
 
-  if (!Validator.isNumeric(data.frequency)) {
+  if (!Validator.isEmpty(data.frequency)) {
     errors.text = "Must input reminder frequency";
   }
 
