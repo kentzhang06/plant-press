@@ -9,7 +9,8 @@ body {
   font-family: 'Karla', sans-serif;
   letter-spacing: -0.05em;
   /* height: 100vh; */
-  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
 h1 {
@@ -58,8 +59,9 @@ footer {
   height: 12%;
   background-color: #85FFBD;
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, lightgreen 100%) no-repeat 50% fixed;
-  width: 100%;
+  max-width: 600px;
   box-shadow: 0px 0px 20px green;
+  z-index: 5;
 }
 
 .icon {
@@ -211,9 +213,20 @@ footer {
   color: purple;
 }
 
+.heading {
+  background-color: indigo;
+  color: white;
+  padding: 5% 0 2% 3%;
+}
+
+.heading-icon {
+  font-size: 1em;
+  color: plum;
+}
+
 .break {
   background-color: #1a1a1a;
-  padding: 3% 0 0 3%;
+  padding: 5% 0 2% 3%;
   color: white;
 }
 
@@ -290,4 +303,67 @@ footer {
   font-weight: 900;
   color: #222;
   padding: 3%
+}
+
+.flex-row-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.plant-row {
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid seagreen;
+  background-color: lightgreen;
+}
+
+.plant-row:hover {
+  background-color: plum;
+}
+
+.plant-row-img {
+  background-color: purple;
+  background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%) no-repeat 50% fixed;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: white;
+  font-weight: 900;
+  text-shadow: #333 1px 1px 20px;
+}
+
+.plant-row-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.plant-row-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.plant-row-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: indigo;
+}
+
+.plant-row-type {
+  font-size: 0.9em;
+  font-style: italic;
+  color: purple;
+}
+
+.plant-row-light {
+  background-color: lightyellow;
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid darkgreen;
+}
+
+.row-end {
+  height: 120px;
 }

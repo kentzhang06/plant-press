@@ -6,12 +6,13 @@ const PlantsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_PLANTS:
+            let myPlants = {};
             action.plants.forEach(plant => {
-                newState[plant._id] = plant;
+                myPlants[plant._id] = plant;
             });
-            return newState;
+            return myPlants;
         case RECEIVE_PLANT:
-            newState[action.plant[0]._id] = action.plant[0];
+            newState[action.plant._id] = action.plant;
             return newState;
         case REMOVE_PLANT:
             delete newState[action.plantId] 

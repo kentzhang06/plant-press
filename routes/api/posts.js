@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const Post = require('../../models/Post');
 const Plant = require('../../models/Plant');
+const User = require('../../models/User')
 const validatePostInput = require('../../validation/posts');
 
 router.get('/plants/:plantId', (req, res) => {
@@ -20,11 +21,17 @@ router.get('/index', (req, res) => {
     .catch(err => res.status(404).json({ noPostsFound: 'No posts found'}));
 });
 
+router.get('/following', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Post.find({
+      plantId: { $in : req.user.plantsFollowed } 
+    }).then(posts => res.json(posts))
+    .catch(err => res.json({noPosts: "No posts found"}))
+  })
+
 router.post('/:plantId/create',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    console.log(req.body);
-    console.log('TESTTT REQ BODY')
     const { errors, isValid} = validatePostInput(req.body);
 
     if (!isValid) {
