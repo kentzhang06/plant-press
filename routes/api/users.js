@@ -16,6 +16,11 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
+router.get('/following', passport.authenticate('jwt', {session: false}), 
+    (req, res) => {
+        res.json(req.user.plantsFollowed)
+})
+
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -75,7 +80,7 @@ router.post("/login", (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
         if (isMatch) {
-            const payload = { id: user.id, handle: user.handle, email: user.email };
+            const payload = { id: user.id, handle: user.handle, email: user.email, plantsFollowed: user.plantsFollowed};
 
             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             res.json({

@@ -15,6 +15,12 @@ import {
   deletePost
   } from './actions/post_actions';
 
+import {
+    fetchFollows,
+    followPlant,
+    unfollowPlant
+} from './actions/follow_actions'
+
 document.addEventListener("DOMContentLoaded", () => {
     let store;
 
@@ -45,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createPost = createPost;
     window.updatePost = updatePost;
     window.deletePost = deletePost;
+    window.fetchFollows = fetchFollows;
+    window.followPlant = followPlant;
+    window.unfollowPlant = unfollowPlant;
 
     //TEST END
 

@@ -6,7 +6,7 @@ import { fetchPlantReminder } from "../../actions/reminder_actions"
 const mapStateToProps = (state, ownProps) => ({
   plantId: ownProps.match.params.plantId,
   plant: state.entities.plants[ownProps.match.params.plantId],
-  reminders: state.entities.reminders.plantReminder
+  reminders: Object.values(state.entities.reminders.plantReminder)
 })
 
 const mapDispatchToProps = dispatch => ({

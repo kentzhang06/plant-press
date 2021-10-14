@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Plant = require('../../models/Plant');
+const User = require('../../models/User')
 const validatePlantInput = require('../../validation/plants');
 
 router.get('/:plantId', passport.authenticate('jwt', { session: false }),
@@ -13,6 +14,29 @@ router.get('/:plantId', passport.authenticate('jwt', { session: false }),
       res.status(404).json({noPlantFound: 'This plant does not exist' }
       )
     );
+})
+
+router.post('/:plantId/follow', passport.authenticate('jwt', {session: false}),
+  (req, res) => {
+    console.log(req)
+    User.findOneAndUpdate(
+      {_id: req.user.id},
+      {
+        $push: { plantsFollowed: req.params.plantId }
+      }
+    ).then(() => res.json(req.params.plantId))
+    .catch(err => res.status(404).json('Could not follow'))
+});
+
+router.delete('/:plantId/follow', passport.authenticate('jwt', {session: false}),
+  (req, res) => {
+    User.findOneAndUpdate(
+      {_id: req.user.id},
+      {
+        $pull: { plantsFollowed: req.params.plantId }
+      }
+    ).then(() => res.json(req.params.plantId))
+    .catch(err => res.status(404).json('Could not unfollow'))
 })
 
 router.get('/user/:userId', (req, res) => {
