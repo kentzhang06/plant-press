@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap');
 
 body {
+  position: relative;
   background-color: #85FFBD;
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
@@ -225,10 +226,10 @@ footer {
 }
 
 .heading-img {
-  width: 600px;
+  max-width: 600px;
   height: 300px;
+  margin: auto;
   background-color: white;
-  margin-left: -12px;
   background-size: cover;
 }
 

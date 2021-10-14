@@ -13,24 +13,26 @@ class PlantDetails extends React.Component {
 
     let { name, type, info, species } = this.props.plant;
     return(
-      <div className='container-fluid'>
-        {/* <div className='heading-img' style={{ background: `url(${Groot}) no-repeat`}}>
-        </div> */}
-        <div className='row d-flex justify-content-center vertical-center heading'>
-          <h3>{name}</h3>
-          <p className='heading-plant-type'>{type}&nbsp;
-          {species ? <span>{species}</span> : null}
-          </p>
-        </div>
+      <>
+        <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
+        </div> 
+        <div className='container-fluid'>
+          <div className='row d-flex justify-content-center vertical-center heading'>
+            <h3>{name}</h3>
+            <p className='heading-plant-type'>{type}&nbsp;
+            {species ? <span>{species}</span> : null}
+            </p>
+          </div>
 
-        <p>{name}</p>
-        <p>{type}</p>
-        <p>{species}</p>
-        <p>{info}</p>
-        <ul>
-          {this.props.reminders.map(reminder => <li key ={reminder.id}>{reminder.reminderType + ": " + reminder.reminderText}</li>) }
-        </ul>
-      </div>
+          <p>{name}</p>
+          <p>{type}</p>
+          <p>{species}</p>
+          <p>{info}</p>
+          <ul>
+            {this.props.reminders.map(reminder => <li key ={reminder.id}>{reminder.reminderType + ": " + reminder.reminderText}</li>) }
+          </ul>
+        </div>
+      </>
     )
   }
 }
