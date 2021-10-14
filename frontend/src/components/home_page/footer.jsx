@@ -16,7 +16,7 @@ export const Footer = (props) => {
       <div className='row'>
         <div className='col d-flex justify-content-center align-items-center icon'>
           <NavLink to='/newsfeed'>
-            { location.pathname === '/newsfeed' ? <RiNewspaperFill /> : <RiNewspaperLine /> }
+            { location.pathname === '/newsfeed' ? <RiNewspaperFill className='indigo' /> : <RiNewspaperLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
@@ -31,12 +31,12 @@ export const Footer = (props) => {
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
           <NavLink to='/reminders'>
-            { location.pathname === '/reminders' ? <RiSearchEyeFill /> : <RiSearchEyeLine /> }
+            { location.pathname === '/reminders' ? <RiSearchEyeFill className='indigo' /> : <RiSearchEyeLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
           <NavLink to='/info'>
-            { location.pathname === '/info' ? <RiInformationFill /> : <RiInformationLine /> }
+            { location.pathname === '/info' ? <RiInformationFill className='indigo' /> : <RiInformationLine /> }
           </NavLink>
         </div>
       </div>

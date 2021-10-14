@@ -215,7 +215,7 @@ footer {
 }
 
 .heading {
-  background-color: indigo;
+  background-color: darkslategray;
   color: white;
   padding: 5% 0 2% 3%;
 }
@@ -223,6 +223,12 @@ footer {
 .heading-icon {
   font-size: 1em;
   color: plum;
+}
+
+.heading-reminder {
+  background-color: indigo;
+  color: white;
+  padding: 5% 0 2% 3%;
 }
 
 .heading-img {
@@ -373,6 +379,28 @@ footer {
   border-bottom: 1px solid darkgreen;
 }
 
+.plant-row-dark {
+  background-color: palegreen;
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid darkgreen;
+}
+
 .row-end {
   height: 120px;
+}
+
+.plant-name {
+  font-size: 2.4em;
+}
+
+.plant-type {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.plant-bio {
+ font-size: 1.1em;
+ font-style: italic;
 }
