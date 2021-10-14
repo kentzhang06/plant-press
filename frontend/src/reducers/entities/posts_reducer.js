@@ -10,10 +10,11 @@ const PostsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_POSTS:
+      let updatedState = {}
       action.posts.forEach(ele => {
-        newState[ele._id] = ele;
+        updatedState[ele._id] = ele;
       });
-      return newState;
+      return updatedState;
     case RECEIVE_POST:
       newState[action.post._id] = action.post;
       return newState;
