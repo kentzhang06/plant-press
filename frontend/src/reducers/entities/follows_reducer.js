@@ -6,12 +6,12 @@ const FollowsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_FOLLOWS:
-      // let follows = {};
-      // action.follows.forEach(plantId => {
-      //   follows[plantId] = "followed"
-      // });
-      // return follows;
-      return action.follows;
+      let follows = {};
+      action.follows.forEach(plantId => {
+        follows[plantId] = "followed"
+      });
+      return follows;
+      // return action.follows;
     case RECEIVE_FOLLOW:
       newState[action.plantId] = "followed";
       return newState;

@@ -29,7 +29,7 @@ router.post('/:plantId/follow', passport.authenticate('jwt', {session: false}),
 });
 
 router.delete('/:plantId/follow', passport.authenticate('jwt', {session: false}),
-  (req, rest) => {
+  (req, res) => {
     User.findOneAndUpdate(
       {_id: req.user.id},
       {
