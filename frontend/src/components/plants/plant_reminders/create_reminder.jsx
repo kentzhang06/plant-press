@@ -5,7 +5,6 @@ class CreateReminder extends React.Component {
     super(props);
 
     this.state = {
-      reminderType: "",
       reminderText: "",
       frequency: "",
       userId: this.props.currentUserId,
@@ -26,15 +25,9 @@ class CreateReminder extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     return(
       <div>
         <form className="create-reminder-form" onSubmit={this.handleSubmit}>
-          <input type="text"
-            value={this.state.reminderType}
-            onChange={this.update('reminderType')}
-            placeholder="Reminder Type"
-          />
 
           <input type="text"
             value={this.state.reminderText}
@@ -47,7 +40,7 @@ class CreateReminder extends React.Component {
             onChange={this.update('frequency')}
             placeholder="Frequency"
             min="1"
-            max="7"
+            max="100"
           />
 
           <button className="create-reminder-button">
