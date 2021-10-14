@@ -24,10 +24,9 @@ router.get('/index', (req, res) => {
         {"species": {'$regex': req.query.keyword, '$options': 'i'}}
       ]})
     .then(plants => {
-      console.log(plants);
       let relativePosts = [];
       plants.forEach(plant => {
-        relativePosts = Object.assign(relativePosts, plant.plantPosts);
+        relativePosts.push(...plant.plantPosts);
       });
 
       Post.find({
