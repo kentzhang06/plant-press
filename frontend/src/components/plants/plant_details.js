@@ -31,7 +31,7 @@ class PlantDetails extends React.Component {
     if (!this.props.plant) return null;
 
     let { name, type, info, species } = this.props.plant;
-    const {plantId, posts, plant} = this.props;
+    const {plantId, posts, plant, history} = this.props;
 
     const displayPlantPic = (!posts[plant.plantPosts[0]]) ? 
       <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
@@ -44,8 +44,11 @@ class PlantDetails extends React.Component {
     let userEditPlant;
     let userAddReminder;
     let deleteButton;
+    let postFormButton;
 
     if (this.props.plant.userId === this.props.currentUserId) {
+      postFormButton = <button onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
+
       userEditPlant =
         this.props.reminders.map(reminder =>
           <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
@@ -122,6 +125,7 @@ class PlantDetails extends React.Component {
           {userEditPlant}
           {userAddReminder}
           {deleteButton}
+          {postFormButton}
 
 
 
