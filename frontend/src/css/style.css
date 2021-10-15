@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap');
 
 body {
+  position: relative;
   background-color: #85FFBD;
   background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
@@ -214,7 +215,7 @@ footer {
 }
 
 .heading {
-  background-color: indigo;
+  background-color: darkslategray;
   color: white;
   padding: 5% 0 2% 3%;
 }
@@ -224,11 +225,17 @@ footer {
   color: plum;
 }
 
+.heading-reminder {
+  background-color: indigo;
+  color: white;
+  padding: 5% 0 2% 3%;
+}
+
 .heading-img {
-  width: 600px;
+  max-width: 600px;
   height: 300px;
+  margin: auto;
   background-color: white;
-  margin-left: -12px;
   background-size: cover;
 }
 
@@ -372,6 +379,39 @@ footer {
   border-bottom: 1px solid darkgreen;
 }
 
+.plant-row-dark {
+  background-color: palegreen;
+  border-top: 1px solid lightgreen;
+  border-bottom: 1px solid darkgreen;
+}
+
 .row-end {
   height: 120px;
+}
+
+.plant-name {
+  font-size: 2.4em;
+}
+
+.plant-type {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.plant-bio {
+ font-size: 1.1em;
+ font-style: italic;
+}
+
+.select-num {
+  width: 20%;
+  text-align: center;
+}
+
+.form-subtitle {
+  font-size: 0.9em;
+  margin-top: 4%;
+  color: purple;
 }
