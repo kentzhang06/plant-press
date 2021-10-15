@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { Link, withRouter } from "react-router-dom";
+import { ImSearch } from 'react-icons/im';
 
 class NewsFeed extends React.Component {
   constructor(props) {
@@ -46,14 +47,14 @@ class NewsFeed extends React.Component {
     const followUnfollowButton = (plantId) => {
       if (follows.includes(plantId)) {
         return (
-          <button onClick={(e) => this.unfollowPlantButton(e, plantId)}>
-            Unfollow Plant
+          <button className='follow-btn' onClick={(e) => this.unfollowPlantButton(e, plantId)}>
+            Following
           </button>
         )
       }else {
         return (
-          <button onClick={(e) => this.followPlantButton(e, plantId)}>
-            Follow Plant
+          <button className='follow-btn' onClick={(e) => this.followPlantButton(e, plantId)}>
+            Follow
           </button>
         )
       }
@@ -61,37 +62,42 @@ class NewsFeed extends React.Component {
 
     const displayPosts = posts.map((post, i) => {
       let newDate = new Date(post.createdAt);
-      const time = newDate.toLocaleTimeString("en-US", {timeZone: "America/Los_Angeles"});
       const date = newDate.toDateString();
       if (i > 10) return null;
       return (
         <div key={i}>
-          <img onClick={() => history.push(`/plant/${post.plantId}`)} src={post.imageUrl} alt="" width="150px" height="auto"/>
-          <div>
-            {date} {time}
+          <div className='feed-heading'>
+            <p>PLANT NAME</p>
+            {followUnfollowButton(post.plantId)}
           </div>
-          <div>
-            {post.caption}
+          <Link to={`/plant/${post.plantId}`}>
+            <div className='img-container'>
+              <img className='feed-img' src={post.imageUrl} />
+            </div>
+          </Link>
+          <div className='feed-caption'>
+            <p className='feed-date'>{date}</p>
+            <p className='feed-text'>{post.caption}</p>
           </div>
-          {followUnfollowButton(post.plantId)}
-
         </div>
       )
       
     });
 
     return(
-      <div>
-        <form onSubmit={this.onSubmitSearch}>
+      <div className='container-fluid clear-margin'>
+        <form className='search-form' onSubmit={this.onSubmitSearch}>
           <input
             type="text"
             onChange={(e) => this.updateKeyword(e)}
             value={this.state.keyword}
-            placeholder="...Look up a plant"
+            placeholder="Search"
+            className='searchbar'
           />
-          <button>Search</button>
+          <button className='search-btn'><ImSearch /></button>
         </form>
         { displayPosts }
+        <div className='row-end'></div>
       </div>
     )
   }
