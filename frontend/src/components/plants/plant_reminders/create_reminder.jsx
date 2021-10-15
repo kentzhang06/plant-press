@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ImLeaf } from 'react-icons/im';
 
 class CreateReminder extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      reminderType: "",
       reminderText: "",
       frequency: "",
       userId: this.props.currentUserId,
@@ -28,32 +29,47 @@ class CreateReminder extends React.Component {
   render () {
 
     return(
-      <div>
-        <form className="create-reminder-form" onSubmit={this.handleSubmit}>
-          <input type="text"
-            value={this.state.reminderType}
-            onChange={this.update('reminderType')}
-            placeholder="Reminder Type"
-          />
+      <div className='container-fluid'>
+        <div className='d-flex justify-content-center space-above'>
+            <Link to='/'>
+              <h1 className='title'>
+                PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
+              </h1>
+            </Link>&nbsp;&nbsp;
+          </div>
 
-          <input type="text"
-            value={this.state.reminderText}
-            onChange={this.update('reminderText')}
-            placeholder="Reminder Text"
-          />
+        <form className="session-form" onSubmit={this.handleSubmit}>
 
-          <input type="number"
-            value={this.state.frequency}
-            onChange={this.update('frequency')}
-            placeholder="Frequency"
-            min="1"
-            max="7"
-          />
+          <div className='d-flex justify-content-center'>
+            <h2 className='subtitle'>Add A New Reminder</h2>
+          </div>
 
-          <button className="create-reminder-button">
-            Create Reminder
-          </button>
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="text"
+              value={this.state.reminderText}
+              onChange={this.update('reminderText')}
+              placeholder="ex. Water plant."
+              className='session-input'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center'><h3 className='form-subtitle'>Enter Number of Days Between</h3></div>          
+          <div className='d-flex justify-content-center form-padding'>
+            <input type="number"
+              value={this.state.frequency}
+              onChange={this.update('1')}
+              placeholder="#"
+              min="1"
+              max="100"
+              className='select-num'
+            />
+          </div>
+
+          <div className='d-flex justify-content-center form-padding form-margin'>
+            <button className='session-button'>Add Reminder!</button>
+          </div>
         </form>
+        <div className='row-end'></div>
       </div>
     )
   }

@@ -4,12 +4,7 @@ class EditReminder extends React.Component {
   constructor(props){
     super(props);
 
-    // const { reminderType, reminderText } = this.props.reminder;
-
-
-
     this.state = {
-      reminderType: this.props.reminder.reminderType,
       reminderText: this.props.reminder.reminderText,
       frequency: this.props.reminder.frequency,
       userId: this.props.reminder.userId,
@@ -27,22 +22,28 @@ class EditReminder extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     this.props.updateReminder(this.state)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   deleteReminderSubmit(e){
     e.preventDefault();
     this.props.deletePlantReminder(this.state.id)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   update(field){
-    return e => this.setState({ [field]: e.currentTarget.value })
+    
+    return e => {
+      console.log(e.currentTarget.value)
+      this.setState({ [field]: e.currentTarget.value } )
+    }
   }
 
   render () {
 
+<<<<<<< HEAD
     if (this.props.currentUserId === this.props.reminder.userId){
       return(
         <div>
@@ -76,10 +77,35 @@ class EditReminder extends React.Component {
         </div>
       )
     } else {
+=======
+    return(
+>>>>>>> main
       <div>
-        unavailable
+        <form className="create-reminder-form" onSubmit={this.handleSubmit}>
+
+          <input type="text"
+            value={this.state.reminderText}
+            onChange={this.update('reminderText')}
+          />
+
+          <input type="number"
+          value={this.state.frequency}
+          onChange={this.update('frequency')}
+          min="1"
+          max="100"
+         />
+
+          <button className="create-reminder-button">
+            Edit Reminder
+          </button>
+
+        </form>
+
+        <button onClick={this.deleteReminderSubmit} className="delete-reminder-button">
+            Delete Reminder
+        </button>
       </div>
-    }
+    )
   }
 }
 

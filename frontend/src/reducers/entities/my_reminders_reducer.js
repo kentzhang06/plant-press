@@ -6,7 +6,11 @@ const MyRemindersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_MY_REMINDERS:
-      return action.reminders;
+      let nextState = {};
+      action.reminders.forEach(reminder => {
+        nextState[reminder._id] = reminder
+      })
+      return nextState;
     case RECEIVE_REMINDER:
       newState[action.reminder._id] = action.reminder;
       return newState;
