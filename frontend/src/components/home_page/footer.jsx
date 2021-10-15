@@ -30,8 +30,8 @@ export const Footer = (props) => {
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/reminders'>
-            { location.pathname === '/reminders' ? <RiSearchEyeFill /> : <RiSearchEyeLine /> }
+          <NavLink to='/newsfeed'>
+            { location.pathname === '/newsfeed' ? <RiSearchEyeFill /> : <RiSearchEyeLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>

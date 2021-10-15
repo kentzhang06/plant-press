@@ -26,7 +26,7 @@ class CreateReminder extends React.Component {
   }
 
   render () {
-    console.log(this.props)
+
     return(
       <div>
         <form className="create-reminder-form" onSubmit={this.handleSubmit}>

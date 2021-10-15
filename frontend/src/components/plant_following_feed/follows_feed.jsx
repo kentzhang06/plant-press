@@ -1,32 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-class NewsFeed extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      keyword: ""
-    }
-    
-    this.onSubmitSearch = this.onSubmitSearch.bind(this);
-  }
+class FollowsFeed extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
-    this.props.fetchAllPosts(this.state)
+    this.props.fetchFollowingPosts()
       .then(() => this.props.fetchFollows());
-  }
-
-  updateKeyword (e) {
-    this.setState({ keyword: e.target.value });
-  }
-
-  onSubmitSearch(e) {
-    e.preventDefault();
-    const { fetchAllPosts } = this.props;
-
-    fetchAllPosts(this.state.keyword);
-    this.setState({keyword: this.state.keyword});
   }
 
   followPlantButton(e, plantId) {
@@ -63,10 +45,11 @@ class NewsFeed extends React.Component {
       let newDate = new Date(post.createdAt);
       const time = newDate.toLocaleTimeString("en-US", {timeZone: "America/Los_Angeles"});
       const date = newDate.toDateString();
+      
       if (i > 10) return null;
       return (
         <div key={i}>
-          <img onClick={() => history.push(`/plant/${post.plantId}`)} src={post.imageUrl} alt="" width="150px" height="auto"/>
+          <img onClick={() => history.push(`/plant/${post.plantId}`)} src={post.imageUrl} alt="" width="150px" height="auto" />
           <div>
             {date} {time}
           </div>
@@ -74,7 +57,6 @@ class NewsFeed extends React.Component {
             {post.caption}
           </div>
           {followUnfollowButton(post.plantId)}
-
         </div>
       )
       
@@ -82,19 +64,10 @@ class NewsFeed extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.onSubmitSearch}>
-          <input
-            type="text"
-            onChange={(e) => this.updateKeyword(e)}
-            value={this.state.keyword}
-            placeholder="...Look up a plant"
-          />
-          <button>Search</button>
-        </form>
         { displayPosts }
       </div>
     )
   }
 }
 
-export default withRouter(NewsFeed);
+export default withRouter(FollowsFeed);

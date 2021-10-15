@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchAllPosts } from '../../actions/post_actions';
+import { fetchFollowingPosts } from '../../actions/post_actions';
 import { followPlant, fetchFollows, unfollowPlant } from '../../actions/follow_actions';
-import NewsFeed from './newsfeed';
+import FollowsFeed from './follows_feed';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,11 +12,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllPosts: (keyword) => dispatch(fetchAllPosts(keyword)),
+    fetchFollowingPosts: () => dispatch(fetchFollowingPosts()),
     followPlant: (plantId) => dispatch(followPlant(plantId)),
     unfollowPlant: (plantId) => dispatch(unfollowPlant(plantId)),
     fetchFollows: () => dispatch(fetchFollows())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);
+export default connect(mapStateToProps, mapDispatchToProps)(FollowsFeed);

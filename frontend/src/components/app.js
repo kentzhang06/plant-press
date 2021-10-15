@@ -18,6 +18,7 @@ import EditPostFormContainer from './post/edit_post_form_container';
 import CreateReminderContainer from './plants/plant_reminders/create_reminder_container';
 import EditReminderContainer from './plants/plant_reminders/edit_reminder_container';
 import NewsFeedContainer from './newsfeed/newsfeed_container';
+import FollowsFeedContainer from './plant_following_feed/follows_feed_container';
 
 
 const App = () => (
@@ -44,6 +45,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
             <AuthRoute exact path="/" component={Welcome} />
+            <Route exact path="/feed" component={FollowsFeedContainer} />
             <Route exact path="/newsfeed" component={NewsFeedContainer} />
             <Route path="/" component={Welcome} />
         </Switch>

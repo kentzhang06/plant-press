@@ -6,7 +6,7 @@ class EditReminder extends React.Component {
 
     // const { reminderType, reminderText } = this.props.reminder;
 
-    console.log(this.props)
+
 
     this.state = {
       reminderType: this.props.reminder.reminderType,
@@ -42,9 +42,6 @@ class EditReminder extends React.Component {
   }
 
   render () {
-    // console.log(this.props);
-    // console.log(this.props.reminder)
-    // const {deletePlantReminder} = this.props;
 
     if (this.props.currentUserId === this.props.reminder.userId){
       return(

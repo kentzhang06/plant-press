@@ -14,9 +14,9 @@ class PlantDetails extends React.Component {
   }
 
   render() {
-    console.log(this.props.plant)
+
     if (!this.props.plant) return null;
-    console.log(this.props)
+
     let { name, type, info, species } = this.props.plant;
     const {plantId} = this.props;
     return(
@@ -38,7 +38,6 @@ class PlantDetails extends React.Component {
 
           {/* {this.props.reminders.map(reminder => <li key ={reminder.id}>{reminder.reminderType + ": " + reminder.reminderText}</li>) } */}
 
-          {console.log(this.props.reminders)}
           {this.props.reminders.map(reminder =>
             <Link to={`/plant/${plantId}/reminder/${reminder._id}`}>
           <li idx={reminder._id}>
