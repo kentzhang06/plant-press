@@ -66,7 +66,7 @@ router.patch('/:reminderId',
     }
 
     Reminder.findOneAndUpdate(
-      { _id: req.body._id },
+      { _id: req.params.reminderId },
       {
         reminderText: req.body.reminderText,
         frequency: req.body.frequency,
