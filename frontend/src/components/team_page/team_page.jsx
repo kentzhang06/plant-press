@@ -11,7 +11,7 @@ const TeamPage = () => {
 
         <div className="team-member">
           <ul>
-            <li>
+            <li className="member-name">
               Danny Feng
             </li>
             <li>
@@ -25,7 +25,7 @@ const TeamPage = () => {
 
         <div className="team-member">
           <ul>
-            <li>
+            <li className="member-name">
               Kent Zhang
             </li>
             <li>
@@ -39,7 +39,7 @@ const TeamPage = () => {
 
         <div className="team-member">
           <ul>
-            <li>
+            <li className="member-name">
               Jon Zamora
             </li>
             <li>
@@ -53,7 +53,7 @@ const TeamPage = () => {
 
         <div className="team-member">
           <ul>
-            <li>
+            <li className="member-name">
               Jason Kim
             </li>
             <li>
