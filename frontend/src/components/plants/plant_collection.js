@@ -9,7 +9,7 @@ class PlantCollection extends React.Component {
   }
 
   render() {
-    if (!this.props.userPlants) {
+    if (!this.props.userPlants) { 
       return null
     }
 
@@ -47,7 +47,7 @@ class PlantCollection extends React.Component {
               </div>
             </div>
           </Link>
-          <div className='row row-end'></div>
+        <div className='row row-end'></div>
       </div>
     )
   }
