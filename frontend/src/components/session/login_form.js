@@ -31,7 +31,6 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user)
-      .then(() => this.props.history.push('/dashboard'));
   }
 
   renderErrors() {
@@ -46,6 +45,10 @@ class LoginForm extends React.Component {
         </ul>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   render() {
