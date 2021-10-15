@@ -44,7 +44,7 @@ class PlantForm extends React.Component {
 
     return (
       <>
-        <div className='container'>
+        <div className='container-fluid'>
           <div className='d-flex justify-content-center space-above'>
             <Link to='/'>
               <h1 className='title'>
