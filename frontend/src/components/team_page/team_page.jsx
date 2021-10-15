@@ -15,10 +15,10 @@ const TeamPage = () => {
               Danny Feng
             </li>
             <li>
-              <a target="_blank" href="https://github.com/dannyfeng1">Github</a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/dannyfeng1">Github</a>
             </li>
             <li>
-              <a target="_blank" href="https://www.linkedin.com/in/danny-feng1/">LinkedIn</a>
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/danny-feng1/">LinkedIn</a>
             </li>
           </ul>
         </div>
@@ -29,10 +29,10 @@ const TeamPage = () => {
               Kent Zhang
             </li>
             <li>
-              <a target="_blank" href="https://github.com/kentzhang06">Github</a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/kentzhang06">Github</a>
             </li>
             <li>
-              <a target="_blank" href="https://www.linkedin.com/in/kent-zhang-297591193/">LinkedIn</a>
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/kent-zhang-297591193/">LinkedIn</a>
             </li>
           </ul>
         </div>
@@ -43,10 +43,10 @@ const TeamPage = () => {
               Jon Zamora
             </li>
             <li>
-              <a target="_blank" href="https://github.com/jayzizzle">Github</a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/jayzizzle">Github</a>
             </li>
             <li>
-              <a target="_blank" href="https://www.linkedin.com/in/jon-zamora-97a8a6219/">LinkedIn</a>
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jon-zamora-97a8a6219/">LinkedIn</a>
             </li>
           </ul>
         </div>
@@ -57,10 +57,10 @@ const TeamPage = () => {
               Jason Kim
             </li>
             <li>
-              <a target="_blank" href="https://github.com/jasonkim0105">Github</a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/jasonkim0105">Github</a>
             </li>
             <li>
-              <a target="_blank" href="https://www.linkedin.com/in/jason-kim-0105/">LinkedIn</a>
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jason-kim-0105/">LinkedIn</a>
             </li>
           </ul>
         </div>
