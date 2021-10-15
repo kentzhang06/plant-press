@@ -100,6 +100,7 @@ class PhotoForm extends React.Component {
               type="text"
               value={caption}
               placeholder="...Enter a caption"
+              className='session-input'
             />
           </div>
         </form>

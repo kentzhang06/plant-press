@@ -65,6 +65,7 @@ class EditReminder extends React.Component {
             <input type="text"
               value={this.state.reminderText}
               onChange={this.update('reminderText')}
+              className='session-input'
             />
           </div>
 
