@@ -5,11 +5,10 @@ class EditReminder extends React.Component {
     super(props);
 
     this.state = {
-      reminderText: this.props.reminder.reminderText,
-      frequency: this.props.reminder.frequency,
-      userId: this.props.reminder.userId,
-      plantId: this.props.plantId,
-      id: this.props.reminder._id
+      reminderText: "",
+      frequency: "",
+      userId: "",
+      plantId: "",
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +16,10 @@ class EditReminder extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlantReminder(this.props.plantId);
+    this.props.fetchPlantReminder(this.props.plantId)
+    .then(
+      () => this.setState(this.props.reminder)
+    )
   }
 
   handleSubmit(e) {
@@ -34,15 +36,14 @@ class EditReminder extends React.Component {
   }
 
   update(field){
-    
     return e => {
-      console.log(e.currentTarget.value)
       this.setState({ [field]: e.currentTarget.value } )
     }
   }
 
   render () {
-
+    if (!this.state) return null;
+    console.log(this.props)
     return(
       <div>
         <form className="create-reminder-form" onSubmit={this.handleSubmit}>
