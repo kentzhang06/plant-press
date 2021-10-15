@@ -8,11 +8,16 @@ import Groot from '../../images/groot.jpg'
 
 
 class PlantDetails extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.handleDeletePlant = this.handleDeletePlant.bind(this);
+  }
+  
   componentDidMount() {
     this.props.fetchPlant(this.props.plantId);
-    this.props.fetchReminders(this.props.plantId)
-    this.handleDeletePlant = this.handleDeletePlant.bind(this);
+    this.props.fetchReminders(this.props.plantId);
+    this.props.fetchPlantPosts(this.props.plantId);
+
   }
 
   handleDeletePlant(e) {
@@ -26,13 +31,24 @@ class PlantDetails extends React.Component {
     if (!this.props.plant) return null;
 
     let { name, type, info, species } = this.props.plant;
-    const {plantId} = this.props;
+    const {plantId, posts, plant, history} = this.props;
+
+    const displayPlantPic = (!posts[plant.plantPosts[0]]) ? 
+      <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
+      </div> 
+      :
+      <div className='heading-img'>
+        <img className='plant-profile-pic' src={posts[plant.plantPosts[0]].imageUrl} alt="" />;
+      </div>;
 
     let userEditPlant;
     let userAddReminder;
     let deleteButton;
+    let postFormButton;
 
     if (this.props.plant.userId === this.props.currentUserId) {
+      postFormButton = <button onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
+
       userEditPlant =
         this.props.reminders.map(reminder =>
           <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
@@ -43,8 +59,8 @@ class PlantDetails extends React.Component {
               <div className='col-8 plant-row-text'>
                 <div className='plant-row-info'>
                   <p className='plant-row-name'>
-                    {reminder.reminderText}
-                    {reminder.frequency}
+                    {reminder.reminderText} <br/>
+                    Every {reminder.frequency} days
                   </p>
                 </div>
               </div>
@@ -82,8 +98,8 @@ class PlantDetails extends React.Component {
               <div className='col-8 plant-row-text'>
                 <div className='plant-row-info'>
                   <p className='plant-row-name'>
-                    {reminder.reminderText}
-                    {reminder.frequency}
+                    {reminder.reminderText} <br/>
+                    Every {reminder.frequency} days
                   </p>
                 </div>
               </div>
@@ -93,8 +109,7 @@ class PlantDetails extends React.Component {
 
     return(
       <>
-        <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
-        </div>
+        {displayPlantPic}
         <div className='container-fluid'>
           <div className='row d-flex justify-content-center vertical-center heading'>
             <h3 className='plant-name'>{name}</h3>
@@ -110,6 +125,7 @@ class PlantDetails extends React.Component {
           {userEditPlant}
           {userAddReminder}
           {deleteButton}
+          {postFormButton}
 
 
 

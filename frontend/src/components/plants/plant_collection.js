@@ -6,13 +6,30 @@ import { GoPlus } from 'react-icons/go';
 class PlantCollection extends React.Component {
   componentDidMount() {
     this.props.fetchPlants(this.props.userId);
+    this.props.fetchAllPosts("");
   }
 
   render() {
-    if (!this.props.userPlants) {
+    const { userPlants, posts } = this.props;
+    if (!userPlants || !posts) { 
       return null
     }
     console.log(this.props)
+
+    const displayPlantProfilePic = (plant) => {
+      if (!posts[plant.plantPosts[0]]) {
+        return (
+          <div className='col-4 plant-row-img'>
+            {plant.name.slice(0,1)}
+          </div>
+        )
+      } else {
+        return (
+          <img className='col-4 plant-row-img'
+            src={posts[plant.plantPosts[0]].imageUrl} alt="" />
+        )
+      }
+    }
 
     return (
       <div className='container-fluid'>
@@ -22,9 +39,7 @@ class PlantCollection extends React.Component {
         {this.props.userPlants.map((plant, i) => (
           <Link key={i} to={`/plant/${plant._id}`}>
             <div className='row plant-row'>
-              <div className='col-4 plant-row-img'>
-                {plant.name.slice(0,1)}
-              </div>
+              {displayPlantProfilePic(plant)}
               <div className='col-8 plant-row-text'>
                 <div className='plant-row-info'>
                   <p className='plant-row-name'>{plant.name}</p>
