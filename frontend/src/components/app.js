@@ -10,6 +10,7 @@ import { Welcome } from './home_page/welcome';
 import PlantCollectionContainer from './plants/plant_collection_container';
 import PlantDetailsContainer from './plants/plant_details_container';
 import FooterContainer from './home_page/footer_container';
+import TeamPage from './team_page/team_page';
 
 import CreatePostFormContainer from './post/create_post_form_container';
 import EditPostFormContainer from './post/edit_post_form_container';
@@ -47,6 +48,7 @@ const App = () => (
             <AuthRoute exact path="/" component={Welcome} />
             <Route exact path="/feed" component={FollowsFeedContainer} />
             <Route exact path="/newsfeed" component={NewsFeedContainer} />
+            <Route exact path="/info" component={TeamPage} />
             <Route path="/" component={Welcome} />
         </Switch>
         <FooterContainer />

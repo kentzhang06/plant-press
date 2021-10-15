@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
     type: "",
     info: "",
     species: ""
-  }
+  },
+  currentUserId: state.session.user.id
 })
 
 const mapDispatchToProps = dispatch => ({

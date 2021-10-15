@@ -8,11 +8,22 @@ import Groot from '../../images/groot.jpg'
 
 
 class PlantDetails extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.handleDeletePlant = this.handleDeletePlant.bind(this);
+  }
+  
   componentDidMount() {
     this.props.fetchPlant(this.props.plantId);
     this.props.fetchReminders(this.props.plantId);
     this.props.fetchPlantPosts(this.props.plantId);
+
+  }
+
+  handleDeletePlant(e) {
+    e.preventDefault();
+    this.props.deletePlant(this.props.plantId)
+    .then(() => this.props.history.push(`/user/${this.props.match.params.userId}`))
   }
 
   render() {
@@ -30,6 +41,69 @@ class PlantDetails extends React.Component {
         <img className='plant-profile-pic' src={posts[plant.plantPosts[0]].imageUrl} alt="" />;
       </div>;
 
+    let userEditPlant;
+    let userAddReminder;
+    let deleteButton;
+
+    if (this.props.plant.userId === this.props.currentUserId) {
+      userEditPlant =
+        this.props.reminders.map(reminder =>
+          <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
+            <div className='row plant-row-dark'>
+              <div className='col-4 plant-row-img'>
+                <FaRegBell />
+              </div>
+              <div className='col-8 plant-row-text'>
+                <div className='plant-row-info'>
+                  <p className='plant-row-name'>
+                    {reminder.reminderText} <br/>
+                    Every {reminder.frequency} days
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Link>
+        );
+
+      userAddReminder =
+        <Link to={`/plant/${plantId}/reminder`}>
+            <div className='row plant-row-light'>
+              <div className='col-4 plant-row-img'>
+                <GoPlus />
+              </div>
+              <div className='col-8 plant-row-text'>
+                <div className='plant-row-info'>
+                  <p className='plant-row-name'>
+                    Add A Reminder
+                  </p>
+                </div>
+              </div>
+            </div>
+        </Link>
+
+      deleteButton =
+          <button className="delete-plant-button" onClick={this.handleDeletePlant}>
+            Delete Plant
+          </button>
+    } else {
+      userEditPlant =
+        this.props.reminders.map(reminder =>
+            <div className='row plant-row-dark'>
+              <div className='col-4 plant-row-img'>
+                <FaRegBell />
+              </div>
+              <div className='col-8 plant-row-text'>
+                <div className='plant-row-info'>
+                  <p className='plant-row-name'>
+                    {reminder.reminderText} <br/>
+                    Every {reminder.frequency} days
+                  </p>
+                </div>
+              </div>
+            </div>
+        );
+    }
+
     return(
       <>
         {displayPlantPic}
@@ -45,39 +119,12 @@ class PlantDetails extends React.Component {
           <div className='row d-flex justify-content-center vertical-center heading-reminder'>
             <h4><FaBell className='heading-icon'/>&nbsp;{name}'s Reminders</h4>
           </div>
+          {userEditPlant}
+          {userAddReminder}
+          {deleteButton}
 
-          {this.props.reminders.map(reminder =>
-            <Link key={reminder._id} to={`/plant/${plantId}/reminder/${reminder._id}`}>
-              <div className='row plant-row-dark'>
-                <div className='col-4 plant-row-img'>
-                  <FaRegBell />
-                </div>
-                <div className='col-8 plant-row-text'>
-                  <div className='plant-row-info'>
-                    <p className='plant-row-name'>
-                      {reminder.reminderText}
-                      {reminder.frequency}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          )}
 
-          <Link to={`/plant/${plantId}/reminder`}>
-            <div className='row plant-row-light'>
-              <div className='col-4 plant-row-img'>
-                <GoPlus />
-              </div>
-              <div className='col-8 plant-row-text'>
-                <div className='plant-row-info'>
-                  <p className='plant-row-name'>
-                    Add A Reminder
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Link>
+
           <div className='row row-end'></div>
         </div>
       </>

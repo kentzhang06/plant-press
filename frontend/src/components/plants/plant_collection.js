@@ -14,6 +14,7 @@ class PlantCollection extends React.Component {
     if (!userPlants || !posts) { 
       return null
     }
+    console.log(this.props)
 
     const displayPlantProfilePic = (plant) => {
       if (!posts[plant.plantPosts[0]]) {
