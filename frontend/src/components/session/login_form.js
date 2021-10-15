@@ -30,7 +30,11 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
+<<<<<<< HEAD
     this.props.login(user)
+=======
+    this.props.login(user);
+>>>>>>> e3509b07ac30b5d6371bcb04211cf1bf451ed298
   }
 
   renderErrors() {
