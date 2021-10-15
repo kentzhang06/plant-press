@@ -487,6 +487,18 @@ div.clear-margin {
   font-weight: bold;
 }
 
+.plant-detail-btn {
+  border: none;
+  width: 25%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: indigo;
+  font-weight: bold;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
 .searchbar {
   border-radius: 20px;
   padding: 1%;

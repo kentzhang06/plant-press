@@ -47,7 +47,7 @@ class PlantDetails extends React.Component {
     let postFormButton;
 
     if (this.props.plant.userId === this.props.currentUserId) {
-      postFormButton = <button onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
+      postFormButton = <button className='plant-detail-btn' onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
 
       userEditPlant =
         this.props.reminders.map(reminder =>
@@ -85,7 +85,7 @@ class PlantDetails extends React.Component {
         </Link>
 
       deleteButton =
-          <button className="delete-plant-button" onClick={this.handleDeletePlant}>
+          <button className='plant-detail-btn' onClick={this.handleDeletePlant}>
             Delete Plant
           </button>
     } else {
