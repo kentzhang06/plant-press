@@ -232,11 +232,17 @@ footer {
 }
 
 .heading-img {
-  max-width: 600px;
+  width: 100%;
   height: 300px;
   margin: auto;
-  background-color: white;
+  background-color: darkslategray;
   background-size: cover;
+}
+
+.plant-profile-pic {
+  width: 100%;
+  height: 300px;
+  object-fit: scale-down;
 }
 
 .break {

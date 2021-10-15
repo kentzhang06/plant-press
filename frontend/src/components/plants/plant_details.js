@@ -11,7 +11,8 @@ class PlantDetails extends React.Component {
 
   componentDidMount() {
     this.props.fetchPlant(this.props.plantId);
-    this.props.fetchReminders(this.props.plantId)
+    this.props.fetchReminders(this.props.plantId);
+    this.props.fetchPlantPosts(this.props.plantId);
   }
 
   render() {
@@ -19,11 +20,19 @@ class PlantDetails extends React.Component {
     if (!this.props.plant) return null;
 
     let { name, type, info, species } = this.props.plant;
-    const {plantId} = this.props;
+    const {plantId, posts, plant} = this.props;
+
+    const displayPlantPic = (!posts[plant.plantPosts[0]]) ? 
+      <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
+      </div> 
+      :
+      <div className='heading-img'>
+        <img className='plant-profile-pic' src={posts[plant.plantPosts[0]].imageUrl} alt="" />;
+      </div>;
+
     return(
       <>
-        <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
-        </div> 
+        {displayPlantPic}
         <div className='container-fluid'>
           <div className='row d-flex justify-content-center vertical-center heading'>
             <h3 className='plant-name'>{name}</h3>
@@ -38,7 +47,7 @@ class PlantDetails extends React.Component {
           </div>
 
           {this.props.reminders.map(reminder =>
-            <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
+            <Link key={reminder._id} to={`/plant/${plantId}/reminder/${reminder._id}`}>
               <div className='row plant-row-dark'>
                 <div className='col-4 plant-row-img'>
                   <FaRegBell />
