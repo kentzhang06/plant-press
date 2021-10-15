@@ -2,11 +2,21 @@ import React from 'react';
 import FooterContainer from './footer_container';
 
 import { FaBell } from 'react-icons/fa';
-import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+// import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+import ReminderHomeContainer from '../plants/plant_reminders/reminder_home_container'
 
 class HomePage extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchMyPlants(this.props.currentUser);
+    this.props.fetchMyReminders()
+  }
+
   render() {
     const { logout } = this.props;
+    if (!this.props.plants) return null;
+    if (!this.props.reminders) return null;
+
     return(
         <>
           <div className='container-fluid'>
@@ -19,7 +29,11 @@ class HomePage extends React.Component {
               <h4><FaBell className='break-icon'/>&nbsp;Reminders</h4>
             </div>
 
-            <div className='row d-flex justify-content-center reminder-row'>
+            {this.props.reminders.map(reminder =>
+              <ReminderHomeContainer reminder={reminder} />
+            )}
+
+            {/* <div className='row d-flex justify-content-center reminder-row'>
               <div className='col'>
                 Water Poison Ivy.<br />
                 <span className='note'>( 2 cups )</span>
@@ -37,12 +51,15 @@ class HomePage extends React.Component {
               <div className='col d-flex justify-content-end align-items-center'>
                 <ImCheckboxChecked />
               </div>
-            </div>
+            </div> */}
 
             <div className='row d-flex justify-content-center'>
               <button onClick={logout} className='logout-btn'>Log Out</button>
             </div>
 
+            <div className='row-end'>
+
+            </div>
           </div>
           <FooterContainer />
         </>
