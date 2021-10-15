@@ -30,7 +30,7 @@ class HomePage extends React.Component {
             </div>
 
             {this.props.reminders.map(reminder =>
-              <ReminderHomeContainer reminder={reminder} />
+              <ReminderHomeContainer key={reminder._id} reminder={reminder} />
             )}
 
             {/* <div className='row d-flex justify-content-center reminder-row'>
