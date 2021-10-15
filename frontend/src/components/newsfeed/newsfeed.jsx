@@ -41,7 +41,7 @@ class NewsFeed extends React.Component {
   }
 
   render() {
-    const { posts, follows, history } = this.props;
+    const { posts, follows } = this.props;
     if (!posts) return null;
 
     const followUnfollowButton = (plantId) => {
