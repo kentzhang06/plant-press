@@ -43,43 +43,7 @@ class EditReminder extends React.Component {
 
   render () {
 
-<<<<<<< HEAD
-    if (this.props.currentUserId === this.props.reminder.userId){
-      return(
-        <div>
-          <form className="create-reminder-form" onSubmit={this.handleSubmit}>
-            <input type="text"
-              value={this.state.reminderType}
-              onChange={this.update('reminderType')}
-            />
-
-            <input type="text"
-              value={this.state.reminderText}
-              onChange={this.update('reminderText')}
-            />
-
-            <input type="number"
-            value={this.state.frequency}
-            onChange={this.update('frequency')}
-            min="1"
-            max="7"
-           />
-
-            <button className="create-reminder-button">
-              Edit Reminder
-            </button>
-
-          </form>
-
-          <button onClick={this.deleteReminderSubmit} className="delete-reminder-button">
-              Delete Reminder
-          </button>
-        </div>
-      )
-    } else {
-=======
     return(
->>>>>>> main
       <div>
         <form className="create-reminder-form" onSubmit={this.handleSubmit}>
 
