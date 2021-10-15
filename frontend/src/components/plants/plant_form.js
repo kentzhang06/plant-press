@@ -36,7 +36,8 @@ class PlantForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPlant(this.state);
+    this.props.createPlant(this.state)
+      .then(() => this.props.history.push(`/user/${this.props.currentUserId}`))
   }
 
   render() {
