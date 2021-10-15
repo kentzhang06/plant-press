@@ -15,7 +15,9 @@ class PlantDetails extends React.Component {
   }
 
   render() {
+
     if (!this.props.plant) return null;
+
     let { name, type, info, species } = this.props.plant;
     const {plantId} = this.props;
     return(

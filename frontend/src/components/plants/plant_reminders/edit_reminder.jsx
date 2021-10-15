@@ -4,8 +4,6 @@ class EditReminder extends React.Component {
   constructor(props){
     super(props);
 
-    console.log(this.props)
-
     this.state = {
       reminderText: this.props.reminder.reminderText,
       frequency: this.props.reminder.frequency,
@@ -24,18 +22,23 @@ class EditReminder extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     this.props.updateReminder(this.state)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   deleteReminderSubmit(e){
     e.preventDefault();
     this.props.deletePlantReminder(this.state.id)
-    .then(this.props.history.push(`/plant/${this.props.plantId}`))
+    .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
 
   update(field){
-    return e => this.setState({ [field]: e.currentTarget.value })
+    
+    return e => {
+      console.log(e.currentTarget.value)
+      this.setState({ [field]: e.currentTarget.value } )
+    }
   }
 
   render () {

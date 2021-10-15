@@ -18,7 +18,7 @@ router.get('/:plantId', passport.authenticate('jwt', { session: false }),
 
 router.post('/:plantId/follow', passport.authenticate('jwt', {session: false}),
   (req, res) => {
-    console.log(req)
+
     User.findOneAndUpdate(
       {_id: req.user.id},
       {

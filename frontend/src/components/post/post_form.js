@@ -25,7 +25,7 @@ class PhotoForm extends React.Component {
     if (formType === 'Update Post') {
       fetchPlantPosts(match.params.plantId)
         .then(() => {
-          console.log(this.props.post);
+
           this.setState(this.props.post);
           this.setState( {id: match.params.postId} );
         })
@@ -41,8 +41,6 @@ class PhotoForm extends React.Component {
       result = await uploadImage({image: file, description});
       this.setState( {imageUrl: `/api/uploads/${result.imagePath}`} )
     }
-    console.log(result);
-    console.log(this.state);
   }
 
   fileSelected(e) {

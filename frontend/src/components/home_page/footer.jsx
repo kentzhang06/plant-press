@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { SiHomeassistant } from 'react-icons/si';
-import { RiPlantLine, RiPlantFill, 
+import { RiPlantLine, RiPlantFill,
   RiInformationLine, RiInformationFill,
    RiNewspaperLine, RiNewspaperFill,
    RiSearchEyeLine,  RiSearchEyeFill
@@ -9,14 +9,14 @@ import { RiPlantLine, RiPlantFill,
 
 export const Footer = (props) => {
   const location = useLocation();
-  
+
   if (!props.user) return null;
   return (
     <footer className='container-fluid'>
       <div className='row'>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/newsfeed'>
-            { location.pathname === '/newsfeed' ? <RiNewspaperFill className='indigo' /> : <RiNewspaperLine /> }
+          <NavLink to='/feed'>
+            { location.pathname === '/feed' ? <RiNewspaperFill className='indigo' /> : <RiNewspaperLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
@@ -30,8 +30,8 @@ export const Footer = (props) => {
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>
-          <NavLink to='/reminders'>
-            { location.pathname === '/reminders' ? <RiSearchEyeFill className='indigo' /> : <RiSearchEyeLine /> }
+          <NavLink to='/newsfeed'>
+            { location.pathname === '/newsfeed' ? <RiSearchEyeFill /> : <RiSearchEyeLine /> }
           </NavLink>
         </div>
         <div className='col d-flex justify-content-center align-items-center icon'>

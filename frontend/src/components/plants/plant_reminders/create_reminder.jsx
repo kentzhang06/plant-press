@@ -27,6 +27,7 @@ class CreateReminder extends React.Component {
   }
 
   render () {
+
     return(
       <div className='container-fluid'>
         <div className='d-flex justify-content-center space-above'>
