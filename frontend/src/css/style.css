@@ -480,3 +480,27 @@ div.clear-margin {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.searchbar {
+  border-radius: 20px;
+  padding: 1%;
+  width: 70%;
+  border: none;
+  margin: 15px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.search-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.4em;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 10px;
+  background-color: #1a1a1a;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { ImSearch } from 'react-icons/im';
 
 class NewsFeed extends React.Component {
   constructor(props) {
@@ -61,7 +62,6 @@ class NewsFeed extends React.Component {
 
     const displayPosts = posts.map((post, i) => {
       let newDate = new Date(post.createdAt);
-      const time = newDate.toLocaleTimeString("en-US", {timeZone: "America/Los_Angeles"});
       const date = newDate.toDateString();
       if (i > 10) return null;
       return (
@@ -86,14 +86,15 @@ class NewsFeed extends React.Component {
 
     return(
       <div className='container-fluid clear-margin'>
-        <form onSubmit={this.onSubmitSearch}>
+        <form className='search-form' onSubmit={this.onSubmitSearch}>
           <input
             type="text"
             onChange={(e) => this.updateKeyword(e)}
             value={this.state.keyword}
-            placeholder="...Look up a plant"
+            placeholder="Search"
+            className='searchbar'
           />
-          <button>Search</button>
+          <button className='search-btn'><ImSearch /></button>
         </form>
         { displayPosts }
         <div className='row-end'></div>
