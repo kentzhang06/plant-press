@@ -57,7 +57,7 @@ router.post('/plant/:plantId/create',
     })
 
 router.patch('/:reminderId',
-  // passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateReminderInput(req.body);
 
