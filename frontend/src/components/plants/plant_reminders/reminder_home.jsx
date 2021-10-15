@@ -11,14 +11,16 @@ class RemindersHomePage extends React.Component {
 
     handleClick() {
         this.setState({
-            // updatedAt: "",
             completed: true
         })
+        console.log(this.state)
         this.props.updateReminder(this.state);
     }
     
     render() {
         let { reminder, plant } = this.props;
+        if (!reminder || !plant) return null;
+
         let date = new Date(reminder.updatedAt)
         let d = date.getDate();
         let m = date.getMonth() + 1;

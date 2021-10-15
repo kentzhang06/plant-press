@@ -57,7 +57,7 @@ router.post('/plant/:plantId/create',
     })
 
 router.patch('/:reminderId',
-  passport.authenticate('jwt', { session: false }),
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateReminderInput(req.body);
 
@@ -66,15 +66,14 @@ router.patch('/:reminderId',
     }
 
     Reminder.findOneAndUpdate(
-      { _id: req.params.reminderId },
+      { _id: req.body._id },
       {
         reminderText: req.body.reminderText,
         frequency: req.body.frequency,
-        updatedAt: req.body.updatedAt
       },
       {new: true}
     )
-    .then(reminder => { return res.json(reminder)})
+    .then(reminder => { res.json(reminder)})
     .catch(err => {res.json(err)})
   }
 )

@@ -24,6 +24,7 @@ class EditReminder extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     this.props.updateReminder(this.state)
     .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
@@ -35,7 +36,11 @@ class EditReminder extends React.Component {
   }
 
   update(field){
-    return e => this.setState({ [field]: e.currentTarget.value })
+    
+    return e => {
+      console.log(e.currentTarget.value)
+      this.setState({ [field]: e.currentTarget.value } )
+    }
   }
 
   render () {
