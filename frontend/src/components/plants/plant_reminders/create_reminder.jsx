@@ -31,12 +31,12 @@ class CreateReminder extends React.Component {
     return(
       <div className='container-fluid'>
         <div className='d-flex justify-content-center space-above'>
-            <Link to='/'>
-              <h1 className='title'>
-                PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
-              </h1>
-            </Link>&nbsp;&nbsp;
-          </div>
+          <Link to='/dashboard'>
+            <h1 className='title'>
+              PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
+            </h1>
+          </Link>&nbsp;&nbsp;
+        </div>
 
         <form className="session-form" onSubmit={this.handleSubmit}>
 

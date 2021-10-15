@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { Link, withRouter } from "react-router-dom";
 
 class NewsFeed extends React.Component {
   constructor(props) {
@@ -46,14 +46,14 @@ class NewsFeed extends React.Component {
     const followUnfollowButton = (plantId) => {
       if (follows.includes(plantId)) {
         return (
-          <button onClick={(e) => this.unfollowPlantButton(e, plantId)}>
-            Unfollow Plant
+          <button className='follow-btn' onClick={(e) => this.unfollowPlantButton(e, plantId)}>
+            Following
           </button>
         )
       }else {
         return (
-          <button onClick={(e) => this.followPlantButton(e, plantId)}>
-            Follow Plant
+          <button className='follow-btn' onClick={(e) => this.followPlantButton(e, plantId)}>
+            Follow
           </button>
         )
       }
@@ -66,22 +66,26 @@ class NewsFeed extends React.Component {
       if (i > 10) return null;
       return (
         <div key={i}>
-          <img onClick={() => history.push(`/plant/${post.plantId}`)} src={post.imageUrl} alt="" width="150px" height="auto"/>
-          <div>
-            {date} {time}
+          <div className='feed-heading'>
+            <p>PLANT NAME</p>
+            {followUnfollowButton(post.plantId)}
           </div>
-          <div>
-            {post.caption}
+          <Link to={`/plant/${post.plantId}`}>
+            <div className='img-container'>
+              <img className='feed-img' src={post.imageUrl} />
+            </div>
+          </Link>
+          <div className='feed-caption'>
+            <p className='feed-date'>{date}</p>
+            <p className='feed-text'>{post.caption}</p>
           </div>
-          {followUnfollowButton(post.plantId)}
-
         </div>
       )
       
     });
 
     return(
-      <div>
+      <div className='container-fluid clear-margin'>
         <form onSubmit={this.onSubmitSearch}>
           <input
             type="text"
@@ -92,6 +96,7 @@ class NewsFeed extends React.Component {
           <button>Search</button>
         </form>
         { displayPosts }
+        <div className='row-end'></div>
       </div>
     )
   }
