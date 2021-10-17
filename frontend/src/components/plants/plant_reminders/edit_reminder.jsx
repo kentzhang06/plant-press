@@ -26,7 +26,6 @@ class EditReminder extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.updateReminder(this.state)
     .then(() => this.props.history.push(`/plant/${this.props.plantId}`))
   }
