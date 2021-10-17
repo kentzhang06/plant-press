@@ -9,7 +9,7 @@ export const createPlant = plantForm => {
 }
 
 export const updatePlant = plantForm => {
-    return axios.patch(`/api/plants/${plantForm._id}/edit`, plantForm)
+    return axios.patch(`/api/plants/${plantForm._id}`, plantForm)
 }
 
 export const deletePlant = plantId => {
