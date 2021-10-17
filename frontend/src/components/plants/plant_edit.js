@@ -36,10 +36,6 @@ class EditPlant extends React.Component {
 
 
   render() {
-    let { name, info, species, type } = this.state;
-    console.log(this.props.plant)
-    console.log(this.state)
-    console.log(name, info, species, type)
 
     return (
       <div className="container-fluid">

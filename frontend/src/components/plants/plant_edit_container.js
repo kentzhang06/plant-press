@@ -4,9 +4,7 @@ import { fetchPlants, updatePlant } from "../../actions/plant_actions"
 import { fetchAllPosts } from "../../actions/post_actions";
 
 const mapStateToProps = (state, ownProps) => ({
-  plant: state.entities.plants[ownProps.match.params.plantId],
-  // userId: ownProps.plant.userId,
-  // posts: state.entities.posts
+  plant: state.entities.plants[ownProps.match.params.plantId]
 })
 
 const mapDispatchToProps = dispatch => ({

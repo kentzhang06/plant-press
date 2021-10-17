@@ -10,7 +10,6 @@ class PlantDetails extends React.Component {
   constructor(props) {
     super(props);
     this.handleDeletePlant = this.handleDeletePlant.bind(this);
-    console.log(this.props)
   }
 
   componentDidMount() {
