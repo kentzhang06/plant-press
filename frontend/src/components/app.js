@@ -14,6 +14,7 @@ import TeamPage from './team_page/team_page';
 
 import CreatePostFormContainer from './post/create_post_form_container';
 import EditPostFormContainer from './post/edit_post_form_container';
+import EditPlantContainer from './plants/plant_edit_container'
 
 
 import CreateReminderContainer from './plants/plant_reminders/create_reminder_container';
@@ -32,6 +33,8 @@ const App = () => (
 
             <ProtectedRoute exact path="/addplant" component={PlantFormContainer} />
 
+            <ProtectedRoute exact path="/plant/:plantId/edit" component={EditPlantContainer} />
+
             <ProtectedRoute exact path="/plant/:plantId/reminder" component={CreateReminderContainer} />
 
             <ProtectedRoute exact path="/plant/:plantId" component={PlantDetailsContainer}/>
@@ -46,7 +49,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
             <AuthRoute exact path="/" component={Welcome} />
-            <Route exact path="/feed" component={FollowsFeedContainer} />
+            <ProtectedRoute exact path="/feed" component={FollowsFeedContainer} />
             <Route exact path="/newsfeed" component={NewsFeedContainer} />
             <Route exact path="/info" component={TeamPage} />
             <Route path="/" component={Welcome} />

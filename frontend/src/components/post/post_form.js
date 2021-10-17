@@ -1,5 +1,7 @@
 import React from 'react';
 import { uploadImage } from '../../actions/post_actions';
+import { Link } from 'react-router-dom';
+import { ImLeaf } from 'react-icons/im';
 
 class PhotoForm extends React.Component {
   constructor(props) {
@@ -54,7 +56,8 @@ class PhotoForm extends React.Component {
 
   handlePostSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
+    this.props.formAction(this.state)
+      .then(() => this.props.history.push(`/newsfeed`));
   }
 
   render () {
@@ -62,30 +65,50 @@ class PhotoForm extends React.Component {
     const { formType } = this.props;
 
     const displayImage = (imageUrl) ?
-      <img src={imageUrl} alt="" width="400px" height="400px"></img>
+      <div className='d-flex justify-content-center form-padding'>
+        <img src={imageUrl} alt="" width="400px" height="400px"></img>
+      </div>
       : 
       <div></div>;
 
     const displayImageButton = (formType === 'Create Post') ?
       <div>
-        <input onChange={this.fileSelected} type="file" accept="image/*"></input>
-        <br/><br/>
-        <button type="submit">Upload Image</button>
+        <div className='d-flex justify-content-center form-padding form-margin'>
+          <input className='session-button' onChange={this.fileSelected} type="file" accept="image/*"></input>
+        </div>
+        <div className='d-flex justify-content-center form-padding form-margin'>
+          <button className='session-button' type="submit">Upload Image</button>
+        </div>
       </div>
       :
       <div></div>;
 
     return(
-      <div>
-        <form onSubmit={this.handleImageSubmit}> 
-          <input onChange={e => this.setCaption(e)} type="text" value={caption} placeholder="...Enter a caption"></input>
-          <br/><br/>
+      <div className='container-fluid'>
+        <div className='d-flex justify-content-center space-above'>
+          <Link to='/dashboard'>
+            <h1 className='title'>
+              PlantPress<span className='leaf-icon'><ImLeaf/></span>&nbsp;&nbsp;
+            </h1>
+          </Link>&nbsp;&nbsp;
+        </div>
+        <form className="session-form" onSubmit={this.handleImageSubmit}> 
           { displayImageButton }
+          { displayImage }
+          <div className='d-flex justify-content-center form-padding'>
+            <input onChange={e => this.setCaption(e)}
+              type="text"
+              value={caption}
+              placeholder="...Enter a caption"
+              className='session-input'
+            />
+          </div>
         </form>
 
-        <button onClick={this.handlePostSubmit}> Create Post </button>
-
-        { displayImage }
+        <div className='d-flex justify-content-center form-padding form-margin'>
+          <button onClick={this.handlePostSubmit} className='session-button'> Create Post </button>
+        </div>
+        <div className='row-end'></div>
       </div>
     )
   }

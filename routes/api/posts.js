@@ -31,7 +31,10 @@ router.get('/index', (req, res) => {
 
       Post.find({
         _id: { $in: relativePosts }
-      }).then(posts => res.json(posts))
+      })
+      .sort({createdAt: -1})
+      .then(posts => res.json(posts))
+      
 
     });
 
@@ -41,7 +44,9 @@ router.get('/following', passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Post.find({
       plantId: { $in : req.user.plantsFollowed } 
-    }).then(posts => res.json(posts))
+    })
+    .sort({createdAt: -1})
+    .then(posts => res.json(posts))
     .catch(err => res.json({noPosts: "No posts found"}))
   })
 

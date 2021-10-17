@@ -165,7 +165,7 @@ footer {
   letter-spacing: -0.05em;
 }
 :-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
-::-ms-input-placeholder {color: purple; letter-spacing: -0.05em;} 
+::-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
 
 .session-button {
   border: none;
@@ -232,11 +232,17 @@ footer {
 }
 
 .heading-img {
-  max-width: 600px;
+  width: 100%;
   height: 300px;
   margin: auto;
-  background-color: white;
+  background-color: darkslategray;
   background-size: cover;
+}
+
+.plant-profile-pic {
+  width: 100%;
+  height: 300px;
+  object-fit: scale-down;
 }
 
 .feed-img {
@@ -481,6 +487,18 @@ div.clear-margin {
   font-weight: bold;
 }
 
+.plant-detail-btn {
+  border: none;
+  width: 25%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: indigo;
+  font-weight: bold;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
 .searchbar {
   border-radius: 20px;
   padding: 1%;
@@ -503,4 +521,12 @@ div.clear-margin {
   justify-content: space-evenly;
   padding: 0 10px;
   background-color: #1a1a1a;
+}
+
+.team-member > ul {
+  list-style: none;
+}
+
+.member-name {
+  font-size: 20px;
 }

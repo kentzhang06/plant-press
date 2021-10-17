@@ -35,7 +35,7 @@ class RemindersHomePage extends React.Component {
                     <br/>
                     <span className='note'>Last completed: {m + "/" + d}</span>
                 </div>
-                <div className={this.state.completed ? "col-3 d-flex justify-content-end align-items-center done" : "col-3 d-flex justify-content-end align-items-center" } onClick={this.handleClick}>
+                <div className={this.state.completed ? "col-3 d-flex justify-content-end align-items-center" : "col-3 d-flex justify-content-end align-items-center" } onClick={this.handleClick}>
                     {this.state.completed ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
                 </div>
           </div>

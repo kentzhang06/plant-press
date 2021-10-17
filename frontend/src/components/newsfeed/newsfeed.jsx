@@ -41,7 +41,7 @@ class NewsFeed extends React.Component {
   }
 
   render() {
-    const { posts, follows, history } = this.props;
+    const { posts, follows } = this.props;
     if (!posts) return null;
 
     const followUnfollowButton = (plantId) => {
@@ -72,7 +72,7 @@ class NewsFeed extends React.Component {
           </div>
           <Link to={`/plant/${post.plantId}`}>
             <div className='img-container'>
-              <img className='feed-img' src={post.imageUrl} />
+              <img className='feed-img' src={post.imageUrl} alt=""/>
             </div>
           </Link>
           <div className='feed-caption'>
