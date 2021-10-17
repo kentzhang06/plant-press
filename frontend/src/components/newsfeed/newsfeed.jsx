@@ -72,7 +72,7 @@ class NewsFeed extends React.Component {
           </div>
           <Link to={`/plant/${post.plantId}`}>
             <div className='img-container'>
-              <img className='feed-img' src={post.imageUrl} />
+              <img className='feed-img' src={post.imageUrl} alt=""/>
             </div>
           </Link>
           <div className='feed-caption'>
