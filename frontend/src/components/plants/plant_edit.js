@@ -31,6 +31,7 @@ class EditPlant extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updatePlant(this.state)
+      .then(this.props.history.push(`/user/${this.props.userId}`))
   }
 
 
