@@ -50,9 +50,9 @@ const App = () => (
 
             <AuthRoute exact path="/" component={Welcome} />
             <ProtectedRoute exact path="/feed" component={FollowsFeedContainer} />
-            <Route exact path="/newsfeed" component={NewsFeedContainer} />
+            <ProtectedRoute exact path="/newsfeed" component={NewsFeedContainer} />
             <Route exact path="/info" component={TeamPage} />
-            <Route path="/" component={Welcome} />
+            <AuthRoute path="/" component={Welcome} />
         </Switch>
         <FooterContainer />
     </div>
