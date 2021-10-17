@@ -6,13 +6,13 @@ import { FaBell, FaRegBell } from 'react-icons/fa';
 
 import Groot from '../../images/groot.jpg'
 
-
 class PlantDetails extends React.Component {
   constructor(props) {
     super(props);
     this.handleDeletePlant = this.handleDeletePlant.bind(this);
+    console.log(this.props)
   }
-  
+
   componentDidMount() {
     this.props.fetchPlant(this.props.plantId);
     this.props.fetchReminders(this.props.plantId);
@@ -33,23 +33,24 @@ class PlantDetails extends React.Component {
     let { name, type, info, species } = this.props.plant;
     const {plantId, posts, plant, history} = this.props;
 
-    const displayPlantPic = (!posts[plant.plantPosts[0]]) ? 
+    const displayPlantPic = (!posts[plant.plantPosts[0]]) ?
       <div className='heading-img' style={{ background: `url(${Groot})  center center no-repeat`}}>
-      </div> 
+      </div>
       :
       <div className='heading-img'>
         <img className='plant-profile-pic' src={posts[plant.plantPosts[0]].imageUrl} alt="" />;
       </div>;
 
-    let userEditPlant;
+    let userEditReminders;
     let userAddReminder;
     let deleteButton;
+    let userEditPlant;
     let postFormButton;
 
     if (this.props.plant.userId === this.props.currentUserId) {
       postFormButton = <button onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
 
-      userEditPlant =
+      userEditReminders =
         this.props.reminders.map(reminder =>
           <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
             <div className='row plant-row-dark'>
@@ -88,8 +89,13 @@ class PlantDetails extends React.Component {
           <button className="delete-plant-button" onClick={this.handleDeletePlant}>
             Delete Plant
           </button>
-    } else {
+
       userEditPlant =
+          <button onClick={() => history.push(`/plant/${plantId}/edit`)}>
+            Edit Plant
+          </button>
+    } else {
+      userEditReminders =
         this.props.reminders.map(reminder =>
             <div className='row plant-row-dark'>
               <div className='col-4 plant-row-img'>
@@ -122,8 +128,9 @@ class PlantDetails extends React.Component {
           <div className='row d-flex justify-content-center vertical-center heading-reminder'>
             <h4><FaBell className='heading-icon'/>&nbsp;{name}'s Reminders</h4>
           </div>
-          {userEditPlant}
+          {userEditReminders}
           {userAddReminder}
+          {userEditPlant}
           {deleteButton}
           {postFormButton}
 
