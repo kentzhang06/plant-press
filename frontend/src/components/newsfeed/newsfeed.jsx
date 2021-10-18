@@ -110,6 +110,6 @@ class NewsFeed extends React.Component {
       </div>
     )
   }
-}
+};
 
 export default withRouter(NewsFeed);

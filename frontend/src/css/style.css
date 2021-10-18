@@ -5,8 +5,9 @@
 
 body {
   position: relative;
-  background-color: #85FFBD;
-  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%) no-repeat 50% fixed;
+  background-color: #85ffbd;
+  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, seagreen 100%)
+    no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
   letter-spacing: -0.05em;
   /* height: 100vh; */
@@ -58,8 +59,14 @@ footer {
   position: fixed;
   bottom: 0;
   height: 12%;
-  background-color: #85FFBD;
-  background: linear-gradient(45deg, lavender 0%, lightgreen 50%, lightgreen 100%) no-repeat 50% fixed;
+  background-color: #85ffbd;
+  background: linear-gradient(
+      45deg,
+      lavender 0%,
+      lightgreen 50%,
+      lightgreen 100%
+    )
+    no-repeat 50% fixed;
   max-width: 600px;
   box-shadow: 0px 0px 20px green;
   z-index: 5;
@@ -139,7 +146,7 @@ footer {
 }
 
 .session-form {
-  margin-top: 10% ;
+  margin-top: 10%;
 }
 
 .session-input {
@@ -164,8 +171,14 @@ footer {
   color: #888;
   letter-spacing: -0.05em;
 }
-:-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
-::-ms-input-placeholder {color: purple; letter-spacing: -0.05em;}
+:-ms-input-placeholder {
+  color: purple;
+  letter-spacing: -0.05em;
+}
+::-ms-input-placeholder {
+  color: purple;
+  letter-spacing: -0.05em;
+}
 
 .session-button {
   border: none;
@@ -262,7 +275,7 @@ footer {
 
 .break-icon {
   font-size: 0.9em;
-  color: red
+  color: red;
 }
 
 .reminder-row {
@@ -304,7 +317,8 @@ footer {
   height: 80px;
   width: 80px;
   background-color: purple;
-  background: linear-gradient(45deg, purple 0%, plum 50%, yellow 100%) no-repeat 50% fixed;
+  background: linear-gradient(45deg, purple 0%, plum 50%, yellow 100%) no-repeat
+    50% fixed;
   border-radius: 10px;
   margin: 10px;
 }
@@ -325,14 +339,13 @@ footer {
   text-align: center;
   border-radius: 20px;
   box-shadow: 0px 0px 20px green;
-
 }
 
 .splash-signup {
   font-size: 1em;
   font-weight: 900;
   color: #222;
-  padding: 3%
+  padding: 3%;
 }
 
 .flex-row-start {
@@ -352,7 +365,8 @@ footer {
 
 .plant-row-img {
   background-color: purple;
-  background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%) no-repeat 50% fixed;
+  background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%)
+    no-repeat 50% fixed;
   height: 100px;
   display: flex;
   justify-content: center;
@@ -370,10 +384,10 @@ footer {
 }
 
 .plant-row-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .plant-row-name {
@@ -416,8 +430,8 @@ footer {
 }
 
 .plant-bio {
- font-size: 1.1em;
- font-style: italic;
+  font-size: 1.1em;
+  font-style: italic;
 }
 
 .select-num {
@@ -529,4 +543,8 @@ div.clear-margin {
 
 .member-name {
   font-size: 20px;
+}
+
+.margin-top {
+  margin-top: 25px;
 }
