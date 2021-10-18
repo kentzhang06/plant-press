@@ -31,12 +31,16 @@ class EditPlant extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updatePlant(this.state)
-      .then(this.props.history.push(`/user/${this.props.userId}`))
+      .then(this.props.history.push(`/user/${this.props.plant.userId}`))
   }
 
 
   render() {
+    if (this.props.currentUserId !== this.props.plant.userId){
+      this.props.history.push(`/plant/${this.props.plant._id}`);
+    }
 
+    console.log(this.props)
     return (
       <div className="container-fluid">
         <div className='d-flex justify-content-center space-above'>
