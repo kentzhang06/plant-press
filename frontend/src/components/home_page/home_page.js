@@ -1,9 +1,8 @@
-import React from 'react';
-import FooterContainer from './footer_container';
+import React from "react";
+import FooterContainer from "./footer_container";
 
-import { FaBell } from 'react-icons/fa';
-// import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
-import ReminderHomeContainer from '../plants/plant_reminders/reminder_home_container';
+import { FaBell } from "react-icons/fa";
+import ReminderHomeContainer from "../plants/plant_reminders/reminder_home_container";
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -18,12 +17,12 @@ class HomePage extends React.Component {
 
     return (
       <>
-        <div className='container-fluid'>
-          <div className='d-flex justify-content-center'></div>
+        <div className="container-fluid">
+          <div className="d-flex justify-content-center"></div>
 
-          <div className='row d-flex justify-content-center break'>
+          <div className="row d-flex justify-content-center break">
             <h4>
-              <FaBell className='break-icon' />
+              <FaBell className="break-icon" />
               &nbsp;Reminders
             </h4>
           </div>
@@ -32,33 +31,13 @@ class HomePage extends React.Component {
             <ReminderHomeContainer reminder={reminder} key={i} />
           ))}
 
-          {/* <div className='row d-flex justify-content-center reminder-row'>
-              <div className='col'>
-                Water Poison Ivy.<br />
-                <span className='note'>( 2 cups )</span>
-              </div>
-              <div className='col d-flex justify-content-end align-items-center'>
-                <ImCheckboxUnchecked />
-              </div>
-            </div>
-
-            <div className='row d-flex justify-content-center reminder-row done'>
-              <div className='col'>
-                Water Fern.<br />
-                <span className='note'>( 1 cup )</span>
-              </div>
-              <div className='col d-flex justify-content-end align-items-center'>
-                <ImCheckboxChecked />
-              </div>
-            </div> */}
-
-          <div className='row d-flex justify-content-center'>
-            <button onClick={logout} className='logout-btn'>
+          <div className="row d-flex justify-content-center">
+            <button onClick={logout} className="logout-btn">
               Log Out
             </button>
           </div>
 
-          <div className='row-end'></div>
+          <div className="row-end"></div>
         </div>
         <FooterContainer />
       </>
