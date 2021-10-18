@@ -548,3 +548,13 @@ div.clear-margin {
 .margin-top {
   margin-top: 25px;
 }
+
+.heading-height {
+  height: 50px;
+  padding-top: 20px;
+  color: white;
+}
+
+.bg-green {
+  background-color: darkgreen;
+}
