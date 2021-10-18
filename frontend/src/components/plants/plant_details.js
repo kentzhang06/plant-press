@@ -50,8 +50,8 @@ class PlantDetails extends React.Component {
       postFormButton = <button className='plant-detail-btn' onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
 
       userEditReminders =
-        this.props.reminders.map(reminder =>
-          <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
+        this.props.reminders.map((reminder,i) =>
+          <Link key={i} to={`/plant/${plantId}/reminder/${reminder._id}`}>
             <div className='row plant-row-dark'>
               <div className='col-4 plant-row-img'>
                 <FaRegBell />
@@ -90,7 +90,7 @@ class PlantDetails extends React.Component {
           </button>
 
       userEditPlant =
-          <button onClick={() => history.push(`/plant/${plantId}/edit`)}>
+          <button className='plant-detail-btn' onClick={() => history.push(`/plant/${plantId}/edit`)}>
             Edit Plant
           </button>
     } else {
@@ -132,6 +132,10 @@ class PlantDetails extends React.Component {
           {userEditPlant}
           {deleteButton}
           {postFormButton}
+          <button className='plant-detail-btn'
+            onClick={() => history.push(`/plant/${plantId}/posts`)}>
+            View Posts
+          </button>
 
 
 

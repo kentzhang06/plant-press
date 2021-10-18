@@ -22,6 +22,8 @@ import EditReminderContainer from './plants/plant_reminders/edit_reminder_contai
 import NewsFeedContainer from './newsfeed/newsfeed_container';
 import FollowsFeedContainer from './plant_following_feed/follows_feed_container';
 
+import PlantPostsContainer from './post/plant_posts_container';
+
 
 const App = () => (
     <div>
@@ -44,6 +46,8 @@ const App = () => (
             <ProtectedRoute exact path="/plant/:plantId/post/:postId" component={EditPostFormContainer} />
 
             <ProtectedRoute exact path="/user/:userId" component={PlantCollectionContainer}/>
+
+            <ProtectedRoute exact path="/plant/:plantId/posts" component={PlantPostsContainer}/>
 
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

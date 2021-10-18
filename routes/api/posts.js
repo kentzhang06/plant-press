@@ -8,6 +8,7 @@ const validatePostInput = require('../../validation/posts');
 
 router.get('/plants/:plantId', (req, res) => {
   Post.find( {plantId: req.params.plantId} )
+    .sort({updatedAt: -1})
     .then(posts => res.json(posts))
     .catch(err =>
       res.status(404).json({ noPostFound: 'No posts found from this plant'})
@@ -32,7 +33,7 @@ router.get('/index', (req, res) => {
       Post.find({
         _id: { $in: relativePosts }
       })
-      .sort({createdAt: -1})
+      .sort({updatedAt: -1})
       .then(posts => res.json(posts))
       
 
@@ -45,7 +46,7 @@ router.get('/following', passport.authenticate('jwt', { session: false }),
     Post.find({
       plantId: { $in : req.user.plantsFollowed } 
     })
-    .sort({createdAt: -1})
+    .sort({updatedAt: -1})
     .then(posts => res.json(posts))
     .catch(err => res.json({noPosts: "No posts found"}))
   })
