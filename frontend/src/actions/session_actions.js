@@ -6,6 +6,18 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
+export const RECEIVE_USER = "RECEIVE_USER";
+export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
+
+export const receiveUser = user => ({
+  type: RECEIVE_USER,
+  user
+})
+
+export const receiveUserErrors = errors => ({
+  type: RECEIVE_USER_ERRORS,
+  errors
+})
 
 export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
@@ -22,7 +34,7 @@ export const receiveCurrentUser = currentUser => ({
 export const receiveUserSignIn = () => ({
   type: RECEIVE_USER_SIGN_IN
 });
-  
+
 // We dispatch this one to show authentication errors on the frontend
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
@@ -69,3 +81,13 @@ export const logout = () => dispatch => {
     // Dispatch a logout action
   dispatch(logoutUser())
 };
+
+export const fetchUser = userId => dispatch => {
+  return (
+      APIUtil.getUser(userId)
+      .then(user => dispatch(receiveUser(user)))
+      .catch(errors => dispatch(receiveUserErrors(errors)))
+  );
+};
+
+
