@@ -40,7 +40,6 @@ class EditPlant extends React.Component {
       this.props.history.push(`/plant/${this.props.plant._id}`);
     }
 
-    console.log(this.props)
     return (
       <div className="container-fluid">
         <div className='d-flex justify-content-center space-above'>
