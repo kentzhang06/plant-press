@@ -84,7 +84,7 @@ class NewsFeed extends React.Component {
             <p className='feed-date'>{date}</p>
             <p className='feed-text'>
               <Link to={`/user/${post.userId}`}>
-                <p>Owner: {post.owner}</p>
+                <strong>{post.owner}</strong> <br/>
               </Link>
               {post.caption}</p>
           </div>

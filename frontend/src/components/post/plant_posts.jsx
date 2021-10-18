@@ -47,7 +47,7 @@ class PlantPosts extends React.Component {
     }
 
     const editDeleteButtons = (post) => (currentUserId === post.userId) ?
-      <div>
+      <div className='plant-detail-btns'>
         <button className='plant-detail-btn'
           onClick={() => history.push(`/plant/${post.plantId}/post/${post._id}`)}>
           Edit Post
@@ -77,11 +77,11 @@ class PlantPosts extends React.Component {
             <p className='feed-date'>{date}</p>
             <p className='feed-text'>
               <Link to={`/user/${post.userId}`}>
-                <p>Owner: {post.owner}</p>
+                <strong>{post.owner}</strong> <br/>
               </Link>
               {post.caption}</p>
+            {editDeleteButtons(post)}
           </div>
-          {editDeleteButtons(post)}
         </div>
       )
     });

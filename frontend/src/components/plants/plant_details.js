@@ -122,20 +122,23 @@ class PlantDetails extends React.Component {
             {species ? <span>{species}</span> : null}
             </p>
             <p className='plant-bio'>{info}</p>
+            <div className='plant-detail-btns'>
+              {userEditPlant}
+              {deleteButton}
+              {postFormButton}
+              <button className='plant-detail-btn'
+                onClick={() => history.push(`/plant/${plantId}/posts`)}>
+                View Posts
+              </button>
+
+            </div>
           </div>
 
           <div className='row d-flex justify-content-center vertical-center heading-reminder'>
             <h4><FaBell className='heading-icon'/>&nbsp;{name}'s Reminders</h4>
           </div>
-          {userEditReminders}
           {userAddReminder}
-          {userEditPlant}
-          {deleteButton}
-          {postFormButton}
-          <button className='plant-detail-btn'
-            onClick={() => history.push(`/plant/${plantId}/posts`)}>
-            View Posts
-          </button>
+          {userEditReminders}
 
 
 

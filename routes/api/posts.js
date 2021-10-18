@@ -71,9 +71,7 @@ router.post('/:plantId/create',
           owner: req.user.handle,
           caption: req.body.caption,
           imageUrl: req.body.imageUrl
-        });
-        
-        console.log(newPost)
+        });      
     
         let postObj = null;
         newPost.save()
