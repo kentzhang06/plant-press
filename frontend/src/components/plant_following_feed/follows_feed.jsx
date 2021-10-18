@@ -5,6 +5,11 @@ class FollowsFeed extends React.Component {
   componentDidMount() {
     this.props.fetchFollowingPosts()
       .then(() => this.props.fetchFollows());
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'instant' 
+      });
   }
 
   followPlantButton(e, plantId) {
@@ -45,17 +50,21 @@ class FollowsFeed extends React.Component {
       return (
         <div key={i}>
           <div className='feed-heading'>
-            <p>PLANT NAME</p>
+          <Link to={`/plant/${post.plantId}`}>
+            <p>{post.plantName}</p>
+          </Link>
             {followUnfollowButton(post.plantId)}
           </div>
-          <Link to={`/plant/${post.plantId}`}>
-            <div className='img-container'>
-              <img className='feed-img' src={post.imageUrl} alt=""/>
-            </div>
-          </Link>
+          <div className='img-container'>
+            <img className='feed-img' src={post.imageUrl} alt=""/>
+          </div>
           <div className='feed-caption'>
             <p className='feed-date'>{date}</p>
-            <p className='feed-text'>{post.caption}</p>
+            <p className='feed-text'>
+              <Link to={`/user/${post.userId}`}>
+                <p>Owner: {post.owner}</p>
+              </Link>
+              {post.caption}</p>
           </div>
         </div>
       )

@@ -60,30 +60,38 @@ router.post('/:plantId/create',
       return res.status(400).json(errors);
     }
 
-    const newPost = new Post({
-      plantId: req.params.plantId,
-      userId: req.user.id,
-      caption: req.body.caption,
-      imageUrl: req.body.imageUrl
-    });
+    Plant.findOne({ id: req.params.plantId })
+      .then(plant => {
 
+        const newPost = new Post({
+          plantId: req.params.plantId,
+          plantName: plant.name,
+          userId: req.user.id,
+          owner: req.user.handle,
+          caption: req.body.caption,
+          imageUrl: req.body.imageUrl
+        });
+        
+        console.log(newPost)
     
-    let postObj = null;
-    newPost.save()
-      .then(post => {
-        
-        postObj = post.toJSON();
-        
-        Plant.findOneAndUpdate(
-          { _id: req.params.plantId },
-          {
-            $push: { plantPosts: postObj._id }
-          }
-        ).then(() => res.json(post))
-        .catch(err => res.json(err));
-        
-      })
-  }
+        let postObj = null;
+        newPost.save()
+          .then(post => {
+            
+            postObj = post.toJSON();
+            
+            Plant.findOneAndUpdate(
+              { _id: req.params.plantId },
+              {
+                $push: { plantPosts: postObj._id }
+              }
+            ).then(() => res.json(post))
+            .catch(err => res.json(err));
+            
+          })
+      }
+    )
+    }
 );
 
 router.patch('/:postId',
