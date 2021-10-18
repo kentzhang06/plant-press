@@ -4,14 +4,16 @@ import { RiPlantFill } from 'react-icons/ri';
 import { GoPlus } from 'react-icons/go';
 
 class PlantCollection extends React.Component {
+
   componentDidMount() {
     this.props.fetchPlants(this.props.userId);
     this.props.fetchAllPosts("");
+    this.props.fetchUser(this.props.userId)
   }
 
   render() {
-    const { userPlants, posts } = this.props;
-    if (!userPlants || !posts) { 
+    const { userPlants, posts, user } = this.props;
+    if (!userPlants || !posts || !user) {
       return null
     }
     console.log(this.props)
@@ -30,12 +32,22 @@ class PlantCollection extends React.Component {
         )
       }
     }
+    let collectionTitle;
+    if (this.props.userId === this.props.currentUserId){
+       collectionTitle =
+       <div className='row d-flex justify-content-center vertical-center heading'>
+          <h4><RiPlantFill className='heading-icon'/>&nbsp;My Collection</h4>
+        </div>
+    } else {
+      collectionTitle =
+      <div className='row d-flex justify-content-center vertical-center heading'>
+          <h4><RiPlantFill className='heading-icon'/>&nbsp;{user.handle}'s Collection</h4>
+      </div>
+    }
 
     return (
       <div className='container-fluid'>
-        <div className='row d-flex justify-content-center vertical-center heading'>
-          <h4><RiPlantFill className='heading-icon'/>&nbsp;My Collection</h4>
-        </div>
+        {collectionTitle}
         {this.props.userPlants.map((plant, i) => (
           <Link key={i} to={`/plant/${plant._id}`}>
             <div className='row plant-row'>

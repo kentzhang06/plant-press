@@ -16,7 +16,14 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   });
 })
 
-router.get('/following', passport.authenticate('jwt', {session: false}), 
+router.get('/:id', passport.authenticate('jwt', {session: false}), (req, res) => {
+    User.findById( req.params.id )
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({noUserFound: 'No user found with taht ID'}))
+})
+
+router.get('/following', passport.authenticate('jwt', {session: false}),
     (req, res) => {
         res.json(req.user.plantsFollowed)
 })
