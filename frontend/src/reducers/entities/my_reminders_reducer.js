@@ -1,4 +1,8 @@
-import { RECEIVE_MY_REMINDERS, RECEIVE_REMINDER, REMOVE_REMINDER } from "../../actions/reminder_actions";
+import {
+  RECEIVE_MY_REMINDERS,
+  RECEIVE_REMINDER,
+  REMOVE_REMINDER,
+} from "../../actions/reminder_actions";
 
 const MyRemindersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,9 +11,9 @@ const MyRemindersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_MY_REMINDERS:
       let nextState = {};
-      action.reminders.forEach(reminder => {
-        nextState[reminder._id] = reminder
-      })
+      action.reminders.forEach((reminder) => {
+        nextState[reminder._id] = reminder;
+      });
       return nextState;
     case RECEIVE_REMINDER:
       newState[action.reminder._id] = action.reminder;
@@ -20,6 +24,6 @@ const MyRemindersReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default MyRemindersReducer;

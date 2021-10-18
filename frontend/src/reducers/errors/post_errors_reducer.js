@@ -1,7 +1,7 @@
-import { 
+import {
   RECEIVE_POST_ERRORS,
-  CLEAR_POST_ERRORS
-} from '../../actions/post_actions';
+  CLEAR_POST_ERRORS,
+} from "../../actions/post_actions";
 
 const PostErrorsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -14,6 +14,6 @@ const PostErrorsReducer = (state = [], action) => {
     default:
       return state;
   }
-}
+};
 
 export default PostErrorsReducer;

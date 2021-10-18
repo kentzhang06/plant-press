@@ -1,18 +1,19 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PlantSchema = new Schema({
+const PlantSchema = new Schema(
+  {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: 'users'
+      ref: "users",
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     type: {
       type: String,
-      required: true
+      required: true,
     },
     info: {
       type: String,
@@ -20,17 +21,23 @@ const PlantSchema = new Schema({
     species: {
       type: String,
     },
-    plantPosts: [{
-      type: Schema.Types.ObjectId,
-      ref: 'posts'
-    }],
-    plantReminders: [{
-      type: Schema.Types.ObjectId,
-      ref: 'reminders'
-    }]
-  }, {
-    timestamps: true
-  })
+    plantPosts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "posts",
+      },
+    ],
+    plantReminders: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "reminders",
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Plant = mongoose.model('Plant', PlantSchema);
+const Plant = mongoose.model("Plant", PlantSchema);
 module.exports = Plant;
