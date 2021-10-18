@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createPost } from '../../actions/post_actions';
+import { createPost, clearPostErrors } from '../../actions/post_actions';
 import PostForm from './post_form';
 
 
@@ -13,8 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    formAction: (post) => dispatch(createPost(post))
-  }
+    formAction: (post) => dispatch(createPost(post)),
+    clearPostErrors: () => dispatch(clearPostErrors())
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

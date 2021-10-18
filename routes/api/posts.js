@@ -8,6 +8,7 @@ const validatePostInput = require('../../validation/posts');
 
 router.get('/plants/:plantId', (req, res) => {
   Post.find( {plantId: req.params.plantId} )
+    .sort({updatedAt: -1})
     .then(posts => res.json(posts))
     .catch(err =>
       res.status(404).json({ noPostFound: 'No posts found from this plant'})
@@ -32,7 +33,7 @@ router.get('/index', (req, res) => {
       Post.find({
         _id: { $in: relativePosts }
       })
-      .sort({createdAt: -1})
+      .sort({updatedAt: -1})
       .then(posts => res.json(posts))
       
 
@@ -45,7 +46,7 @@ router.get('/following', passport.authenticate('jwt', { session: false }),
     Post.find({
       plantId: { $in : req.user.plantsFollowed } 
     })
-    .sort({createdAt: -1})
+    .sort({updatedAt: -1})
     .then(posts => res.json(posts))
     .catch(err => res.json({noPosts: "No posts found"}))
   })
@@ -60,30 +61,36 @@ router.post('/:plantId/create',
       return res.status(400).json(errors);
     }
 
-    const newPost = new Post({
-      plantId: req.params.plantId,
-      userId: req.user.id,
-      caption: req.body.caption,
-      imageUrl: req.body.imageUrl
-    });
+    Plant.findOne({ id: req.params.plantId })
+      .then(plant => {
 
+        const newPost = new Post({
+          plantId: req.params.plantId,
+          plantName: plant.name,
+          userId: req.user.id,
+          owner: req.user.handle,
+          caption: req.body.caption,
+          imageUrl: req.body.imageUrl
+        });      
     
-    let postObj = null;
-    newPost.save()
-      .then(post => {
-        
-        postObj = post.toJSON();
-        
-        Plant.findOneAndUpdate(
-          { _id: req.params.plantId },
-          {
-            $push: { plantPosts: postObj._id }
-          }
-        ).then(() => res.json(post))
-        .catch(err => res.json(err));
-        
-      })
-  }
+        let postObj = null;
+        newPost.save()
+          .then(post => {
+            
+            postObj = post.toJSON();
+            
+            Plant.findOneAndUpdate(
+              { _id: req.params.plantId },
+              {
+                $push: { plantPosts: postObj._id }
+              }
+            ).then(() => res.json(post))
+            .catch(err => res.json(err));
+            
+          })
+      }
+    )
+    }
 );
 
 router.patch('/:postId',

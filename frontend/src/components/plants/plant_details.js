@@ -50,8 +50,8 @@ class PlantDetails extends React.Component {
       postFormButton = <button className='plant-detail-btn' onClick={() => history.push(`/plant/${plantId}/post`)}>Create Post</button>;
 
       userEditReminders =
-        this.props.reminders.map(reminder =>
-          <Link key={plantId} to={`/plant/${plantId}/reminder/${reminder._id}`}>
+        this.props.reminders.map((reminder,i) =>
+          <Link key={i} to={`/plant/${plantId}/reminder/${reminder._id}`}>
             <div className='row plant-row-dark'>
               <div className='col-4 plant-row-img'>
                 <FaRegBell />
@@ -90,7 +90,7 @@ class PlantDetails extends React.Component {
           </button>
 
       userEditPlant =
-          <button onClick={() => history.push(`/plant/${plantId}/edit`)}>
+          <button className='plant-detail-btn' onClick={() => history.push(`/plant/${plantId}/edit`)}>
             Edit Plant
           </button>
     } else {
@@ -122,16 +122,23 @@ class PlantDetails extends React.Component {
             {species ? <span>{species}</span> : null}
             </p>
             <p className='plant-bio'>{info}</p>
+            <div className='plant-detail-btns'>
+              {userEditPlant}
+              {deleteButton}
+              {postFormButton}
+              <button className='plant-detail-btn'
+                onClick={() => history.push(`/plant/${plantId}/posts`)}>
+                View Posts
+              </button>
+
+            </div>
           </div>
 
           <div className='row d-flex justify-content-center vertical-center heading-reminder'>
             <h4><FaBell className='heading-icon'/>&nbsp;{name}'s Reminders</h4>
           </div>
-          {userEditReminders}
           {userAddReminder}
-          {userEditPlant}
-          {deleteButton}
-          {postFormButton}
+          {userEditReminders}
 
 
 

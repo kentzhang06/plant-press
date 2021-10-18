@@ -53,11 +53,11 @@ const TeamPage = () => {
               <h3 className='purple margin-top'>{member.dev}</h3>
             </div>
             <div className='d-flex justify-content-center'>
-              <a href={member.github} target='_blank'>
+              <a href={member.github} target='_blank' rel="noreferrer">
                 <FaGithub />
               </a>
               &nbsp;
-              <a href={member.linkedIn} target='_blank'>
+              <a href={member.linkedIn} target='_blank' rel="noreferrer">
                 <FaLinkedin />
               </a>
             </div>

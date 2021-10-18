@@ -467,7 +467,7 @@ footer {
 }
 
 .feed-caption {
-  background-color: lightgreen;
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: auto;
   color: black;
@@ -503,14 +503,24 @@ div.clear-margin {
 
 .plant-detail-btn {
   border: none;
-  width: 25%;
+  width: 22%;
   padding: 10px;
   border-radius: 5px;
   background-color: white;
   color: indigo;
   font-weight: bold;
   margin-top: 3%;
-  margin-right: 3%;
+  margin-bottom: 3%;
+}
+
+.plant-detail-btn:hover {
+  background-color: rgb(207, 202, 202);
+  transition: all 0.6s;
+}
+
+.plant-detail-btns {
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchbar {

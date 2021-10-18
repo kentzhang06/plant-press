@@ -6,7 +6,8 @@ import { fetchAllPosts } from "../../actions/post_actions";
 const mapStateToProps = (state, ownProps) => ({
   userId: ownProps.match.params.userId,
   userPlants: Object.values(state.entities.plants),
-  posts: state.entities.posts
+  posts: state.entities.posts,
+  currentUserId: state.session.user.id
 })
 
 const mapDispatchToProps = dispatch => ({

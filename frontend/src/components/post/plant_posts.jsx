@@ -1,21 +1,13 @@
-import React from "react";
+import React from 'react';
 import { Link, withRouter } from "react-router-dom";
-import { ImSearch } from 'react-icons/im';
 
-class NewsFeed extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      keyword: ""
-    }
-    
-    this.onSubmitSearch = this.onSubmitSearch.bind(this);
-  }
+class PlantPosts extends React.Component {
 
   componentDidMount() {
-    this.props.fetchAllPosts(this.state)
-      .then(() => this.props.fetchFollows());
+    const { fetchPlantPosts, fetchFollows, match } = this.props;
+    fetchPlantPosts(match.params.plantId)
+      .then(() => fetchFollows());
+
     window.scroll({
       top: 0, 
       left: 0, 
@@ -23,17 +15,6 @@ class NewsFeed extends React.Component {
       });
   }
 
-  updateKeyword (e) {
-    this.setState({ keyword: e.target.value });
-  }
-
-  onSubmitSearch(e) {
-    e.preventDefault();
-    const { fetchAllPosts } = this.props;
-
-    fetchAllPosts(this.state.keyword);
-    this.setState({keyword: this.state.keyword});
-  }
 
   followPlantButton(e, plantId) {
     e.preventDefault();
@@ -46,7 +27,7 @@ class NewsFeed extends React.Component {
   }
 
   render() {
-    const { posts, follows } = this.props;
+    const { posts, currentUserId, history, deletePost, follows } = this.props;
     if (!posts) return null;
 
     const followUnfollowButton = (plantId) => {
@@ -65,16 +46,28 @@ class NewsFeed extends React.Component {
       }
     }
 
+    const editDeleteButtons = (post) => (currentUserId === post.userId) ?
+      <div className='plant-detail-btns'>
+        <button className='plant-detail-btn'
+          onClick={() => history.push(`/plant/${post.plantId}/post/${post._id}`)}>
+          Edit Post
+        </button>
+        <button className='plant-detail-btn'
+          onClick={() => deletePost(post._id)}>
+          Delete Post
+        </button>
+      </div>
+      : <div></div>;
+
     const displayPosts = posts.map((post, i) => {
       let newDate = new Date(post.createdAt);
       const date = newDate.toDateString();
-      if (i > 10) return null;
       return (
         <div key={i}>
           <div className='feed-heading'>
-          <Link to={`/plant/${post.plantId}`}>
-            <p>{post.plantName}</p>
-          </Link>
+            <Link to={`/plant/${post.plantId}`}>
+              <p>{post.plantName}</p>
+            </Link>
             {followUnfollowButton(post.plantId)}
           </div>
           <div className='img-container'>
@@ -87,29 +80,19 @@ class NewsFeed extends React.Component {
                 <strong>{post.owner}</strong> <br/>
               </Link>
               {post.caption}</p>
+            {editDeleteButtons(post)}
           </div>
         </div>
       )
-      
     });
 
     return(
-      <div className='container-fluid clear-margin'>
-        <form className='search-form' onSubmit={this.onSubmitSearch}>
-          <input
-            type="text"
-            onChange={(e) => this.updateKeyword(e)}
-            value={this.state.keyword}
-            placeholder="Search"
-            className='searchbar'
-          />
-          <button className='search-btn'><ImSearch /></button>
-        </form>
-        { displayPosts }
+      <div>
+        {displayPosts}
         <div className='row-end'></div>
       </div>
     )
   }
-};
+}
 
-export default withRouter(NewsFeed);
+export default withRouter(PlantPosts);
