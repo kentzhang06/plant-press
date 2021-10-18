@@ -58,13 +58,7 @@ class FollowsFeed extends React.Component {
         <div key={i}>
           <div className='feed-heading'>
           <Link to={`/plant/${post.plantId}`}>
-
-            <div className='img-container'>
-              <img className='feed-img' src={post.imageUrl} alt='' />
-            </div>
-
             <p>{post.plantName}</p>
-
           </Link>
             {followUnfollowButton(post.plantId)}
           </div>

@@ -64,34 +64,38 @@ class PlantPosts extends React.Component {
       const date = newDate.toDateString();
       return (
         <div key={i}>
-          <div className='feed-heading'>
+          <div className="feed-heading">
             <Link to={`/plant/${post.plantId}`}>
               <p>{post.plantName}</p>
             </Link>
             {followUnfollowButton(post.plantId)}
           </div>
-          <div className='img-container'>
-            <img className='feed-img' src={post.imageUrl} alt=""/>
+          <div className="img-container">
+            <img className="feed-img" src={post.imageUrl} alt="" />
           </div>
-          <div className='feed-caption'>
-            <p className='feed-date'>{date}</p>
-            <p className='feed-text'>
+          <div className="feed-caption">
+            <p className="feed-date">{date}</p>
+            <p className="feed-text">
               <Link to={`/user/${post.userId}`}>
-                <strong>{post.owner}</strong> <br/>
+                <strong>{post.owner}</strong> <br />
               </Link>
-              {post.caption}</p>
+              {post.caption}
+            </p>
             {editDeleteButtons(post)}
           </div>
         </div>
-      )
+      );
     });
 
-    return(
+    return (
       <div>
+        <div className="d-flex justify-content-center bg-green">
+          <h2 className="subtitle heading-height">Viewing Plant's Posts</h2>
+        </div>
         {displayPosts}
-        <div className='row-end'></div>
+        <div className="row-end"></div>
       </div>
-    )
+    );
   }
 }
 
