@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -20,6 +21,15 @@ class LoginForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    let user = {
+      email: "groot@guardians.gal",
+      password: "groot123"
+    }
+    this.props.login(user);
   }
 
   handleSubmit(e) {
@@ -65,7 +75,7 @@ class LoginForm extends React.Component {
             </Link>
             &nbsp;&nbsp;
           </div>
-          <form className="session-form" onSubmit={this.handleSubmit}>
+          <form className="session-form" >
             <div className="d-flex justify-content-center">
               <h2 className="subtitle">Welcome Back!</h2>
             </div>
@@ -91,7 +101,10 @@ class LoginForm extends React.Component {
             </div>
 
             <div className="d-flex justify-content-center form-padding form-margin">
-              <button className="session-button">Log In!</button>
+              <button onClick={this.handleSubmit} className="session-button">Log In!</button>
+            </div>
+            <div className="d-flex justify-content-center form-padding form-margin">
+              <button onClick={this.handleDemo} className="session-button">Demo</button>
             </div>
             <div className="d-flex justify-content-center form-padding form-margin">
               <Link className="purple bold" to="/signup">

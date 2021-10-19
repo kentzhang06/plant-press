@@ -6,7 +6,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import HomePageContainer from "./home_page/home_page_container";
 import PlantFormContainer from "./plants/plant_form_container";
-import { Welcome } from "./home_page/welcome";
+import Welcome from "./home_page/welcome";
 import PlantCollectionContainer from "./plants/plant_collection_container";
 import PlantDetailsContainer from "./plants/plant_details_container";
 import FooterContainer from "./home_page/footer_container";

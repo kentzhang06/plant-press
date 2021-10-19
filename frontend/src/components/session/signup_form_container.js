@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import {
   signup,
   login,
-  clearSessionErrors,
+  clearSessionErrors
 } from "../../actions/session_actions";
 import SignupForm from "./signup_form";
 
