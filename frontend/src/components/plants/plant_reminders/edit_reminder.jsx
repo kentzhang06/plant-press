@@ -45,7 +45,6 @@ class EditReminder extends React.Component {
 
   render() {
     if (!this.state) return null;
-    console.log(this.props);
     return (
       <div className="container-fluid">
         <div className="d-flex justify-content-center space-above">

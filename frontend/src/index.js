@@ -46,16 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //TEST START
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchPlantPosts = fetchPlantPosts;
-  window.fetchAllPosts = fetchAllPosts;
-  window.createPost = createPost;
-  window.updatePost = updatePost;
-  window.deletePost = deletePost;
-  window.fetchFollows = fetchFollows;
-  window.followPlant = followPlant;
-  window.unfollowPlant = unfollowPlant;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.fetchPlantPosts = fetchPlantPosts;
+  // window.fetchAllPosts = fetchAllPosts;
+  // window.createPost = createPost;
+  // window.updatePost = updatePost;
+  // window.deletePost = deletePost;
+  // window.fetchFollows = fetchFollows;
+  // window.followPlant = followPlant;
+  // window.unfollowPlant = unfollowPlant;
 
   //TEST END
 
