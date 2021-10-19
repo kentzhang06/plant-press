@@ -13,7 +13,7 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentWillUnmount() {
@@ -51,6 +51,16 @@ class SignupForm extends React.Component {
     );
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    let user = {
+      email: "groot@guardians.gal",
+      password: "groot123"
+    }
+    this.props.login(user);
+  }
+
+
   render() {
     return (
       <>
@@ -67,7 +77,7 @@ class SignupForm extends React.Component {
             </Link>
             &nbsp;&nbsp;
           </div>
-          <form className="session-form" onSubmit={this.handleSubmit}>
+          <form className="session-form">
             <div className="d-flex justify-content-center">
               <h2 className="subtitle">Create New Account!</h2>
             </div>
@@ -113,7 +123,10 @@ class SignupForm extends React.Component {
             </div>
 
             <div className="d-flex justify-content-center form-padding form-margin">
-              <button className="session-button">Sign Up!</button>
+              <button onClick={this.handleSubmit} className="session-button">Sign Up!</button>
+            </div>
+            <div className="d-flex justify-content-center form-padding form-margin">
+              <button onClick={this.handleDemo} className="session-button">Demo</button>
             </div>
             <div className="d-flex justify-content-center form-padding form-margin">
               <Link className="purple bold" to="/login">
