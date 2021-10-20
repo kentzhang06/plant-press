@@ -19,6 +19,7 @@ class PhotoForm extends React.Component {
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
     this.handlePostSubmit = this.handlePostSubmit.bind(this);
     this.fileSelected = this.fileSelected.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,10 @@ class PhotoForm extends React.Component {
           this.setState( {id: match.params.postId} );
         })
     }
+  }
+
+  componentWillUnmount() {
+    this.props.clearPostErrors();
   }
 
   async handleImageSubmit(e) {
@@ -56,8 +61,26 @@ class PhotoForm extends React.Component {
 
   handlePostSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state)
-      .then(() => this.props.history.push(`/newsfeed`));
+    this.props.formAction(this.state);
+    if (this.state.imageUrl){
+      this.props.clearPostErrors();
+      this.props.history.push(`/newsfeed`);
+    } 
+    
+  }
+
+  renderErrors() {
+    return(
+      <div className='row'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   render () {
@@ -106,8 +129,9 @@ class PhotoForm extends React.Component {
         </form>
 
         <div className='d-flex justify-content-center form-padding form-margin'>
-          <button onClick={this.handlePostSubmit} className='session-button'> Create Post </button>
+          <button onClick={this.handlePostSubmit} className='session-button'> {formType} </button>
         </div>
+        {this.renderErrors()}
         <div className='row-end'></div>
       </div>
     )

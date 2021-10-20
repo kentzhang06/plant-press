@@ -49,7 +49,7 @@ class PlantCollection extends React.Component {
             </div>
           </Link>
         ))}
-        <Link to='/addplant'>
+        {this.props.userId === this.props.currentUserId ? <Link to='/addplant'>
             <div className='row plant-row-light'>
               <div className='col-4 plant-row-img'>
                 <GoPlus />
@@ -62,7 +62,7 @@ class PlantCollection extends React.Component {
                 </div>
               </div>
             </div>
-          </Link>
+          </Link> : null }
         <div className='row row-end'></div>
       </div>
     )

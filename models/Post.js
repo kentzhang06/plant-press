@@ -6,9 +6,15 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'plants'
   },
+  plantName: {
+    type: String,
+  },
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'users'
+  },
+  owner: {
+    type: String
   },
   caption: {
     type: String
@@ -17,7 +23,6 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  
 }, {
   timestamps: true
 })
