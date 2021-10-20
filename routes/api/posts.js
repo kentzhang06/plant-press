@@ -60,7 +60,7 @@ router.post(
       return res.status(400).json(errors);
     }
 
-    Plant.findOne({ id: req.params.plantId }).then((plant) => {
+    Plant.findOne({ _id: req.params.plantId }).then((plant) => {
       const newPost = new Post({
         plantId: req.params.plantId,
         plantName: plant.name,
