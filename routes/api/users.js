@@ -36,8 +36,6 @@ router.get(
   "/f/following",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    debugger;
-    console.log(req);
     if (req.user.plantsFollowed) {
       res.json(req.user.plantsFollowed);
     } else {
