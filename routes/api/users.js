@@ -27,7 +27,7 @@ router.get(
     User.findById(req.params.id)
       .then((user) => res.json(user))
       .catch((err) =>
-        res.status(404).json({ noUserFound: "No user found with taht ID" })
+        res.status(404).json({ noUserFound: "No user found with that ID" })
       );
   }
 );
@@ -36,7 +36,11 @@ router.get(
   "/following",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    res.json(req.user.plantsFollowed);
+    if (req.user.plantsFollowed) {
+      res.json(req.user.plantsFollowed);
+    } else {
+      res.json({ noPlantsFollowed: "No plants followed found"});
+    }
   }
 );
 
