@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 const express = require('express');
-const favicon = require('serve-favicon');
 const app = express();
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const path = require('path');
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 //require routes
 const users = require('./routes/api/users');

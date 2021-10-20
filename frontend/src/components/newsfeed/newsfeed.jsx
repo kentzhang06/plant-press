@@ -1,29 +1,28 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { ImSearch } from 'react-icons/im';
+import { ImSearch } from "react-icons/im";
 
 class NewsFeed extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      keyword: ""
-    }
-    
+      keyword: "",
+    };
+
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAllPosts(this.state)
-      .then(() => this.props.fetchFollows());
+    this.props.fetchAllPosts(this.state).then(() => this.props.fetchFollows());
     window.scroll({
-      top: 0, 
-      left: 0, 
-      behavior: 'instant' 
-      });
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
   }
 
-  updateKeyword (e) {
+  updateKeyword(e) {
     this.setState({ keyword: e.target.value });
   }
 
@@ -32,17 +31,17 @@ class NewsFeed extends React.Component {
     const { fetchAllPosts } = this.props;
 
     fetchAllPosts(this.state.keyword);
-    this.setState({keyword: this.state.keyword});
+    this.setState({ keyword: this.state.keyword });
   }
 
   followPlantButton(e, plantId) {
     e.preventDefault();
-    this.props.followPlant(plantId)
+    this.props.followPlant(plantId);
   }
 
   unfollowPlantButton(e, plantId) {
     e.preventDefault();
-    this.props.unfollowPlant(plantId)
+    this.props.unfollowPlant(plantId);
   }
 
   render() {
@@ -52,18 +51,24 @@ class NewsFeed extends React.Component {
     const followUnfollowButton = (plantId) => {
       if (follows.includes(plantId)) {
         return (
-          <button className='follow-btn' onClick={(e) => this.unfollowPlantButton(e, plantId)}>
+          <button
+            className="follow-btn"
+            onClick={(e) => this.unfollowPlantButton(e, plantId)}
+          >
             Following
           </button>
-        )
-      }else {
+        );
+      } else {
         return (
-          <button className='follow-btn' onClick={(e) => this.followPlantButton(e, plantId)}>
+          <button
+            className="follow-btn"
+            onClick={(e) => this.followPlantButton(e, plantId)}
+          >
             Follow
           </button>
-        )
+        );
       }
-    }
+    };
 
     const displayPosts = posts.map((post, i) => {
       let newDate = new Date(post.createdAt);
@@ -71,45 +76,47 @@ class NewsFeed extends React.Component {
       if (i > 10) return null;
       return (
         <div key={i}>
-          <div className='feed-heading'>
-          <Link to={`/plant/${post.plantId}`}>
-            <p>{post.plantName}</p>
-          </Link>
+          <div className="feed-heading">
+            <Link to={`/plant/${post.plantId}`}>
+              <p>{post.plantName}</p>
+            </Link>
             {followUnfollowButton(post.plantId)}
           </div>
-          <div className='img-container'>
-            <img className='feed-img' src={post.imageUrl} alt=""/>
+          <div className="img-container">
+            <img className="feed-img" src={post.imageUrl} alt="" />
           </div>
-          <div className='feed-caption'>
-            <p className='feed-date'>{date}</p>
-            <p className='feed-text'>
+          <div className="feed-caption">
+            <p className="feed-date">{date}</p>
+            <p className="feed-text">
               <Link to={`/user/${post.userId}`}>
-                <strong>{post.owner}</strong> <br/>
+                <strong>{post.owner}</strong> <br />
               </Link>
-              {post.caption}</p>
+              {post.caption}
+            </p>
           </div>
         </div>
-      )
-      
+      );
     });
 
-    return(
-      <div className='container-fluid clear-margin'>
-        <form className='search-form' onSubmit={this.onSubmitSearch}>
+    return (
+      <div className="container-fluid clear-margin">
+        <form className="search-form" onSubmit={this.onSubmitSearch}>
           <input
             type="text"
             onChange={(e) => this.updateKeyword(e)}
             value={this.state.keyword}
             placeholder="Search"
-            className='searchbar'
+            className="searchbar"
           />
-          <button className='search-btn'><ImSearch /></button>
+          <button className="search-btn">
+            <ImSearch />
+          </button>
         </form>
-        { displayPosts }
-        <div className='row-end'></div>
+        {displayPosts}
+        <div className="row-end"></div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default withRouter(NewsFeed);

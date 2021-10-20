@@ -1,7 +1,7 @@
-import React from 'react';
-import Select from 'react-select';
-import { Link } from 'react-router-dom';
-import { ImLeaf } from 'react-icons/im';
+import React from "react";
+import Select from "react-select";
+import { Link } from "react-router-dom";
+import { ImLeaf } from "react-icons/im";
 
 class PlantForm extends React.Component {
   constructor(props) {
@@ -9,19 +9,19 @@ class PlantForm extends React.Component {
     this.state = this.props.plant;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.options = [
-      { value: 'Fern', label: 'Fern' },
-      { value: 'Flowering', label: 'Flowering' },
-      { value: 'Foliage', label: 'Foliage' },
-      { value: 'Succulent', label: 'Succulent' },
-      { value: 'Tree', label: 'Tree' },
-      { value: 'Unknown', label: 'Unknown' },
-      { value: 'Unusual', label: 'Unusual' },
+      { value: "Fern", label: "Fern" },
+      { value: "Flowering", label: "Flowering" },
+      { value: "Foliage", label: "Foliage" },
+      { value: "Succulent", label: "Succulent" },
+      { value: "Tree", label: "Tree" },
+      { value: "Unknown", label: "Unknown" },
+      { value: "Unusual", label: "Unusual" },
     ];
     this.customStyles = {
       option: (provided, state) => ({
         ...provided,
-        color: state.isSelected ? 'purple' : 'green',
-        backgroundColor: state.isSelected ? 'lightgreen' : 'white',
+        color: state.isSelected ? "purple" : "green",
+        backgroundColor: state.isSelected ? "lightgreen" : "white",
       }),
     };
   }
@@ -46,12 +46,12 @@ class PlantForm extends React.Component {
 
     return (
       <>
-        <div className='container-fluid'>
-          <div className='d-flex justify-content-center space-above'>
-            <Link to='/dashboard'>
-              <h1 className='title'>
+        <div className="container-fluid">
+          <div className="d-flex justify-content-center space-above">
+            <Link to="/dashboard">
+              <h1 className="title">
                 PlantPress
-                <span className='leaf-icon'>
+                <span className="leaf-icon">
                   <ImLeaf />
                 </span>
                 &nbsp;&nbsp;
@@ -60,24 +60,24 @@ class PlantForm extends React.Component {
             &nbsp;&nbsp;
           </div>
 
-          <form className='session-form' onSubmit={this.handleSubmit}>
-            <div className='d-flex justify-content-center'>
-              <h2 className='subtitle'>Add a New Plant</h2>
+          <form className="session-form" onSubmit={this.handleSubmit}>
+            <div className="d-flex justify-content-center">
+              <h2 className="subtitle">Add a New Plant</h2>
             </div>
 
-            <div className='d-flex justify-content-center form-padding'>
+            <div className="d-flex justify-content-center form-padding">
               <input
-                type='text'
+                type="text"
                 value={name}
-                onChange={this.update('name')}
-                placeholder='Name Your Plant'
-                className='session-input'
+                onChange={this.update("name")}
+                placeholder="Name Your Plant"
+                className="session-input"
               />
             </div>
 
-            <div className='d-flex justify-content-center form-padding form-margin'>
-              <div className='pos-relative custom-select'>
-                <div className='d-flex justify-content-center'>
+            <div className="d-flex justify-content-center form-padding form-margin">
+              <div className="pos-relative custom-select">
+                <div className="d-flex justify-content-center">
                   <h3>Add Plant Type</h3>
                 </div>
                 <Select
@@ -88,28 +88,28 @@ class PlantForm extends React.Component {
               </div>
             </div>
 
-            <div className='d-flex justify-content-center form-padding'>
+            <div className="d-flex justify-content-center form-padding">
               <input
-                type='text'
+                type="text"
                 value={species}
-                onChange={this.update('species')}
-                placeholder='Species (Optional)'
-                className='session-input'
+                onChange={this.update("species")}
+                placeholder="Species (Optional)"
+                className="session-input"
               />
             </div>
 
-            <div className='d-flex justify-content-center form-padding'>
+            <div className="d-flex justify-content-center form-padding">
               <input
-                type='text'
+                type="text"
                 value={info}
-                onChange={this.update('info')}
-                placeholder='Short Bio (Optional)'
-                className='session-input'
+                onChange={this.update("info")}
+                placeholder="Short Bio (Optional)"
+                className="session-input"
               />
             </div>
 
-            <div className='d-flex justify-content-center form-padding form-margin'>
-              <button className='session-button'>Add Plant!</button>
+            <div className="d-flex justify-content-center form-padding form-margin">
+              <button className="session-button">Add Plant!</button>
             </div>
           </form>
         </div>

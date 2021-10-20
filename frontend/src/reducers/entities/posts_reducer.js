@@ -1,17 +1,17 @@
-import { 
+import {
   RECEIVE_POSTS,
   RECEIVE_POST,
-  REMOVE_POST
-} from '../../actions/post_actions';
+  REMOVE_POST,
+} from "../../actions/post_actions";
 
 const PostsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
 
-  switch(action.type) {
+  switch (action.type) {
     case RECEIVE_POSTS:
-      let updatedState = {}
-      action.posts.forEach(ele => {
+      let updatedState = {};
+      action.posts.forEach((ele) => {
         updatedState[ele._id] = ele;
       });
       return updatedState;
@@ -24,6 +24,6 @@ const PostsReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default PostsReducer;

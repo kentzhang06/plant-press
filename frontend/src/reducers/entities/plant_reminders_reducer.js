@@ -1,12 +1,16 @@
-import { RECEIVE_PLANT_REMINDERS, RECEIVE_REMINDER, REMOVE_REMINDER } from "../../actions/reminder_actions";
+import {
+  RECEIVE_PLANT_REMINDERS,
+  RECEIVE_REMINDER,
+  REMOVE_REMINDER,
+} from "../../actions/reminder_actions";
 
 const PlantReminderReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = Object.assign({}, state)
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_PLANT_REMINDERS:
       let nextState = {};
-      action.reminders.forEach(reminder => {
+      action.reminders.forEach((reminder) => {
         nextState[reminder._id] = reminder;
       });
       return nextState;
@@ -19,6 +23,6 @@ const PlantReminderReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default PlantReminderReducer;

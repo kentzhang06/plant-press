@@ -1,4 +1,7 @@
-import { RECEIVE_REMINDER_ERRORS, RECEIVE_REMINDER } from "../../actions/reminder_actions";
+import {
+  RECEIVE_REMINDER_ERRORS,
+  RECEIVE_REMINDER,
+} from "../../actions/reminder_actions";
 
 const ReminderErrorsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -7,10 +10,10 @@ const ReminderErrorsReducer = (state = [], action) => {
     case RECEIVE_REMINDER_ERRORS:
       return action.errors;
     case RECEIVE_REMINDER:
-      return []
+      return [];
     default:
       return state;
   }
-}
+};
 
-export default ReminderErrorsReducer
+export default ReminderErrorsReducer;
