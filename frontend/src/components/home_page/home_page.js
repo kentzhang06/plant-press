@@ -6,7 +6,7 @@ import ReminderHomeContainer from "../plants/plant_reminders/reminder_home_conta
 
 class HomePage extends React.Component {
   componentDidMount() {
-    this.props.fetchMyPlants(this.props.currentUser);
+    this.props.fetchMyPlants(this.props.currentUser.id);
     this.props.fetchMyReminders();
   }
 
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
           <div className="row d-flex justify-content-center break">
             <h4>
               <FaBell className="break-icon" />
-              &nbsp;Reminders
+              &nbsp;Hey <strong>{this.props.currentUser.handle}</strong>, here are your reminders!
             </h4>
           </div>
 

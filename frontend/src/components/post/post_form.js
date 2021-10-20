@@ -58,11 +58,13 @@ class PhotoForm extends React.Component {
 
   handlePostSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
-    if (this.state.imageUrl) {
-      this.props.clearPostErrors();
-      this.props.history.push(`/newsfeed`);
-    }
+    this.props.formAction(this.state)
+      .then(() => {
+        if (this.state.imageUrl) {
+          this.props.clearPostErrors();
+          this.props.history.push(`/newsfeed`);
+        }
+      })
   }
 
   renderErrors() {

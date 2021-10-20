@@ -78,6 +78,10 @@ class EditPlant extends React.Component {
               <Select
                 onChange={this.handleChange}
                 options={this.options}
+                defaultValue={{
+                  label: this.state.type,
+                  value: this.state.type
+                }}
                 styles={this.customStyles}
               />
             </div>
