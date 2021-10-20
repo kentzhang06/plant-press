@@ -23,7 +23,7 @@ class PlantDetails extends React.Component {
     this.props
       .deletePlant(this.props.plantId)
       .then(() =>
-        this.props.history.push(`/user/${this.props.match.params.userId}`)
+        this.props.history.push(`/user/${this.props.currentUserId}`)
       );
   }
 
