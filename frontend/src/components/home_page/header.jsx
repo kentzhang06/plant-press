@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { SiHomeassistant } from 'react-icons/si';
 import {
   RiPlantLine,
@@ -17,7 +17,11 @@ export const Header = (props) => {
   if (!props.user) return null;
   return (
     <header>
-      <h2>PlantPress</h2>
+      <h3>
+        <Link className='darkgreen' to='/dashboard'>
+          PlantPress
+        </Link>
+      </h3>
       <ul className='header-links'>
         <li>
           <NavLink

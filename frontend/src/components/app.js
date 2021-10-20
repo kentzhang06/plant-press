@@ -90,7 +90,7 @@ const App = () => (
         <Route exact path='/info' component={TeamPage} />
         <AuthRoute path='/' component={Welcome} />
       </Switch>
-      <FooterContainer />
+      {/* <FooterContainer /> */}
     </div>
   </>
 );
