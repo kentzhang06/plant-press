@@ -33,7 +33,7 @@ class EditReminder extends React.Component {
   deleteReminderSubmit(e) {
     e.preventDefault();
     this.props
-      .deletePlantReminder(this.state.id)
+      .deletePlantReminder(this.state._id)
       .then(() => this.props.history.push(`/plant/${this.props.plantId}`));
   }
 

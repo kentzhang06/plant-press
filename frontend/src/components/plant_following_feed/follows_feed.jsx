@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 
 class FollowsFeed extends React.Component {
   componentDidMount() {
-    this.props.fetchFollowingPosts().then(() => this.props.fetchFollows());
+    this.props.fetchFollows();
+    this.props.fetchFollowingPosts();
     window.scroll({
       top: 0,
       left: 0,
@@ -23,7 +24,7 @@ class FollowsFeed extends React.Component {
 
   render() {
     const { posts, follows } = this.props;
-    if (!posts) return null;
+    if (!posts || !follows) return null;
 
     const followUnfollowButton = (plantId) => {
       if (follows.includes(plantId)) {

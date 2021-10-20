@@ -1,8 +1,12 @@
 {
   "name": "plant-press-mern",
   "version": "1.0.0",
+  "engines": {
+  "node": "16.x"
+  },
   "description": "Plant Press MERN stack project",
   "main": "app.js",
+  
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",

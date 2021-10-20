@@ -58,11 +58,13 @@ class PhotoForm extends React.Component {
 
   handlePostSubmit(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
-    if (this.state.imageUrl) {
-      this.props.clearPostErrors();
-      this.props.history.push(`/newsfeed`);
-    }
+    this.props.formAction(this.state)
+      .then(() => {
+        if (this.state.imageUrl) {
+          this.props.clearPostErrors();
+          this.props.history.push(`/newsfeed`);
+        }
+      })
   }
 
   renderErrors() {
@@ -92,13 +94,26 @@ class PhotoForm extends React.Component {
     const displayImageButton =
       formType === "Create Post" ? (
         <div>
+          <div
+            className="d-flex justify-content-center form-padding form-margin"
+            id="form-text-tips"
+          >
+            1. Choose an image file
+          </div>
           <div className="d-flex justify-content-center form-padding form-margin">
             <input
               className="session-button"
               onChange={this.fileSelected}
               type="file"
               accept="image/*"
+              required
             ></input>
+          </div>
+          <div
+            className="d-flex justify-content-center form-padding form-margin"
+            id="form-text-tips"
+          >
+            2. Click 'Upload Image'
           </div>
           <div className="d-flex justify-content-center form-padding form-margin">
             <button className="session-button" type="submit">
@@ -132,11 +147,17 @@ class PhotoForm extends React.Component {
               onChange={(e) => this.setCaption(e)}
               type="text"
               value={caption}
-              placeholder="...Enter a caption"
+              placeholder="...Enter a caption (optional)"
               className="session-input"
             />
           </div>
         </form>
+        <div
+          className="d-flex justify-content-center form-padding form-margin"
+          id="form-text-tips"
+        >
+          Click '{formType}'
+        </div>
 
         <div className="d-flex justify-content-center form-padding form-margin">
           <button onClick={this.handlePostSubmit} className="session-button">

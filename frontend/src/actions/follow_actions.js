@@ -9,10 +9,11 @@ const receivedFollows = (follows) => ({
   follows,
 });
 
-export const fetchFollows = () => (dispatch) =>
+export const fetchFollows = () => (dispatch) => (
   FollowAPIUtil.fetchFollows().then((result) =>
     dispatch(receivedFollows(result.data))
-  );
+  )
+);
 
 const receivedFollow = (plantId) => ({
   type: RECEIVE_FOLLOW,

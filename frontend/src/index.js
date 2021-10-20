@@ -8,19 +8,19 @@ import { logout } from './actions/session_actions';
 // import "./css/style.css";
 import './css/main.css';
 
-import {
-  fetchPlantPosts,
-  fetchAllPosts,
-  createPost,
-  updatePost,
-  deletePost,
-} from './actions/post_actions';
+// import {
+//   fetchPlantPosts,
+//   fetchAllPosts,
+//   createPost,
+//   updatePost,
+//   deletePost,
+// } from "./actions/post_actions";
 
-import {
-  fetchFollows,
-  followPlant,
-  unfollowPlant,
-} from './actions/follow_actions';
+// import {
+//   fetchFollows,
+//   followPlant,
+//   unfollowPlant,
+// } from "./actions/follow_actions";
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

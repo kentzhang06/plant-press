@@ -221,6 +221,11 @@ footer {
   display: inline;
 }
 
+#form-text-tips {
+  font-size: 1.1em;
+  color: purple;
+}
+
 .custom-select {
   width: 50%;
   color: purple;
