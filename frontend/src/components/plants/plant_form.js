@@ -59,6 +59,7 @@ class PlantForm extends React.Component {
 
         <form
           className="white-box flex-col-center"
+          id="plant-form"
           onSubmit={this.handleSubmit}
         >
           <div className="d-flex justify-content-center">
