@@ -260,3 +260,7 @@ button {
 .subtitle {
   text-align: center;
 }
+#plant-form input {
+  margin-top: 5%;
+}
+
