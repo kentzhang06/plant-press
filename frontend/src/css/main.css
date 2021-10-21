@@ -181,3 +181,44 @@ button {
   padding: 10px 15px;
   border-radius: 25px;
 }
+
+.feed-img {
+  /* max-width: 600px; */
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background-color: black;
+  object-fit: cover;
+}
+
+.img-container {
+  width: 100%;
+  background-color: white;
+}
+
+.feed-container {
+  position: relative;
+  height: 100%;
+}
+
+.search-form {
+  width: 50%;
+  min-width: 340px;
+  position: fixed;
+  top: 90px;
+  background-color: black;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.searchbar {
+  width: 100%;
+}
+
+.search-btn {
+  width: 100px;
+}
+
+.search-feed {
+  /* margin-top: 40%; */
+}
