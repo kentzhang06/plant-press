@@ -46,7 +46,7 @@ class EditReminder extends React.Component {
   render() {
     if (!this.state) return null;
     return (
-      <div className="flex-col-center search-feed">
+      <main className="flex-col-center">
         <div className="d-flex justify-content-center space-above">
           <Link to="/dashboard">
             <h1 className="title darkgreen">
@@ -101,7 +101,7 @@ class EditReminder extends React.Component {
             </button>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 }

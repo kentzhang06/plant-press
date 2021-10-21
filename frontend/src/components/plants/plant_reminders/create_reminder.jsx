@@ -29,7 +29,7 @@ class CreateReminder extends React.Component {
 
   render() {
     return (
-      <div className="flex-col-center search-feed">
+      <main className="flex-col-center">
         <div className="d-flex justify-content-center space-above">
           <Link to="/dashboard">
             <h1 className="title darkgreen">
@@ -80,7 +80,7 @@ class CreateReminder extends React.Component {
           </form>
           <div className="row-end"></div>
         </div>
-      </div>
+      </main>
     );
   }
 }
