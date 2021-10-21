@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,800;1,400;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap');
+
+body {
+  background-color: honeydew;
+  background: linear-gradient(45deg, lavenderblush 0%, honeydew 50%, #eee 100%)
+    no-repeat 50% fixed;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: darkgreen;
+  font-family: 'Karla', sans-serif;
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: bold;
+  font-size: 3em;
+  color: indigo;
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 500;
+  color: indigo;
+}
+
+h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8em;
+}
+
+h4 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 500;
+  color: indigo;
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.2em;
+  color: purple;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 0.8em;
+  color: darkgreen;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header {
+  background-color: white;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: darkgreen;
+  z-index: 10;
+}
+
+main {
+  margin-top: 85px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-col {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+a:hover {
+  color: mediumvioletred;
+}
+
+input[type='text'],
+input[type='password'] {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+button {
+  border: none;
+  background-color: mediumvioletred;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 25px;
+  margin: 5px;
+}
+
+.header-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.header-links li {
+  padding: 6px;
+  font-size: 1.5em;
+}
+
+.white-box {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  margin: 10px;
+}
+
+.darkgreen {
+  color: darkgreen;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.title-header {
+  margin-bottom: 40px;
+}
+
+.info-sticky {
+  font-size: 2.4em;
+  color: indigo;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.instruction {
+  font-weight: bold;
+  color: indigo;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.file-btn {
+  background-color: mediumvioletred;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+}

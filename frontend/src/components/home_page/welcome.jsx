@@ -1,45 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { ImLeaf } from "react-icons/im";
-import { login } from "../../actions/session_actions"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ImLeaf } from 'react-icons/im';
+import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   demoUser: {
-    email: "groot@guardians.gal",
-    password: "groot123"
-  }
-})
+    email: 'groot@guardians.gal',
+    password: 'groot123',
+  },
+});
 
-const mapDispatchToProps = dispatch => ({
-  login: (user) => dispatch(login(user))
-})
+const mapDispatchToProps = (dispatch) => ({
+  login: (user) => dispatch(login(user)),
+});
 
 const Welcome = (props) => {
-
   return (
-    <div className="container-fluid">
-      <div className="d-flex justify-content-center push-center">
-        <h1 className="title-dark">
-          PlantPress
-          <span className="leaf-icon">
-            <ImLeaf />
-          </span>
-        </h1>
-      </div>
+    <main>
+      <div className='white-box'>
+        <div className='flex-col-center'>
+          <h2>Welcome to</h2>
+          <h1 className='title-header'>PlantPress</h1>
 
-      <Link to="/login">
-        <div className="d-flex justify-content-center splash-login">Log In</div>
-      </Link>
-      <div className="d-flex justify-content-center splash-signup">
+          <Link to='/login'>
+            <button>Log In</button>
+          </Link>
+          <Link to='#'>
+            <button
+              onClick={() => props.login(props.demoUser)}
+              className='d-flex justify-content-center splash-login'
+            >
+              Demo
+            </button>
+          </Link>
+          <Link to='/signup'>Create A New Account</Link>
+        </div>
       </div>
-      <Link to="#"> 
-        <div onClick={() => props.login(props.demoUser)} className="d-flex justify-content-center splash-login">Demo</div>
-      </Link>
-      <div className="d-flex justify-content-center splash-signup">
-        <Link to="/signup">Create A New Account</Link>
-      </div>
-    </div>
+    </main>
   );
 };
 

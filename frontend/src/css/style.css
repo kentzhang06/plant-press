@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,800;1,400;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500&display=swap');
@@ -10,7 +10,6 @@ body {
     no-repeat 50% fixed;
   font-family: 'Karla', sans-serif;
   letter-spacing: -0.05em;
-  /* height: 100vh; */
   max-width: 600px;
   margin: auto;
 }
@@ -264,7 +263,7 @@ footer {
 }
 
 .feed-img {
-  /* max-width: 600px; */
+  max-width: 600px;
   width: 100%;
   height: auto;
   margin: auto;
@@ -285,7 +284,6 @@ footer {
 
 .reminder-row {
   height: 15%;
-  /* background-color: rgba(255, 255, 255, 0.3); */
   background-color: purple;
   border-top: 1px solid plum;
   border-bottom: 2px solid indigo;
@@ -340,7 +338,6 @@ footer {
   padding: 1% 5%;
   background-color: white;
   margin: 0 25% 0 25%;
-  /* width: 50vw; */
   text-align: center;
   border-radius: 20px;
   box-shadow: 0px 0px 20px green;
@@ -572,4 +569,4 @@ div.clear-margin {
 
 .bg-green {
   background-color: darkgreen;
-}
+} */

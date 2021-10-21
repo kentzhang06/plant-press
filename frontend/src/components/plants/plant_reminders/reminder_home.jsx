@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { ImCheckboxUnchecked, ImCheckboxChecked } from "react-icons/im";
+import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 
 class RemindersHomePage extends React.Component {
   constructor(props) {
@@ -25,37 +25,28 @@ class RemindersHomePage extends React.Component {
     let d = date.getDate();
     let m = date.getMonth() + 1;
     return (
-      <div
-        className={
-          this.state.completed
-            ? "row d-flex justify-content-center reminder-row done"
-            : "row d-flex justify-content-center reminder-row"
-        }
-      >
-        <div className="col-9">
-          {plant.name}
-          <br />
-          <span className="note">{reminder.reminderText}</span>
-          <br />
-          <span className="note">
-            Complete every {reminder.frequency} day(s)
-          </span>
-          <br />
-          <span className="note">Last completed: {m + "/" + d}</span>
-        </div>
-        <div
-          className={
-            this.state.completed
-              ? "col-3 d-flex justify-content-end align-items-center"
-              : "col-3 d-flex justify-content-end align-items-center"
-          }
-          onClick={this.handleClick}
-        >
-          {this.state.completed ? (
-            <ImCheckboxChecked />
-          ) : (
-            <ImCheckboxUnchecked />
-          )}
+      <div className='white-box'>
+        <div className='flex-row-between'>
+          <div>
+            <h4>{plant.name}</h4>
+            <h5>{reminder.reminderText}</h5>
+            <h6>Complete every {reminder.frequency} day(s)</h6>
+            <h6>Last completed: {m + '/' + d}</h6>
+          </div>
+          <div
+            className={
+              this.state.completed
+                ? 'col-3 d-flex justify-content-end align-items-center'
+                : 'col-3 d-flex justify-content-end align-items-center'
+            }
+            onClick={this.handleClick}
+          >
+            {this.state.completed ? (
+              <ImCheckboxChecked />
+            ) : (
+              <ImCheckboxUnchecked />
+            )}
+          </div>
         </div>
       </div>
     );
