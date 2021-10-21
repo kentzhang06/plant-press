@@ -29,7 +29,7 @@ h2 {
 
 h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.8em;
+  /* font-size: 1.8em; */
 }
 
 h4 {
@@ -92,7 +92,8 @@ a:hover {
 }
 
 input[type='text'],
-input[type='password'] {
+input[type='password'],
+input[type='number'] {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px 15px;
@@ -256,6 +257,9 @@ button {
   padding-bottom: 2%;
 }
 
+.subtitle {
+  text-align: center;
+}
 #plant-form input {
   margin-top: 5%;
 }
