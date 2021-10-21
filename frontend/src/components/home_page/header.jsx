@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { SiHomeassistant } from 'react-icons/si';
+import { IoIosLogOut } from 'react-icons/io';
 import {
   RiPlantLine,
   RiPlantFill,
@@ -59,13 +60,9 @@ export const Header = (props) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/info'>
-            {location.pathname === '/info' ? (
-              <RiInformationFill className='indigo' />
-            ) : (
-              <RiInformationLine className='darkgreen' />
-            )}
-          </NavLink>
+          <Link onClick={props.logout} className='darkgreen'>
+            <IoIosLogOut />
+          </Link>
         </li>
       </ul>
     </header>

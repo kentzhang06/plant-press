@@ -94,14 +94,14 @@ class PhotoForm extends React.Component {
       formType === 'Create Post' ? (
         <div>
           <div
-            className='d-flex justify-content-center form-padding form-margin'
+            className='d-flex justify-content-center form-padding form-margin instruction'
             id='form-text-tips'
           >
             1. Choose an image file
           </div>
           <div className='d-flex justify-content-center form-padding form-margin'>
             <input
-              className='session-button'
+              className='file-btn'
               onChange={this.fileSelected}
               type='file'
               accept='image/*'
@@ -109,7 +109,7 @@ class PhotoForm extends React.Component {
             ></input>
           </div>
           <div
-            className='d-flex justify-content-center form-padding form-margin'
+            className='d-flex justify-content-center form-padding form-margin instruction'
             id='form-text-tips'
           >
             2. Click 'Upload Image'
@@ -126,7 +126,8 @@ class PhotoForm extends React.Component {
 
     return (
       <main>
-        <div className='white-box'>
+        <div className='white-box flex-col-center'>
+          <h2 className='subtitle darkgreen'>Post a Photo!</h2>
           <form className='main-col' onSubmit={this.handleImageSubmit}>
             {displayImageButton}
             {displayImage}
@@ -135,14 +136,16 @@ class PhotoForm extends React.Component {
                 onChange={(e) => this.setCaption(e)}
                 type='text'
                 value={caption}
-                placeholder='...Enter a caption (optional)'
+                placeholder='Enter caption.'
                 className='session-input'
               />
             </div>
           </form>
-          <div className='main-col'>Click '{formType}'</div>
+          <div className='flex-row-center instruction'>
+            3. Click '{formType}'
+          </div>
 
-          <div className='main-col'>
+          <div className='flex-row-center'>
             <button onClick={this.handlePostSubmit} className='session-button'>
               {' '}
               {formType}{' '}

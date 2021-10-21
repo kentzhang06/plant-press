@@ -23,6 +23,7 @@ import FollowsFeedContainer from './plant_following_feed/follows_feed_container'
 
 import PlantPostsContainer from './post/plant_posts_container';
 import HeaderContainer from './home_page/header_container';
+import { InfoButton } from './home_page/info_buton';
 
 const App = () => (
   <>
@@ -91,6 +92,7 @@ const App = () => (
         <AuthRoute path='/' component={Welcome} />
       </Switch>
       {/* <FooterContainer /> */}
+      <InfoButton />
     </div>
   </>
 );
