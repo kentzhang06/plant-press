@@ -45,75 +45,74 @@ class PlantForm extends React.Component {
     let { name, info, species } = this.state;
 
     return (
-      <>
-        <div className="container-fluid">
-          <div className="d-flex justify-content-center space-above">
-            <Link to="/dashboard">
-              <h1 className="title">
-                PlantPress
-                <span className="leaf-icon">
-                  <ImLeaf />
-                </span>
-                &nbsp;&nbsp;
-              </h1>
-            </Link>
-            &nbsp;&nbsp;
+      <main className="flex-col-center">
+        <div className="d-flex justify-content-center space-above">
+          <Link to="/dashboard">
+            <h1 className="darkgreen">
+              PlantPress
+              <span className="leaf-icon">
+                <ImLeaf />
+              </span>
+            </h1>
+          </Link>
+        </div>
+
+        <form
+          className="white-box flex-col-center"
+          onSubmit={this.handleSubmit}
+        >
+          <div className="d-flex justify-content-center">
+            <h2 className="subtitle">Add a New Plant</h2>
           </div>
 
-          <form className="session-form" onSubmit={this.handleSubmit}>
-            <div className="d-flex justify-content-center">
-              <h2 className="subtitle">Add a New Plant</h2>
-            </div>
+          <div className="d-flex justify-content-center form-padding">
+            <input
+              type="text"
+              value={name}
+              onChange={this.update("name")}
+              placeholder="Name Your Plant"
+              className="session-input"
+            />
+          </div>
 
-            <div className="d-flex justify-content-center form-padding">
-              <input
-                type="text"
-                value={name}
-                onChange={this.update("name")}
-                placeholder="Name Your Plant"
-                className="session-input"
-              />
-            </div>
-
-            <div className="d-flex justify-content-center form-padding form-margin">
-              <div className="pos-relative custom-select">
-                <div className="d-flex justify-content-center">
-                  <h3>Add Plant Type</h3>
-                </div>
-                <Select
-                  onChange={this.handleChange}
-                  options={this.options}
-                  styles={this.customStyles}
-                />
+          <div className="d-flex justify-content-center form-padding form-margin">
+            <div className="pos-relative custom-select">
+              <div className="d-flex justify-content-center">
+                <h3>Add Plant Type</h3>
               </div>
-            </div>
-
-            <div className="d-flex justify-content-center form-padding">
-              <input
-                type="text"
-                value={species}
-                onChange={this.update("species")}
-                placeholder="Species (Optional)"
-                className="session-input"
+              <Select
+                onChange={this.handleChange}
+                options={this.options}
+                styles={this.customStyles}
               />
             </div>
+          </div>
 
-            <div className="d-flex justify-content-center form-padding">
-              <input
-                type="text"
-                value={info}
-                onChange={this.update("info")}
-                placeholder="Short Bio (Optional)"
-                className="session-input"
-              />
-            </div>
+          <div className="d-flex justify-content-center form-padding">
+            <input
+              type="text"
+              value={species}
+              onChange={this.update("species")}
+              placeholder="Species (Optional)"
+              className="session-input"
+            />
+          </div>
 
-            <div className="d-flex justify-content-center form-padding form-margin">
-              <button className="session-button">Add Plant!</button>
-            </div>
-          </form>
-        </div>
-      </>
+          <div className="d-flex justify-content-center form-padding">
+            <input
+              type="text"
+              value={info}
+              onChange={this.update("info")}
+              placeholder="Short Bio (Optional)"
+              className="session-input"
+            />
+          </div>
+
+          <div className="flex-row-center">
+            <button className="session-button">Add Plant!</button>
+          </div>
+        </form>
+      </main>
     );
   }
 }

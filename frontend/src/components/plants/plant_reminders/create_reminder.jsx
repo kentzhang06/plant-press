@@ -58,7 +58,7 @@ class CreateReminder extends React.Component {
             />
           </div>
 
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center ">
             <h3 className="form-subtitle">Enter Number of Days Between</h3>
           </div>
           <div className="d-flex justify-content-center form-padding">
