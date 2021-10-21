@@ -46,10 +46,10 @@ class EditReminder extends React.Component {
   render() {
     if (!this.state) return null;
     return (
-      <div className="container-fluid">
+      <div className="flex-col-center search-feed">
         <div className="d-flex justify-content-center space-above">
           <Link to="/dashboard">
-            <h1 className="title">
+            <h1 className="title darkgreen">
               PlantPress
               <span className="leaf-icon">
                 <ImLeaf />
@@ -59,44 +59,47 @@ class EditReminder extends React.Component {
           </Link>
           &nbsp;&nbsp;
         </div>
-        <form className="session-form" onSubmit={this.handleSubmit}>
-          <div className="d-flex justify-content-center">
-            <h2 className="subtitle">Edit Reminder</h2>
-          </div>
+        <div className="white-box">
+          <form className="session-form" onSubmit={this.handleSubmit}>
+            <div className="d-flex justify-content-center">
+              <h2 className="subtitle">Edit Reminder</h2>
+            </div>
 
-          <div className="d-flex justify-content-center form-padding">
-            <input
-              type="text"
-              value={this.state.reminderText}
-              onChange={this.update("reminderText")}
-              className="session-input"
-            />
-          </div>
+            <div className="d-flex justify-content-center form-padding">
+              <input
+                type="text"
+                value={this.state.reminderText}
+                onChange={this.update("reminderText")}
+                className="session-input"
+              />
+            </div>
 
-          <div className="d-flex justify-content-center">
-            <h3 className="form-subtitle">Enter Number of Days Between</h3>
-          </div>
-          <div className="d-flex justify-content-center form-padding">
-            <input
-              type="number"
-              value={this.state.frequency}
-              onChange={this.update("frequency")}
-              min="1"
-              max="100"
-            />
-          </div>
+            <div className="d-flex justify-content-center">
+              <h3 className="form-subtitle">Enter Number of Days Between</h3>
+            </div>
+            <div className="d-flex justify-content-center form-padding">
+              <input
+                type="number"
+                value={this.state.frequency}
+                onChange={this.update("frequency")}
+                min="1"
+                max="100"
+                className="session-input"
+              />
+            </div>
+            <div className="d-flex justify-content-center form-padding form-margin">
+              <button className="session-button">Edit Reminder</button>
+            </div>
+          </form>
+
           <div className="d-flex justify-content-center form-padding form-margin">
-            <button className="session-button">Edit Reminder</button>
+            <button
+              onClick={this.deleteReminderSubmit}
+              className="session-button"
+            >
+              Delete Reminder
+            </button>
           </div>
-        </form>
-
-        <div className="d-flex justify-content-center form-padding form-margin">
-          <button
-            onClick={this.deleteReminderSubmit}
-            className="session-button"
-          >
-            Delete Reminder
-          </button>
         </div>
       </div>
     );
