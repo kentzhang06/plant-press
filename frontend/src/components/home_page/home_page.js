@@ -17,30 +17,14 @@ class HomePage extends React.Component {
 
     return (
       <>
-        <div className='container-fluid'>
-          <div className='d-flex justify-content-center'></div>
-
-          <div className='row d-flex justify-content-center break'>
-            <h4>
-              <FaBell className='break-icon' />
-              &nbsp;Hey <strong>{this.props.currentUser.handle}</strong>, here
-              are your reminders!
-            </h4>
-          </div>
-
+        <main className='main-col'>
           {this.props.reminders.map((reminder, i) => (
             <ReminderHomeContainer reminder={reminder} key={i} />
           ))}
-
-          <div className='row d-flex justify-content-center'>
-            <button onClick={logout} className='logout-btn'>
-              Log Out
-            </button>
-          </div>
-
-          <div className='row-end'></div>
-        </div>
-        {/* <FooterContainer /> */}
+          <button onClick={logout} className='logout-btn'>
+            Log Out
+          </button>
+        </main>
       </>
     );
   }
