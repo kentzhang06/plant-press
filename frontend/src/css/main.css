@@ -230,6 +230,26 @@ button {
   margin-top: 150px 
 }
 
+
+.plant-detail-btns {
+  flex-wrap: wrap;
+}
+
+.reminder-container {
+  background-color: honeydew;
+  height: 60px;
+  border-radius: 5px;
+  border: solid 1px;
+  align-items: center;
+  margin-bottom: 5px;
+  border-color: lightgreen;
+}
+
+.plant-row-name {
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
 @media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
   /* insert styles here */
   .search-feed {
