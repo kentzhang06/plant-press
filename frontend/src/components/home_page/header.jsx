@@ -60,9 +60,9 @@ export const Header = (props) => {
           </NavLink>
         </li>
         <li>
-          <Link onClick={props.logout} className='darkgreen'>
+          <div onClick={props.logout} className='darkgreen'>
             <IoIosLogOut />
-          </Link>
+          </div>
         </li>
       </ul>
     </header>

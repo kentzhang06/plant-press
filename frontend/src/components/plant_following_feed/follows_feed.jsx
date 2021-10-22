@@ -54,8 +54,8 @@ class FollowsFeed extends React.Component {
 
       if (i > 10) return null;
       return (
-        <div key={i}>
-          <div className="feed-heading">
+        <div className="white-box" key={i}>
+          <div className="feed-heading flex-row-between">
             <Link to={`/plant/${post.plantId}`}>
               <p>{post.plantName}</p>
             </Link>
@@ -78,13 +78,12 @@ class FollowsFeed extends React.Component {
     });
 
     return (
-      <div className="container-fluid clear-margin">
+      <main className="flex-col-center">
         <div className="d-flex justify-content-center bg-green">
           <h2 className="subtitle heading-height">Following Feed</h2>
         </div>
         {displayPosts}
-        <div className="row-end"></div>
-      </div>
+      </main>
     );
   }
 }

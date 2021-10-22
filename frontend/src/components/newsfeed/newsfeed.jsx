@@ -75,19 +75,19 @@ class NewsFeed extends React.Component {
       const date = newDate.toDateString();
       if (i > 10) return null;
       return (
-        <div className='white-box' key={i}>
-          <div className='feed-heading'>
+        <div className="white-box" key={i}>
+          <div className="feed-heading flex-row-between">
             <Link to={`/plant/${post.plantId}`}>
               <p>{post.plantName}</p>
             </Link>
             {followUnfollowButton(post.plantId)}
           </div>
-          <div className='img-container'>
-            <img className='feed-img' src={post.imageUrl} alt='' />
+          <div className="img-container">
+            <img className="feed-img" src={post.imageUrl} alt="" />
           </div>
-          <div className='feed-caption'>
-            <p className='feed-date'>{date}</p>
-            <p className='feed-text'>
+          <div className="feed-caption">
+            <p className="feed-date">{date}</p>
+            <p className="feed-text">
               <Link to={`/user/${post.userId}`}>
                 <strong>{post.owner}</strong> <br />
               </Link>

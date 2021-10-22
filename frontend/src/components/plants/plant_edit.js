@@ -41,21 +41,23 @@ class EditPlant extends React.Component {
     }
 
     return (
-      <div className="container-fluid">
+      <main className="flex-col-center">
         <div className="d-flex justify-content-center space-above">
           <Link to="/">
-            <h1 className="title">
+            <h1 className="darkgreen">
               PlantPress
               <span className="leaf-icon">
                 <ImLeaf />
               </span>
-              &nbsp;&nbsp;
             </h1>
           </Link>
-          &nbsp;&nbsp;
         </div>
 
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <form
+          className="white-box flex-col-center"
+          onSubmit={this.handleSubmit}
+          id="plant-form"
+        >
           <div className="d-flex justify-content-center">
             <h2 className="subtitle">Edit Plant</h2>
           </div>
@@ -80,7 +82,7 @@ class EditPlant extends React.Component {
                 options={this.options}
                 defaultValue={{
                   label: this.state.type,
-                  value: this.state.type
+                  value: this.state.type,
                 }}
                 styles={this.customStyles}
               />
@@ -111,7 +113,7 @@ class EditPlant extends React.Component {
             <button className="session-button">Edit Plant!</button>
           </div>
         </form>
-      </div>
+      </main>
     );
   }
 }
