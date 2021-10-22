@@ -222,3 +222,22 @@ button {
 .search-feed {
   /* margin-top: 40%; */
 }
+
+.plant-detail-btns {
+  flex-wrap: wrap;
+}
+
+.reminder-container {
+  background-color: honeydew;
+  height: 60px;
+  border-radius: 5px;
+  border: solid 1px;
+  align-items: center;
+  margin-bottom: 5px;
+  border-color: lightgreen;
+}
+
+.plant-row-name {
+  margin-bottom: 0px;
+  padding: 0px;
+}
