@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
     species: "",
   },
   currentUserId: state.session.user.id,
+  errors: state.errors.plantErrors
 });
 
 const mapDispatchToProps = (dispatch) => ({

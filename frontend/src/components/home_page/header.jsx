@@ -5,8 +5,6 @@ import { IoIosLogOut } from 'react-icons/io';
 import {
   RiPlantLine,
   RiPlantFill,
-  RiInformationLine,
-  RiInformationFill,
   RiNewspaperLine,
   RiNewspaperFill,
   RiSearchEyeLine,
