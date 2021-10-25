@@ -140,7 +140,7 @@ class PhotoForm extends React.Component {
             </div>
           </form>
           <div className='flex-row-center instruction'>
-            3. Click '{formType}'
+            {formType ==='Create Post' ? '3.' : ''} Click '{formType}'
           </div>
 
           <div className='flex-row-center'>

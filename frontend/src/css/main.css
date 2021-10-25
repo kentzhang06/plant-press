@@ -109,6 +109,10 @@ button {
   margin: 5px;
 }
 
+.vertical-center {
+  align-items: center;
+}
+
 .header-links {
   list-style-type: none;
   display: flex;
@@ -144,6 +148,13 @@ button {
   justify-content: center;
 }
 
+.flex-col-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;
@@ -167,7 +178,7 @@ button {
   position: fixed;
   bottom: 20px;
   right: 10px;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .info-sticky:hover {
@@ -187,6 +198,27 @@ button {
   padding: 10px 15px;
   border-radius: 25px;
 }
+
+.collection-box {
+  width: 80%;
+}
+
+.collection-text {
+}
+
+/* .plant-row-img {
+  background-color: purple;
+  background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%)
+    no-repeat 50% fixed;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: white;
+  font-weight: 900;
+  text-shadow: #333 1px 1px 20px;
+} */
 
 .feed-img {
   /* max-width: 600px; */
@@ -213,7 +245,6 @@ button {
   position: fixed;
   top: 90px;
 
-
   border-radius: 10px;
 }
 
@@ -227,14 +258,32 @@ button {
 
 .search-feed {
   /* margin-top: 20%; */
-  margin-top: 150px 
+  margin-top: 150px;
+}
+
+.plant-detail-btns {
+  flex-wrap: wrap;
+}
+
+.reminder-container {
+  background-color: honeydew;
+  height: 60px;
+  border-radius: 5px;
+  border: solid 1px;
+  align-items: center;
+  margin-bottom: 5px;
+  border-color: lightgreen;
+}
+
+.plant-row-name {
+  margin-bottom: 0px;
+  padding: 0px;
 }
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
   /* insert styles here */
   .search-feed {
     margin-top: 33%;
-  
   }
   .search-form {
     width: 50%;
@@ -242,12 +291,14 @@ button {
     position: fixed;
     top: 70px;
 
-
     border-radius: 10px;
+  }
+  .collection-box {
+    flex-direction: column;
   }
 }
 
-.feed-heading p{
+.feed-heading p {
   margin: 0;
   font-weight: bold;
 }
@@ -264,3 +315,54 @@ button {
   margin-top: 5%;
 }
 
+.margin-top {
+  margin-top: 3%
+}
+
+.contact-pic {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.image-crop {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.plant-photo {
+  display: inline;
+  margin: 0 auto;
+  width: auto;
+}
+
+.colorbox {
+  background-color: honeydew;
+  background: linear-gradient(45deg, indigo 0%, lavenderblush 50%, white 100%)
+    no-repeat 50% fixed;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: indigo;
+  font-family: 'DM Serif Display', serif;
+}
+
+.session-errors {
+  margin-top: 3%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
