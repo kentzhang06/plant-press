@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RiPlantFill } from 'react-icons/ri';
-import { GoPlus } from 'react-icons/go';
 
 class PlantCollection extends React.Component {
   componentDidMount() {
