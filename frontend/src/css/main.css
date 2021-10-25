@@ -358,3 +358,11 @@ button {
   color: indigo;
   font-family: 'DM Serif Display', serif;
 }
+
+.session-errors {
+  margin-top: 3%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
