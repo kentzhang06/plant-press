@@ -26,9 +26,6 @@ class RemindersHomePage extends React.Component {
     let m = date.getMonth() + 1;
     return (
       <div className='white-box'>
-        <div >
-          <h2 >Welcome {currentUser.handle}! Here are your reminders.</h2>
-        </div>
         <div className='flex-row-between'>
           <div>
             <h4>{plant.name}</h4>
