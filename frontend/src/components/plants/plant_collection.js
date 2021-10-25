@@ -76,15 +76,3 @@ class PlantCollection extends React.Component {
 }
 
 export default PlantCollection;
-
-{
-  /* <Link key={i} to={`/plant/${plant._id}`}>
-  <div className='white-box flex-row-between collection-box'>
-    {displayPlantProfilePic(plant)}
-    <div className='collection-text'>
-      <h5>{plant.name}</h5>
-      <h6>{plant.type}</h6>
-    </div>
-  </div>
-</Link>; */
-}
