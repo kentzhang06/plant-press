@@ -148,6 +148,13 @@ button {
   justify-content: center;
 }
 
+.flex-col-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .flex-col-center {
   display: flex;
   flex-direction: column;
@@ -171,7 +178,7 @@ button {
   position: fixed;
   bottom: 20px;
   right: 10px;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .info-sticky:hover {
@@ -193,7 +200,7 @@ button {
 }
 
 .collection-box {
-  min-width: 300px;
+  width: 80%;
 }
 
 .collection-text {
@@ -238,7 +245,6 @@ button {
   position: fixed;
   top: 90px;
 
-
   border-radius: 10px;
 }
 
@@ -252,9 +258,8 @@ button {
 
 .search-feed {
   /* margin-top: 20%; */
-  margin-top: 150px 
+  margin-top: 150px;
 }
-
 
 .plant-detail-btns {
   flex-wrap: wrap;
@@ -279,7 +284,6 @@ button {
   /* insert styles here */
   .search-feed {
     margin-top: 33%;
-  
   }
   .search-form {
     width: 50%;
@@ -287,12 +291,14 @@ button {
     position: fixed;
     top: 70px;
 
-
     border-radius: 10px;
+  }
+  .collection-box {
+    flex-direction: column;
   }
 }
 
-.feed-heading p{
+.feed-heading p {
   margin: 0;
   font-weight: bold;
 }
@@ -309,3 +315,36 @@ button {
   margin-top: 5%;
 }
 
+.image-crop {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.plant-photo {
+  display: inline;
+  margin: 0 auto;
+  width: auto;
+}
+
+.colorbox {
+  background-color: honeydew;
+  background: linear-gradient(45deg, indigo 0%, lavenderblush 50%, white 100%)
+    no-repeat 50% fixed;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: indigo;
+  font-family: 'DM Serif Display', serif;
+}
