@@ -1,4 +1,8 @@
 import React from "react";
+import kent from "../../images/IMG_4202.JPG";
+import jon from "../../images/jon.jpeg";
+import jason from "../../images/jasonpic.jpeg";
+import danny from "../../images/danny.JPG";
 import { Link } from "react-router-dom";
 import { ImLeaf } from "react-icons/im";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -9,46 +13,49 @@ const TeamPage = () => {
       dev: "Danny Feng",
       github: "https://github.com/dannyfeng1",
       linkedIn: "https://www.linkedin.com/in/danny-feng1/",
+      image: danny
     },
     {
       dev: "Kent Zhang",
       github: "https://github.com/kentzhang06",
       linkedIn: "https://www.linkedin.com/in/kent-zhang-297591193/",
+      image: kent
     },
     {
       dev: "Jason Kim",
       github: "https://github.com/jasonkim0105",
       linkedIn: "https://www.linkedin.com/in/jason-kim-0105/",
+      image: jason
     },
     {
       dev: "Jon Zamora",
       github: "https://github.com/jayzizzle",
       linkedIn: "https://www.linkedin.com/in/jon-zamora-97a8a6219/",
+      image: jon
     },
   ];
 
   return (
-    <div className="team-page">
+    <main className="flex-col-center">
       <div className="d-flex justify-content-center space-above">
         <Link to="/dashboard">
-          <h1 className="title">
+          <h1 className="darkgreen">
             PlantPress
             <span className="leaf-icon">
               <ImLeaf />
             </span>
-            &nbsp;&nbsp;
           </h1>
         </Link>
-        &nbsp;&nbsp;
       </div>
 
       <div className="d-flex justify-content-center">
         <h2 className="subtitle">About Us</h2>
       </div>
 
-      <div className="container-fluid space-above">
+      <div className="white-box flex-col-center">
         {team.map((member, i) => (
           <div key={i}>
+            <img className="contact-pic" src={member.image} alt=""/>
             <div className="d-flex justify-content-center">
               <h3 className="purple margin-top">{member.dev}</h3>
             </div>
@@ -65,7 +72,7 @@ const TeamPage = () => {
         ))}
       </div>
       <div className="row-end"></div>
-    </div>
+    </main>
   );
 };
 

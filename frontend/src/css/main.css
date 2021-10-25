@@ -284,3 +284,13 @@ button {
   margin-top: 5%;
 }
 
+.margin-top {
+  margin-top: 3%
+}
+
+.contact-pic {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+}
+

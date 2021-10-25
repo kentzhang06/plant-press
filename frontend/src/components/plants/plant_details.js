@@ -154,7 +154,7 @@ class PlantDetails extends React.Component {
               </div>
             </div>
 
-            <div className="row d-flex justify-content-center vertical-center heading-reminder">
+            <div className="row d-flex justify-content-center vertical-center heading-reminder margin-top">
               <h4>
                 <FaBell className="heading-icon" />
                 &nbsp;{name}'s Reminders
