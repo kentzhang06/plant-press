@@ -145,8 +145,7 @@ class PhotoForm extends React.Component {
 
           <div className='flex-row-center'>
             <button onClick={this.handlePostSubmit} className='session-button'>
-              {' '}
-              {formType}{' '}
+              {formType}
             </button>
           </div>
           {this.renderErrors()}

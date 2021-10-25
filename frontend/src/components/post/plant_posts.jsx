@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 
 class PlantPosts extends React.Component {
   componentDidMount() {
-    const { fetchPlantPosts, fetchFollows, match } = this.props;
+    const { fetchPlantPosts, fetchFollows, match, fetchPlant } = this.props;
+    fetchPlant(match.params.plantId);
     fetchPlantPosts(match.params.plantId).then(() => fetchFollows());
 
     window.scroll({
@@ -24,8 +25,8 @@ class PlantPosts extends React.Component {
   }
 
   render() {
-    const { posts, currentUserId, history, deletePost, follows } = this.props;
-    if (!posts) return null;
+    const { posts, plant, currentUserId, history, deletePost, follows } = this.props;
+    if (!posts || !plant) return null;
 
     const followUnfollowButton = (plantId) => {
       if (follows.includes(plantId)) {
@@ -75,8 +76,8 @@ class PlantPosts extends React.Component {
       let newDate = new Date(post.createdAt);
       const date = newDate.toDateString();
       return (
-        <div key={i}>
-          <div className="feed-heading">
+        <div className="white-box" key={i}>
+          <div className="feed-heading flex-row-between">
             <Link to={`/plant/${post.plantId}`}>
               <p>{post.plantName}</p>
             </Link>
@@ -100,13 +101,12 @@ class PlantPosts extends React.Component {
     });
 
     return (
-      <div>
-        <div className="d-flex justify-content-center bg-green">
-          <h2 className="subtitle heading-height">Viewing Plant's Posts</h2>
+      <main className="flex-col-center search-feed">
+        <div >
+          <h2 >Viewing {plant.name}'s Posts</h2>
         </div>
         {displayPosts}
-        <div className="row-end"></div>
-      </div>
+      </main>
     );
   }
 }
