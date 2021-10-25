@@ -131,30 +131,26 @@ class PlantDetails extends React.Component {
 
     return (
       <main className='flex-col-center'>
-
-
-
-      <div className='white-box'>
-
-        {displayPlantPic}
-        <div className="container-fluid">
-          <div className="row d-flex justify-content-center vertical-center heading">
-            <h3 className="plant-name">{name}</h3>
-            <p className="plant-type">
+        <div className='white-box'>
+          {displayPlantPic}
+          <div className="container-fluid">
+            <div className="row d-flex justify-content-center vertical-center heading">
+              <h3 className="plant-name">{name}</h3>
+              <p className="plant-type">
               {type}&nbsp;
               {species ? <span>{species}</span> : null}
-            </p>
-            <p className="plant-bio">{info}</p>
-            <div className="plant-detail-btns flex-row-center">
-              {userEditPlant}
-              {deleteButton}
-              {postFormButton}
-              <button
-                className="plant-detail-btn"
-                onClick={() => history.push(`/plant/${plantId}/posts`)}
-              >
+              </p>
+              <p className="plant-bio">{info}</p>
+              <div className="plant-detail-btns flex-row-center">
+                {userEditPlant}
+                {deleteButton}
+                {postFormButton}
+                <button
+                  className="plant-detail-btn"
+                  onClick={() => history.push(`/plant/${plantId}/posts`)}
+                >
                 View Posts
-              </button>
+                </button>
             </div>
           </div>
 
@@ -167,9 +163,9 @@ class PlantDetails extends React.Component {
           {userAddReminder}
           {userEditReminders}
 
-          <div className="row row-end"></div>
+            <div className="row row-end"></div>
+          </div>
         </div>
-      </div>
       </main>
     );
   }
