@@ -9,13 +9,16 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { logout } = this.props;
-    if (!this.props.plants) return null;
-    if (!this.props.reminders) return null;
+    const { logout, currentUser, plants, reminders } = this.props;
+    if (!plants) return null;
+    if (!reminders) return null;
 
     return (
       <>
         <main className='main-col'>
+          <div >
+            <h2 >Welcome {currentUser.handle}! Here are your reminders.</h2>
+          </div>
           {this.props.reminders.map((reminder, i) => (
             <ReminderHomeContainer reminder={reminder} key={i} />
           ))}
