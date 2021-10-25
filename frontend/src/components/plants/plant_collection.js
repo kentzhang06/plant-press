@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { RiPlantFill } from "react-icons/ri";
-import { GoPlus } from "react-icons/go";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { RiPlantFill } from 'react-icons/ri';
+import { GoPlus } from 'react-icons/go';
 
 class PlantCollection extends React.Component {
   componentDidMount() {
     this.props.fetchPlants(this.props.userId);
-    this.props.fetchAllPosts("");
+    this.props.fetchAllPosts('');
     this.props.fetchUser(this.props.userId);
   }
 
@@ -18,15 +18,13 @@ class PlantCollection extends React.Component {
 
     const displayPlantProfilePic = (plant) => {
       if (!posts[plant.plantPosts[0]]) {
-        return (
-          <div className="col-4 plant-row-img">{plant.name.slice(0, 1)}</div>
-        );
+        return <div className='colorbox'>{plant.name.slice(0, 1)}</div>;
       } else {
         return (
           <img
-            className="col-4 plant-row-img"
+            className='plant-photo'
             src={posts[plant.plantPosts[0]].imageUrl}
-            alt=""
+            alt=''
           />
         );
       }
@@ -34,18 +32,18 @@ class PlantCollection extends React.Component {
     let collectionTitle;
     if (this.props.userId === this.props.currentUserId) {
       collectionTitle = (
-        <div className="row d-flex justify-content-center vertical-center heading">
-          <h4>
-            <RiPlantFill className="heading-icon" />
+        <div className='row d-flex justify-content-center vertical-center heading'>
+          <h2 className='subtitle heading-height'>
+            <RiPlantFill className='heading-icon' />
             &nbsp;My Collection
-          </h4>
+          </h2>
         </div>
       );
     } else {
       collectionTitle = (
-        <div className="row d-flex justify-content-center vertical-center heading">
+        <div className='row d-flex justify-content-center vertical-center heading'>
           <h4>
-            <RiPlantFill className="heading-icon" />
+            <RiPlantFill className='heading-icon' />
             &nbsp;{user.handle}'s Collection
           </h4>
         </div>
@@ -53,39 +51,41 @@ class PlantCollection extends React.Component {
     }
 
     return (
-      <div className="container-fluid">
+      <main className='flex-col-center'>
         {collectionTitle}
         {this.props.userPlants.map((plant, i) => (
-          <Link key={i} to={`/plant/${plant._id}`}>
-            <div className="row plant-row">
-              {displayPlantProfilePic(plant)}
-              <div className="col-8 plant-row-text">
-                <div className="plant-row-info">
-                  <p className="plant-row-name">{plant.name}</p>
-                  <p className="plant-row-type">{plant.type}</p>
-                </div>
-              </div>
+          <div className='white-box flex-row-between collection-box' key={i}>
+            <Link key={i} to={`/plant/${plant._id}`}>
+              <div className='image-crop'>{displayPlantProfilePic(plant)}</div>
+            </Link>
+            <div className='flex-col-end'>
+              <Link key={i} to={`/plant/${plant._id}`}>
+                <h2>{plant.name}</h2>
+              </Link>
+              <h6>{plant.type}</h6>
             </div>
-          </Link>
+          </div>
         ))}
         {this.props.userId === this.props.currentUserId ? (
-          <Link to="/addplant">
-            <div className="row plant-row-light">
-              <div className="col-4 plant-row-img">
-                <GoPlus />
-              </div>
-              <div className="col-8 plant-row-text">
-                <div className="plant-row-info">
-                  <p className="plant-row-name">Add A Plant</p>
-                </div>
-              </div>
-            </div>
+          <Link to='/addplant'>
+            <button>Add A Plant</button>
           </Link>
         ) : null}
-        <div className="row row-end"></div>
-      </div>
+      </main>
     );
   }
 }
 
 export default PlantCollection;
+
+{
+  /* <Link key={i} to={`/plant/${plant._id}`}>
+  <div className='white-box flex-row-between collection-box'>
+    {displayPlantProfilePic(plant)}
+    <div className='collection-text'>
+      <h5>{plant.name}</h5>
+      <h6>{plant.type}</h6>
+    </div>
+  </div>
+</Link>; */
+}
