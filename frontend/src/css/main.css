@@ -206,7 +206,7 @@ button {
 .collection-text {
 }
 
-.plant-row-img {
+/* .plant-row-img {
   background-color: purple;
   background: linear-gradient(10deg, seagreen 0%, seagreen 50%, plum 100%)
     no-repeat 50% fixed;
@@ -218,7 +218,7 @@ button {
   color: white;
   font-weight: 900;
   text-shadow: #333 1px 1px 20px;
-}
+} */
 
 .feed-img {
   /* max-width: 600px; */
