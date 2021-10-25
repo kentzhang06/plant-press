@@ -22,9 +22,7 @@ class PlantDetails extends React.Component {
     e.preventDefault();
     this.props
       .deletePlant(this.props.plantId)
-      .then(() =>
-        this.props.history.push(`/user/${this.props.currentUserId}`)
-      );
+      .then(() => this.props.history.push(`/user/${this.props.currentUserId}`));
   }
 
   render() {
@@ -33,19 +31,20 @@ class PlantDetails extends React.Component {
     let { name, type, info, species } = this.props.plant;
     const { plantId, posts, plant, history } = this.props;
 
-    const displayPlantPic = !posts[plant.plantPosts[0]] ? (
+    const displayPlantPic = !posts[
+      plant.plantPosts[plant.plantPosts.length - 1]
+    ] ? (
       <div
         className="heading-img"
         style={{ background: `url(${Groot})  center center no-repeat` }}
       ></div>
     ) : (
-      <div className="heading-img">
+      <div className="img-container">
         <img
-          className="plant-profile-pic"
-          src={posts[plant.plantPosts[0]].imageUrl}
+          className="feed-img"
+          src={posts[plant.plantPosts[plant.plantPosts.length - 1]].imageUrl}
           alt=""
         />
-        ;
       </div>
     );
 
@@ -67,7 +66,7 @@ class PlantDetails extends React.Component {
 
       userEditReminders = this.props.reminders.map((reminder, i) => (
         <Link key={i} to={`/plant/${plantId}/reminder/${reminder._id}`}>
-          <div className="row plant-row-dark">
+          <div className="row reminder-container">
             <div className="col-4 plant-row-img">
               <FaRegBell />
             </div>
@@ -85,7 +84,7 @@ class PlantDetails extends React.Component {
 
       userAddReminder = (
         <Link to={`/plant/${plantId}/reminder`}>
-          <div className="row plant-row-light">
+          <div className="row reminder-container">
             <div className="col-4 plant-row-img">
               <GoPlus />
             </div>
@@ -114,7 +113,7 @@ class PlantDetails extends React.Component {
       );
     } else {
       userEditReminders = this.props.reminders.map((reminder) => (
-        <div className="row plant-row-dark">
+        <div className="row reminder-container">
           <div className="col-4 plant-row-img">
             <FaRegBell />
           </div>
@@ -131,41 +130,43 @@ class PlantDetails extends React.Component {
     }
 
     return (
-      <>
-        {displayPlantPic}
-        <div className="container-fluid">
-          <div className="row d-flex justify-content-center vertical-center heading">
-            <h3 className="plant-name">{name}</h3>
-            <p className="plant-type">
-              {type}&nbsp;
-              {species ? <span>{species}</span> : null}
-            </p>
-            <p className="plant-bio">{info}</p>
-            <div className="plant-detail-btns">
-              {userEditPlant}
-              {deleteButton}
-              {postFormButton}
-              <button
-                className="plant-detail-btn"
-                onClick={() => history.push(`/plant/${plantId}/posts`)}
-              >
-                View Posts
-              </button>
+      <main className="flex-col-center">
+        <div className="white-box">
+          {displayPlantPic}
+          <div className="container-fluid">
+            <div className="row d-flex justify-content-center vertical-center heading">
+              <h3 className="plant-name">{name}</h3>
+              <p className="plant-type">
+                {type}&nbsp;
+                {species ? <span>{species}</span> : null}
+              </p>
+              <p className="plant-bio">{info}</p>
+              <div className="plant-detail-btns flex-row-center">
+                {userEditPlant}
+                {deleteButton}
+                {postFormButton}
+                <button
+                  className="plant-detail-btn"
+                  onClick={() => history.push(`/plant/${plantId}/posts`)}
+                >
+                  View Posts
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div className="row d-flex justify-content-center vertical-center heading-reminder">
-            <h4>
-              <FaBell className="heading-icon" />
-              &nbsp;{name}'s Reminders
-            </h4>
-          </div>
-          {userAddReminder}
-          {userEditReminders}
+            <div className="row d-flex justify-content-center vertical-center heading-reminder">
+              <h4>
+                <FaBell className="heading-icon" />
+                &nbsp;{name}'s Reminders
+              </h4>
+            </div>
+            {userAddReminder}
+            {userEditReminders}
 
-          <div className="row row-end"></div>
+            <div className="row row-end"></div>
+          </div>
         </div>
-      </>
+      </main>
     );
   }
 }

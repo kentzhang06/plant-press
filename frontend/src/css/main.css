@@ -29,7 +29,7 @@ h2 {
 
 h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.8em;
+  /* font-size: 1.8em; */
 }
 
 h4 {
@@ -92,7 +92,8 @@ a:hover {
 }
 
 input[type='text'],
-input[type='password'] {
+input[type='password'],
+input[type='number'] {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px 15px;
@@ -168,8 +169,13 @@ button {
   font-size: 2.4em;
   color: indigo;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 10px;
+  opacity: .5;
+}
+
+.info-sticky:hover {
+  opacity: 1;
 }
 
 .instruction {
@@ -227,12 +233,12 @@ button {
 }
 
 .search-form {
-  width: 50%;
+  width: 49%;
   min-width: 340px;
   position: fixed;
   top: 90px;
-  background-color: black;
-  border: 1px solid #ddd;
+
+
   border-radius: 10px;
 }
 
@@ -245,5 +251,61 @@ button {
 }
 
 .search-feed {
-  /* margin-top: 40%; */
+  /* margin-top: 20%; */
+  margin-top: 150px 
 }
+
+
+.plant-detail-btns {
+  flex-wrap: wrap;
+}
+
+.reminder-container {
+  background-color: honeydew;
+  height: 60px;
+  border-radius: 5px;
+  border: solid 1px;
+  align-items: center;
+  margin-bottom: 5px;
+  border-color: lightgreen;
+}
+
+.plant-row-name {
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
+  /* insert styles here */
+  .search-feed {
+    margin-top: 33%;
+  
+  }
+  .search-form {
+    width: 50%;
+    min-width: 340px;
+    position: fixed;
+    top: 70px;
+
+
+    border-radius: 10px;
+  }
+}
+
+.feed-heading p{
+  margin: 0;
+  font-weight: bold;
+}
+
+.feed-heading {
+  padding: 0;
+  padding-bottom: 2%;
+}
+
+.subtitle {
+  text-align: center;
+}
+#plant-form input {
+  margin-top: 5%;
+}
+
