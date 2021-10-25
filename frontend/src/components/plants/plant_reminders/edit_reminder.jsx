@@ -43,6 +43,18 @@ class EditReminder extends React.Component {
     };
   }
 
+  renderErrors() {
+    return (
+      <div className='row'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.props.errors[error]}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
   render() {
     if (!this.state) return null;
     return (
@@ -100,6 +112,7 @@ class EditReminder extends React.Component {
               Delete Reminder
             </button>
           </div>
+          {this.renderErrors()}
         </div>
       </main>
     );

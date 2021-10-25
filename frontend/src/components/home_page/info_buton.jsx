@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RiInformationLine, RiInformationFill } from 'react-icons/ri';
+import { RiInformationFill } from 'react-icons/ri';
 
 export const InfoButton = (props) => {
   return (

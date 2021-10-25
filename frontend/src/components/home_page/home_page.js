@@ -1,7 +1,5 @@
 import React from 'react';
-import FooterContainer from './footer_container';
 
-import { FaBell } from 'react-icons/fa';
 import ReminderHomeContainer from '../plants/plant_reminders/reminder_home_container';
 
 class HomePage extends React.Component {

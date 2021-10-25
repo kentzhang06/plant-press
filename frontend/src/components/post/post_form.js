@@ -1,7 +1,5 @@
 import React from 'react';
 import { uploadImage } from '../../actions/post_actions';
-import { Link } from 'react-router-dom';
-import { ImLeaf } from 'react-icons/im';
 
 class PhotoForm extends React.Component {
   constructor(props) {

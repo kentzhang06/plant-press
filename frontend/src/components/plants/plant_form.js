@@ -41,6 +41,18 @@ class PlantForm extends React.Component {
       .then(() => this.props.history.push(`/user/${this.props.currentUserId}`));
   }
 
+  renderErrors() {
+    return (
+      <div className='row'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.props.errors[error]}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  
   render() {
     let { name, info, species } = this.state;
 
@@ -113,6 +125,7 @@ class PlantForm extends React.Component {
             <button className="session-button">Add Plant!</button>
           </div>
         </form>
+        {this.renderErrors()}
       </main>
     );
   }

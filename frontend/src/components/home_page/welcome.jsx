@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ImLeaf } from 'react-icons/im';
 import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 

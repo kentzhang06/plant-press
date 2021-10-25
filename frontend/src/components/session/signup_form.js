@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { ImLeaf, ImInfo } from 'react-icons/im';
 
 class SignupForm extends React.Component {
   constructor(props) {

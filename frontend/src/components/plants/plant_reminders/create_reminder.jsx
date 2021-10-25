@@ -27,6 +27,18 @@ class CreateReminder extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  renderErrors() {
+    return (
+      <div className='row'>
+        <ul className='session-errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.props.errors[error]}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
   render() {
     return (
       <main className="flex-col-center">
@@ -78,7 +90,7 @@ class CreateReminder extends React.Component {
               <button className="session-button">Add Reminder!</button>
             </div>
           </form>
-          <div className="row-end"></div>
+          {this.renderErrors()}
         </div>
       </main>
     );
