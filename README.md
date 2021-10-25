@@ -1,9 +1,13 @@
 # plant-press
 
+## Link to live web application: [Plant-Press](https://plant-press.herokuapp.com/#/)
+
 Plant-Press is a mobile tracking app that allows plant owners to post their plants and record any reminders neccesary for each plant's care needs. At the same time, plant owners can showcase their plant's progress to their friends through the posts feature and follow their friend's plants to gain updates as their plants grow!
 ## Link to live web application: [Plant-Press](https://plant-press.herokuapp.com/#/)
 
-<img width="263" alt="Screen Shot 2021-10-20 at 11 25 27 AM" src="https://user-images.githubusercontent.com/76461881/138150023-dfb66214-83af-4300-a4f6-866cf8f74c04.png">
+
+<img width="1280" alt="Screen Shot 2021-10-25 at 2 41 42 PM" src="https://user-images.githubusercontent.com/76461881/138775196-0f3091c6-22f9-4655-8820-ce94284d5de5.png">
+
 
 
 ## Technologies Used
@@ -17,7 +21,8 @@ Node.js | BootStrap
 
 ## Upload plant photos
 
-<img width="263" alt="Screen Shot 2021-10-20 at 11 59 47 AM" src="https://user-images.githubusercontent.com/76461881/138155119-37c5bb43-7cc2-46ac-bc01-364638bdd779.png">
+<img width="1279" alt="Screen Shot 2021-10-25 at 2 39 24 PM" src="https://user-images.githubusercontent.com/76461881/138775025-770dc436-b601-4211-9468-42a59179d916.png">
+
 
 Users are able to create posts for any specific plant and upload progress images. This feature was implemented using a S3 bucket connected to AWS.
 ```javascript
@@ -50,7 +55,8 @@ The first function in this code snippet above allows for a file to be uploaded o
 
 This app allows for users to create reminders for plants that then shows up on the homepage. A user is able to click on each reminder to note that they have completed the task for the day. 
 
-<img width="262" alt="Screen Shot 2021-10-20 at 12 03 03 PM" src="https://user-images.githubusercontent.com/76461881/138155559-575422b6-1855-4207-9fca-1440156edb64.png">
+<img width="1277" alt="Screen Shot 2021-10-25 at 2 54 12 PM" src="https://user-images.githubusercontent.com/76461881/138776487-726cd24d-66e5-4d2c-bed7-faa91c4743a3.png">
+
 
 ```javascript
 handleClick() {
@@ -110,7 +116,9 @@ handleClick() {
 
 Plant owners are able to share their own plants to their followers! One can also search for a specific plant post via keywords to find plants. 
 
-<img width="262" alt="Screen Shot 2021-10-20 at 3 08 49 PM" src="https://user-images.githubusercontent.com/76461881/138179424-7a70d73d-bc49-43aa-a148-81d6621ed62f.png">
+<img width="1280" alt="Screen Shot 2021-10-25 at 2 46 18 PM" src="https://user-images.githubusercontent.com/76461881/138775912-ccdc1d8a-cf6e-4a8a-a583-b5ad88af56eb.png">
+
+
 
 ```javascript
 router.get("/index", (req, res) => {
