@@ -1,27 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Root from "./components/root";
-import configureStore from "./store/store";
-import jwt_decode from "jwt-decode";
-import { setAuthToken } from "./util/session_api_util";
-import { logout } from "./actions/session_actions";
-import "./css/style.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './components/root';
+import configureStore from './store/store';
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
+import { logout } from './actions/session_actions';
+// import "./css/style.css";
+import './css/main.css';
 
-import {
-  fetchPlantPosts,
-  fetchAllPosts,
-  createPost,
-  updatePost,
-  deletePost,
-} from "./actions/post_actions";
+// import {
+//   fetchPlantPosts,
+//   fetchAllPosts,
+//   createPost,
+//   updatePost,
+//   deletePost,
+// } from "./actions/post_actions";
 
-import {
-  fetchFollows,
-  followPlant,
-  unfollowPlant,
-} from "./actions/follow_actions";
+// import {
+//   fetchFollows,
+//   followPlant,
+//   unfollowPlant,
+// } from "./actions/follow_actions";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   let store;
 
   if (localStorage.jwtToken) {
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
-      window.location.href = "/login";
+      window.location.href = '/login';
     }
   } else {
     store = configureStore();
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //TEST END
 
-  const root = document.getElementById("root");
+  const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
 });

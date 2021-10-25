@@ -1,13 +1,13 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { ImSearch } from "react-icons/im";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { ImSearch } from 'react-icons/im';
 
 class NewsFeed extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      keyword: "",
+      keyword: '',
     };
 
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
@@ -18,7 +18,7 @@ class NewsFeed extends React.Component {
     window.scroll({
       top: 0,
       left: 0,
-      behavior: "instant",
+      behavior: 'instant',
     });
   }
 
@@ -52,7 +52,7 @@ class NewsFeed extends React.Component {
       if (follows.includes(plantId)) {
         return (
           <button
-            className="follow-btn"
+            className='follow-btn'
             onClick={(e) => this.unfollowPlantButton(e, plantId)}
           >
             Following
@@ -61,7 +61,7 @@ class NewsFeed extends React.Component {
       } else {
         return (
           <button
-            className="follow-btn"
+            className='follow-btn'
             onClick={(e) => this.followPlantButton(e, plantId)}
           >
             Follow
@@ -75,8 +75,8 @@ class NewsFeed extends React.Component {
       const date = newDate.toDateString();
       if (i > 10) return null;
       return (
-        <div key={i}>
-          <div className="feed-heading">
+        <div className="white-box" key={i}>
+          <div className="feed-heading flex-row-between">
             <Link to={`/plant/${post.plantId}`}>
               <p>{post.plantName}</p>
             </Link>
@@ -99,22 +99,24 @@ class NewsFeed extends React.Component {
     });
 
     return (
-      <div className="container-fluid clear-margin">
-        <form className="search-form" onSubmit={this.onSubmitSearch}>
+      <main className='flex-col-center search-feed'>
+        <form
+          className='search-form flex-row-between'
+          onSubmit={this.onSubmitSearch}
+        >
           <input
-            type="text"
+            type='text'
             onChange={(e) => this.updateKeyword(e)}
             value={this.state.keyword}
-            placeholder="Search"
-            className="searchbar"
+            placeholder='Search'
+            className='searchbar'
           />
-          <button className="search-btn">
+          <button className='search-btn'>
             <ImSearch />
           </button>
         </form>
         {displayPosts}
-        <div className="row-end"></div>
-      </div>
+      </main>
     );
   }
 }

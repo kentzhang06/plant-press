@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { GoPlus } from "react-icons/go";
-import { FaBell, FaRegBell } from "react-icons/fa";
+import { GoPlus } from 'react-icons/go';
+import { FaBell, FaRegBell } from 'react-icons/fa';
 
-import Groot from "../../images/groot.jpg";
+import Groot from '../../images/groot.jpg';
 
 class PlantDetails extends React.Component {
   constructor(props) {
@@ -22,9 +22,7 @@ class PlantDetails extends React.Component {
     e.preventDefault();
     this.props
       .deletePlant(this.props.plantId)
-      .then(() =>
-        this.props.history.push(`/user/${this.props.match.params.userId}`)
-      );
+      .then(() => this.props.history.push(`/user/${this.props.currentUserId}`));
   }
 
   render() {
@@ -33,19 +31,20 @@ class PlantDetails extends React.Component {
     let { name, type, info, species } = this.props.plant;
     const { plantId, posts, plant, history } = this.props;
 
-    const displayPlantPic = !posts[plant.plantPosts[0]] ? (
+    const displayPlantPic = !posts[
+      plant.plantPosts[plant.plantPosts.length - 1]
+    ] ? (
       <div
-        className="heading-img"
+        className='heading-img'
         style={{ background: `url(${Groot})  center center no-repeat` }}
       ></div>
     ) : (
-      <div className="heading-img">
+      <div className='img-container'>
         <img
-          className="plant-profile-pic"
-          src={posts[plant.plantPosts[0]].imageUrl}
-          alt=""
+          className='feed-img'
+          src={posts[plant.plantPosts[plant.plantPosts.length - 1]].imageUrl}
+          alt=''
         />
-        ;
       </div>
     );
 
@@ -58,7 +57,7 @@ class PlantDetails extends React.Component {
     if (this.props.plant.userId === this.props.currentUserId) {
       postFormButton = (
         <button
-          className="plant-detail-btn"
+          className='plant-detail-btn'
           onClick={() => history.push(`/plant/${plantId}/post`)}
         >
           Create Post
@@ -67,13 +66,13 @@ class PlantDetails extends React.Component {
 
       userEditReminders = this.props.reminders.map((reminder, i) => (
         <Link key={i} to={`/plant/${plantId}/reminder/${reminder._id}`}>
-          <div className="row plant-row-dark">
-            <div className="col-4 plant-row-img">
+          <div className='row reminder-container'>
+            <div className='col-4 plant-row-img'>
               <FaRegBell />
             </div>
-            <div className="col-8 plant-row-text">
-              <div className="plant-row-info">
-                <p className="plant-row-name">
+            <div className='col-8 plant-row-text'>
+              <div className='plant-row-info'>
+                <p className='plant-row-name'>
                   {reminder.reminderText} <br />
                   Every {reminder.frequency} days
                 </p>
@@ -85,13 +84,13 @@ class PlantDetails extends React.Component {
 
       userAddReminder = (
         <Link to={`/plant/${plantId}/reminder`}>
-          <div className="row plant-row-light">
-            <div className="col-4 plant-row-img">
+          <div className='row reminder-container'>
+            <div className='col-4 plant-row-img'>
               <GoPlus />
             </div>
-            <div className="col-8 plant-row-text">
-              <div className="plant-row-info">
-                <p className="plant-row-name">Add A Reminder</p>
+            <div className='col-8 plant-row-text'>
+              <div className='plant-row-info'>
+                <p className='plant-row-name'>Add A Reminder</p>
               </div>
             </div>
           </div>
@@ -99,14 +98,14 @@ class PlantDetails extends React.Component {
       );
 
       deleteButton = (
-        <button className="plant-detail-btn" onClick={this.handleDeletePlant}>
+        <button className='plant-detail-btn' onClick={this.handleDeletePlant}>
           Delete Plant
         </button>
       );
 
       userEditPlant = (
         <button
-          className="plant-detail-btn"
+          className='plant-detail-btn'
           onClick={() => history.push(`/plant/${plantId}/edit`)}
         >
           Edit Plant
@@ -114,13 +113,13 @@ class PlantDetails extends React.Component {
       );
     } else {
       userEditReminders = this.props.reminders.map((reminder) => (
-        <div className="row plant-row-dark">
-          <div className="col-4 plant-row-img">
+        <div className='row reminder-container'>
+          <div className='col-4 plant-row-img'>
             <FaRegBell />
           </div>
-          <div className="col-8 plant-row-text">
-            <div className="plant-row-info">
-              <p className="plant-row-name">
+          <div className='col-8 plant-row-text'>
+            <div className='plant-row-info'>
+              <p className='plant-row-name'>
                 {reminder.reminderText} <br />
                 Every {reminder.frequency} days
               </p>
@@ -131,41 +130,43 @@ class PlantDetails extends React.Component {
     }
 
     return (
-      <>
-        {displayPlantPic}
-        <div className="container-fluid">
-          <div className="row d-flex justify-content-center vertical-center heading">
-            <h3 className="plant-name">{name}</h3>
-            <p className="plant-type">
-              {type}&nbsp;
-              {species ? <span>{species}</span> : null}
-            </p>
-            <p className="plant-bio">{info}</p>
-            <div className="plant-detail-btns">
-              {userEditPlant}
-              {deleteButton}
-              {postFormButton}
-              <button
-                className="plant-detail-btn"
-                onClick={() => history.push(`/plant/${plantId}/posts`)}
-              >
-                View Posts
-              </button>
+      <main className='flex-col-center'>
+        <div className='white-box'>
+          {displayPlantPic}
+          <div className='container-fluid'>
+            <div className='row d-flex justify-content-center vertical-center heading'>
+              <h3 className='plant-name'>{name}</h3>
+              <p className='plant-type'>
+                {type}&nbsp;
+                {species ? <span>{species}</span> : null}
+              </p>
+              <p className='plant-bio'>{info}</p>
+              <div className='plant-detail-btns flex-row-center'>
+                {userEditPlant}
+                {deleteButton}
+                {postFormButton}
+                <button
+                  className='plant-detail-btn'
+                  onClick={() => history.push(`/plant/${plantId}/posts`)}
+                >
+                  View Posts
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div className="row d-flex justify-content-center vertical-center heading-reminder">
-            <h4>
-              <FaBell className="heading-icon" />
-              &nbsp;{name}'s Reminders
-            </h4>
-          </div>
-          {userAddReminder}
-          {userEditReminders}
+            <div className="row d-flex justify-content-center vertical-center heading-reminder margin-top">
+              <h4>
+                <FaBell className='heading-icon' />
+                &nbsp;{name}'s Reminders
+              </h4>
+            </div>
+            {userAddReminder}
+            {userEditReminders}
 
-          <div className="row row-end"></div>
+            <div className='row row-end'></div>
+          </div>
         </div>
-      </>
+      </main>
     );
   }
 }

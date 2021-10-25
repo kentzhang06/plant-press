@@ -3,8 +3,11 @@
 ## Link to live web application: [Plant-Press](https://plant-press.herokuapp.com/#/)
 
 Plant-Press is a mobile tracking app that allows plant owners to post their plants and record any reminders neccesary for each plant's care needs. At the same time, plant owners can showcase their plant's progress to their friends through the posts feature and follow their friend's plants to gain updates as their plants grow!
+## Link to live web application: [Plant-Press](https://plant-press.herokuapp.com/#/)
+
 
 <img width="1280" alt="Screen Shot 2021-10-25 at 2 41 42 PM" src="https://user-images.githubusercontent.com/76461881/138775196-0f3091c6-22f9-4655-8820-ce94284d5de5.png">
+
 
 
 ## Technologies Used

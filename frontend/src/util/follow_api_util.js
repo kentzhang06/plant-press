@@ -10,5 +10,5 @@ export const unfollowPlant = (plantId) => {
 
 
 export const fetchFollows = () => {
-  return axios.get('/api/users/following')
+  return axios.get('/api/users/f/following')
 }

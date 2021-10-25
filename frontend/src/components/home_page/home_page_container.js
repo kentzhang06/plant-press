@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     errors: state.errors.session,
     reminders: Object.values(state.entities.reminders.myReminders),
     plants: state.entities.plants,
-    currentUser: state.session.user.id,
+    currentUser: state.session.user,
   };
 };
 

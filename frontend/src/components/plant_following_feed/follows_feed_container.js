@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchFollowingPosts: () => dispatch(fetchFollowingPosts()),
     followPlant: (plantId) => dispatch(followPlant(plantId)),
     unfollowPlant: (plantId) => dispatch(unfollowPlant(plantId)),
-    fetchFollows: () => dispatch(fetchFollows()),
+    fetchFollows: () => dispatch(fetchFollows())
   };
 };
 
