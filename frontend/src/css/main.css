@@ -296,6 +296,10 @@ button {
   .collection-box {
     flex-direction: column;
   }
+
+  .collection-type {
+    align-items: center;
+  }
 }
 
 .feed-heading p {

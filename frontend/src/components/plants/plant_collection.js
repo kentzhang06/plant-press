@@ -58,7 +58,7 @@ class PlantCollection extends React.Component {
             <Link key={i} to={`/plant/${plant._id}`}>
               <div className='image-crop'>{displayPlantProfilePic(plant)}</div>
             </Link>
-            <div className='flex-col-end'>
+            <div className='flex-col-end collection-type'>
               <Link key={i} to={`/plant/${plant._id}`}>
                 <h2>{plant.name}</h2>
               </Link>
