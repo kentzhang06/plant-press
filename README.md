@@ -137,4 +137,8 @@ router.get("/index", (req, res) => {
 ```
 The code snippet above displays how the backend routes were created for the logic for the searchbar feature. 
 
+## Future Plans and Directions 
 
+* Add a plant API for species.
+* Add a tracker for plant statistics and graphs to chart growth.
+* Generate playlists for plant types to stimulate growth. 
