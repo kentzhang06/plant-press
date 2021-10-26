@@ -135,6 +135,16 @@ button {
   margin: 10px;
 }
 
+.red-box {
+  background-color: rgb(235, 164, 164);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  margin: 10px;
+}
+
 .darkgreen {
   color: darkgreen;
 }
