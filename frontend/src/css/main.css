@@ -182,6 +182,12 @@ button {
   margin-bottom: 40px;
 }
 
+.developer-links {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
 .info-sticky {
   font-size: 2.4em;
   color: indigo;
