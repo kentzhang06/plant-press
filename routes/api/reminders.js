@@ -42,6 +42,7 @@ router.post(
       userId: req.user.id,
       reminderText: req.body.reminderText,
       frequency: req.body.frequency,
+      completed: false
     });
 
     let reminderObj = null;

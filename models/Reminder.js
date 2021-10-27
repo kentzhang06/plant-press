@@ -17,10 +17,17 @@ const ReminderSchema = new Schema(
     frequency: {
       type: Number,
     },
+    completed: {
+      type: Boolean,
+      required: true
+    },
+    completedAt: {
+      type: Date
+    }
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Reminder = mongoose.model("Reminders", ReminderSchema);

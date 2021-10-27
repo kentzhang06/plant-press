@@ -7,14 +7,41 @@ class RemindersHomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.reminder;
+    // this.state.completed = false;
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
+    console.log(this.state)
     this.setState({
       completed: true,
+      completedAt: new Date()
     });
+    console.log(this.state)
+
+    // this.state.completedAt = new Date();
     this.props.updateReminder(this.state);
+  }
+
+  componentDidMount() {
+    // const { reminder, updateReminder } = this.props;
+    // if (!reminder.completedAt) {
+    //   const date = new Date(reminder.completedAt);
+    //   const currentDate = new Date();
+    //   const overdued = new Date(date.getTime() + (reminder.frequency * 24 * 60 * 60 * 1000));
+    //   if (overdued > currentDate && reminder.completed) {
+    //     updateReminder({_id: reminder._id, completed: false})
+    //   }
+    // }
+  //   if (currentDate - date < (24 * 60 * 60 * 1000)) {
+  //     this.setState({
+  //       completed: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       completed: false
+  //     })
+  //   }
   }
 
   render() {
@@ -50,7 +77,7 @@ class RemindersHomePage extends React.Component {
             }
             onClick={this.handleClick}
           >
-            {this.state.completed ? (
+            {reminder.completed ? (
               <ImCheckboxChecked />
             ) : (
               <ImCheckboxUnchecked />
