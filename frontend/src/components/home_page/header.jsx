@@ -23,43 +23,72 @@ export const Header = (props) => {
       </h3>
       <ul className='header-links'>
         <li>
-          <NavLink
-            to='/dashboard'
-            className={location.pathname === '/dashboard' ? 'indigo' : null}
-          >
-            <SiHomeassistant className='darkgreen' />
+          <NavLink to='/dashboard'>
+            {location.pathname === '/dashboard' ? 
+            <div className="header-buttons">
+              <SiHomeassistant className='indigo' /> 
+              <span className='indigo header-text'>Reminders</span>
+            </div>
+            : 
+            <div className="header-buttons">
+              <SiHomeassistant className='darkgreen' />
+              <span className="darkgreen header-text">Reminders</span>
+            </div>
+            }
           </NavLink>
         </li>
         <li>
           <NavLink to='/feed'>
             {location.pathname === '/feed' ? (
-              <RiNewspaperFill className='indigo' />
+              <div className="header-buttons">
+                <RiNewspaperFill className='indigo' />
+                <span className='indigo header-text'>Follow Feed</span>
+              </div>
             ) : (
-              <RiNewspaperLine className='darkgreen' />
+              <div className="header-buttons">
+                <RiNewspaperLine className='darkgreen' />
+                <span className='darkgreen header-text'>Follow Feed</span>
+              </div>
             )}
           </NavLink>
         </li>
         <li>
           <NavLink to={`/user/${props.user.id}`}>
             {location.pathname === `/user/${props.user.id}` ? (
-              <RiPlantFill className='indigo' />
+              <div className="header-buttons">
+                <RiPlantFill className='indigo' />
+                <span className='indigo header-text'>Collection</span>
+              </div>
             ) : (
-              <RiPlantLine className='darkgreen' />
+              <div className="header-buttons">
+                <RiPlantLine className='darkgreen' />
+                <span className="darkgreen header-text">Collection</span>
+
+              </div>
             )}
           </NavLink>
         </li>
         <li>
           <NavLink to='/newsfeed'>
             {location.pathname === '/newsfeed' ? (
-              <RiSearchEyeFill className='indigo' />
+              <div className="header-buttons">
+                <RiSearchEyeFill className='indigo' />
+                <span className='indigo header-text'>Explore</span>
+              </div>
             ) : (
-              <RiSearchEyeLine className='darkgreen' />
+              <div className="header-buttons">
+                <RiSearchEyeLine className='darkgreen' />
+                <span className="darkgreen header-text">Explore</span>
+              </div>
             )}
           </NavLink>
         </li>
         <li>
           <div onClick={props.logout} className='darkgreen'>
+          <div className="header-buttons">
             <IoIosLogOut />
+            <span className='header-text'>Log Out</span>
+          </div>
           </div>
         </li>
       </ul>

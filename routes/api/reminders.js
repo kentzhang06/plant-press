@@ -42,7 +42,7 @@ router.post(
       userId: req.user.id,
       reminderText: req.body.reminderText,
       frequency: req.body.frequency,
-      completed: false
+      completed: false,
     });
 
     let reminderObj = null;
@@ -74,6 +74,8 @@ router.patch(
       {
         reminderText: req.body.reminderText,
         frequency: req.body.frequency,
+        completed: req.body.completed,
+        completedAt: req.body.completedAt
       },
       { new: true }
     )
