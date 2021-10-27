@@ -58,15 +58,15 @@ const TeamPage = () => {
             <img className="contact-pic" src={member.image} alt=""/>
             <div className="d-flex justify-content-center">
               <h3 className="purple margin-top">{member.dev}</h3>
-            </div>
-            <div className="d-flex justify-content-center">
-              <a href={member.github} target="_blank" rel="noreferrer">
-                <FaGithub />
-              </a>
-              &nbsp;
-              <a href={member.linkedIn} target="_blank" rel="noreferrer">
-                <FaLinkedin />
-              </a>
+              <div className="developer-links">
+                <a href={member.github} target="_blank" rel="noreferrer">
+                  <FaGithub size={30} />
+                </a>
+                &nbsp;
+                <a href={member.linkedIn} target="_blank" rel="noreferrer">
+                  <FaLinkedin size={30} />
+                </a>
+              </div>
             </div>
           </div>
         ))}

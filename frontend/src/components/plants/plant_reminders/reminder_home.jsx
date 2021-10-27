@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+// import { RiContrastLine } from 'react-icons/ri';
 
 class RemindersHomePage extends React.Component {
   constructor(props) {
@@ -13,25 +14,33 @@ class RemindersHomePage extends React.Component {
     this.setState({
       completed: true,
     });
-    console.log(this.state);
     this.props.updateReminder(this.state);
   }
 
   render() {
-    let { reminder, plant } = this.props;
+    const { reminder, plant } = this.props;
     if (!reminder || !plant) return null;
 
-    let date = new Date(reminder.updatedAt);
-    let d = date.getDate();
-    let m = date.getMonth() + 1;
+    const date = new Date(reminder.updatedAt);
+    const d = date.getDate();
+    const m = date.getMonth() + 1;
+    const y = date.getFullYear();
+    const lastUpdate = m + '/' + d + '/' + y;
+    const currentDate = new Date();
+    const overdued = new Date(date.getTime() + (reminder.frequency * 24 * 60 * 60 * 1000));
+    // console.log(currentDate)
+    // console.log(overdued)
+    // console.log(currentDate > overdued)
+
+
     return (
-      <div className='white-box'>
+      <div className={currentDate >= overdued ? 'red-box' : 'white-box'} >
         <div className='flex-row-between'>
           <div>
             <h4>{plant.name}</h4>
             <h5>{reminder.reminderText}</h5>
             <h6>Complete every {reminder.frequency} day(s)</h6>
-            <h6>Last completed: {m + '/' + d}</h6>
+            <h6>Last completed: {lastUpdate}</h6>
           </div>
           <div
             className={

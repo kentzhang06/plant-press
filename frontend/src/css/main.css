@@ -135,6 +135,16 @@ button {
   margin: 10px;
 }
 
+.red-box {
+  background-color: rgb(235, 164, 164);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  margin: 10px;
+}
+
 .darkgreen {
   color: darkgreen;
 }
@@ -170,6 +180,12 @@ button {
 
 .title-header {
   margin-bottom: 40px;
+}
+
+.developer-links {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .info-sticky {
@@ -320,7 +336,7 @@ button {
 }
 
 .margin-top {
-  margin-top: 3%
+  margin-top: 3%;
 }
 
 .contact-pic {
@@ -369,4 +385,22 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.splash-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.splash-items p {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.hero {
+  height: 200px;
+  width: auto;
 }

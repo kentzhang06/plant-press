@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
+import Grow from '../../images/grow.gif';
 
 const mapStateToProps = (state) => ({
   demoUser: {
@@ -21,7 +22,12 @@ const Welcome = (props) => {
         <div className='flex-col-center'>
           <h2>Welcome to</h2>
           <h1 className='title-header'>PlantPress</h1>
-
+          <div className='splash-items'>
+            <p>Track your plants.</p>
+            <p>Share your plants.</p>
+            <p>Discover new plants.</p>
+            <img src={Grow} className='hero' />
+          </div>
           <Link to='/login'>
             <button>Log In</button>
           </Link>
