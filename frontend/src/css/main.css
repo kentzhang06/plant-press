@@ -113,6 +113,20 @@ button {
   align-items: center;
 }
 
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.header-text {
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 4px;
+  letter-spacing: -2px;
+}
+
+
 .header-links {
   list-style-type: none;
   display: flex;
@@ -315,6 +329,10 @@ button {
 
   .collection-type {
     align-items: center;
+  }
+
+  .header-text {
+    display: none;
   }
 }
 

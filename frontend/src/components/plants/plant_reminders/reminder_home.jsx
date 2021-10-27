@@ -6,22 +6,57 @@ import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 class RemindersHomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.reminder;
+    this.state = props.reminder;
+    // this.state.completed = false;
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.setState({
+  handleClick(e) {
+    e.preventDefault();
+    console.log(this.state)
+    // this.setState({
+    //   completed: true,
+    //   completedAt: new Date()
+    // });
+    console.log(this.state)
+
+    let { reminder } = this.props
+    // this.state.completedAt = new Date();
+    this.props.updateReminder({
+      _id: reminder._id,
+      frequency: reminder.frequency,
+      reminderText: reminder.reminderText,
+      userId: reminder.userId,
       completed: true,
+      completedAt: new Date()
     });
-    this.props.updateReminder(this.state);
+  }
+
+  componentDidMount() {
+    const { reminder, updateReminder } = this.props;
+    const date = new Date(reminder.completedAt);
+    const currentDate = new Date();
+    const overdued = new Date(date.getTime() + (reminder.frequency * 24 * 60 * 60 * 1000));
+    
+    if (reminder.completed && currentDate > overdued) {
+      updateReminder({_id: reminder._id, completed: false, reminderText: reminder.reminderText})
+    }
+  //   if (currentDate - date < (24 * 60 * 60 * 1000)) {
+  //     this.setState({
+  //       completed: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       completed: false
+  //     })
+  //   }
   }
 
   render() {
     const { reminder, plant } = this.props;
     if (!reminder || !plant) return null;
 
-    const date = new Date(reminder.updatedAt);
+    const date = new Date(reminder.completedAt);
     const d = date.getDate();
     const m = date.getMonth() + 1;
     const y = date.getFullYear();
@@ -50,7 +85,7 @@ class RemindersHomePage extends React.Component {
             }
             onClick={this.handleClick}
           >
-            {this.state.completed ? (
+            {reminder.completed ? (
               <ImCheckboxChecked />
             ) : (
               <ImCheckboxUnchecked />
