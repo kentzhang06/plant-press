@@ -26,7 +26,7 @@ const Welcome = (props) => {
             <p>Track your plants.</p>
             <p>Share your plants.</p>
             <p>Discover new plants.</p>
-            <img src={Grow} className='hero' />
+            <img src={Grow} className='hero' alt=""/>
           </div>
           <Link to='/login'>
             <button>Log In</button>

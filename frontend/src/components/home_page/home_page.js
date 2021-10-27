@@ -11,6 +11,7 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.fetchMyPlants(this.props.currentUser.id);
     this.props.fetchMyReminders();
+    this.props.fetchAllPosts("");
   }
 
   sortedReminders() {
@@ -32,20 +33,27 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { logout, currentUser, plants, reminders } = this.props;
+    const { logout, currentUser, plants, reminders, posts } = this.props;
     if (!plants) return null;
     if (!reminders) return null;
 
     return (
       <>
-        <main className='main-col'>
-          <div >
-            <h2 >Welcome {currentUser.handle}! Here are your reminders.</h2>
+        <main className="main-col">
+          <div>
+            <h2 className="center-text-mobile">
+              Welcome {currentUser.handle}! Here are your reminders.
+            </h2>
           </div>
-          {this.sortedReminders().map((reminder, i) => (
-            <ReminderHomeContainer reminder={reminder} key={i} />
+          {this.props.reminders.map((reminder, i) => (
+            <ReminderHomeContainer
+              reminder={reminder}
+              plants={plants}
+              posts={posts}
+              key={i}
+            />
           ))}
-          <button onClick={logout} className='logout-btn'>
+          <button onClick={logout} className="logout-btn">
             Log Out
           </button>
         </main>
