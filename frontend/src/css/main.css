@@ -135,6 +135,10 @@ button {
   margin: 10px;
 }
 
+.info-page-box {
+  width: 40%;
+}
+
 .red-box {
   background-color: rgb(235, 164, 164);
   border: 1px solid #ddd;
@@ -296,28 +300,6 @@ button {
   padding: 0px;
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
-  /* insert styles here */
-  .search-feed {
-    margin-top: 33%;
-  }
-  .search-form {
-    width: 50%;
-    min-width: 340px;
-    position: fixed;
-    top: 70px;
-
-    border-radius: 10px;
-  }
-  .collection-box {
-    flex-direction: column;
-  }
-
-  .collection-type {
-    align-items: center;
-  }
-}
-
 .feed-heading p {
   margin: 0;
   font-weight: bold;
@@ -403,4 +385,41 @@ button {
 .hero {
   height: 200px;
   width: auto;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 500px) {
+  /* insert styles here */
+  .search-feed {
+    margin-top: 33%;
+  }
+  .search-form {
+    width: 50%;
+    min-width: 340px;
+    position: fixed;
+    top: 70px;
+
+    border-radius: 10px;
+  }
+  .collection-box {
+    flex-direction: column;
+  }
+
+  .collection-type {
+    align-items: center;
+  }
+
+  .reminder-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .center-text-mobile {
+    text-align: center;
+  }
+
+  .info-page-box {
+    width: auto;
+  }
+
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 // import { RiContrastLine } from 'react-icons/ri';
@@ -18,7 +19,7 @@ class RemindersHomePage extends React.Component {
   }
 
   render() {
-    const { reminder, plant } = this.props;
+    const { reminder, plant, posts } = this.props;
     if (!reminder || !plant) return null;
 
     const date = new Date(reminder.updatedAt);
@@ -32,22 +33,34 @@ class RemindersHomePage extends React.Component {
     // console.log(overdued)
     // console.log(currentDate > overdued)
 
+    const displayPlantProfilePic = (plant) => {
+      if (!posts[plant.plantPosts[0]]) {
+        return <div className="colorbox">{plant.name.slice(0, 1)}</div>;
+      } else {
+        return (
+          <img
+            className="plant-photo"
+            src={posts[plant.plantPosts[0]].imageUrl}
+            alt=""
+          />
+        );
+      }
+    };
+
 
     return (
-      <div className={currentDate >= overdued ? 'red-box' : 'white-box'} >
-        <div className='flex-row-between'>
-          <div>
+      <div className={currentDate >= overdued ? "red-box" : "white-box"}>
+        <div className="flex-row-between reminder-box">
+          <Link to={`/plant/${plant._id}`}>
+            <div className="image-crop">{displayPlantProfilePic(plant)}</div>
+          </Link>
+          <div className="flex-col-center">
             <h4>{plant.name}</h4>
-            <h5>{reminder.reminderText}</h5>
+            <h5 className="center-text-mobile">{reminder.reminderText}</h5>
             <h6>Complete every {reminder.frequency} day(s)</h6>
             <h6>Last completed: {lastUpdate}</h6>
           </div>
           <div
-            className={
-              this.state.completed
-                ? 'col-3 d-flex justify-content-end align-items-center'
-                : 'col-3 d-flex justify-content-end align-items-center'
-            }
             onClick={this.handleClick}
           >
             {this.state.completed ? (

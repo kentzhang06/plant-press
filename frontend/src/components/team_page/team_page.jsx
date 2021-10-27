@@ -52,10 +52,10 @@ const TeamPage = () => {
         <h2 className="subtitle">About Us</h2>
       </div>
 
-      <div className="white-box flex-col-center">
+      <div className="info-page-box">
         {team.map((member, i) => (
-          <div key={i}>
-            <img className="contact-pic" src={member.image} alt=""/>
+          <div key={i} className="white-box flex-col-center">
+            <img className="contact-pic" src={member.image} alt="" />
             <div className="d-flex justify-content-center">
               <h3 className="purple margin-top">{member.dev}</h3>
               <div className="developer-links">
