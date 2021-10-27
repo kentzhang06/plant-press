@@ -336,7 +336,7 @@ button {
 }
 
 .margin-top {
-  margin-top: 3%
+  margin-top: 3%;
 }
 
 .contact-pic {
@@ -385,4 +385,22 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.splash-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.splash-items p {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.hero {
+  height: 200px;
+  width: auto;
 }
