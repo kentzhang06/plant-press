@@ -51,7 +51,7 @@ function getFileStream(fileKey) {
 ```
 The first function in this code snippet above allows for a file to be uploaded onto s3 while the second downloads a specific file from s3.
 
-## Reminders for plant care
+## Reminders for Plant Collection
 
 This app allows for users to create reminders for plants that then shows up on the homepage. The reminders are sorted by the difference between the date it was last completed and the time it would be considered overdued.
 
