@@ -436,4 +436,7 @@ button {
     width: auto;
   }
 
+  .header-text {
+    display: none;
+  }
 }

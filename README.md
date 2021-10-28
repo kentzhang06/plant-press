@@ -53,64 +53,29 @@ The first function in this code snippet above allows for a file to be uploaded o
 
 ## Reminders for plant care
 
-This app allows for users to create reminders for plants that then shows up on the homepage. A user is able to click on each reminder to note that they have completed the task for the day. 
+This app allows for users to create reminders for plants that then shows up on the homepage. The reminders are sorted by the difference between the date it was last completed and the time it would be considered overdued.
 
 <img width="1277" alt="Screen Shot 2021-10-25 at 2 54 12 PM" src="https://user-images.githubusercontent.com/76461881/138776487-726cd24d-66e5-4d2c-bed7-faa91c4743a3.png">
 
 
 ```javascript
-handleClick() {
-    this.setState({
-      completed: true,
-    });
-    console.log(this.state);
-    this.props.updateReminder(this.state);
-  }
+  sortedReminders() {
+    let { reminders } = this.props;
+    let sorted = reminders.sort((a, b) => {
+      const lastUpdated1 = new Date(a.completedAt);
+      const lastUpdated2 = new Date(b.completedAt);
+      const overdued1 = new Date( lastUpdated1.getTime() + (a.frequency * 24 * 60 * 60 * 1000)) 
+      const overdued2 = new Date( lastUpdated2.getTime() + (b.frequency * 24 * 60 * 60 * 1000)) 
 
-  render() {
-    let { reminder, plant } = this.props;
-    if (!reminder || !plant) return null;
+      const currentDate = new Date();
 
-    let date = new Date(reminder.updatedAt);
-    let d = date.getDate();
-    let m = date.getMonth() + 1;
-    return (
-      <div
-        className={
-          this.state.completed
-            ? "row d-flex justify-content-center reminder-row done"
-            : "row d-flex justify-content-center reminder-row"
-        }
-      >
-        <div className="col-9">
-          {plant.name}
-          <br />
-          <span className="note">{reminder.reminderText}</span>
-          <br />
-          <span className="note">
-            Complete every {reminder.frequency} day(s)
-          </span>
-          <br />
-          <span className="note">Last completed: {m + "/" + d}</span>
-        </div>
-        <div
-          className={
-            this.state.completed
-              ? "col-3 d-flex justify-content-end align-items-center"
-              : "col-3 d-flex justify-content-end align-items-center"
-          }
-          onClick={this.handleClick}
-        >
-          {this.state.completed ? (
-            <ImCheckboxChecked />
-          ) : (
-            <ImCheckboxUnchecked />
-          )}
-        </div>
-      </div>
-    );
+      if (overdued1 - currentDate <= overdued2 - currentDate ) {
+        return -1;
+      } else return 1
+    })
+
+    return sorted;
   }
-}
 ```
 ## Newsfeed and searchbar
 
