@@ -13,13 +13,6 @@ class RemindersHomePage extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
-    console.log(this.state)
-    // this.setState({
-    //   completed: true,
-    //   completedAt: new Date()
-    // });
-    console.log(this.state)
 
     let { reminder } = this.props
     // this.state.completedAt = new Date();
@@ -42,15 +35,6 @@ class RemindersHomePage extends React.Component {
     if (reminder.completed && currentDate > overdued) {
       updateReminder({_id: reminder._id, completed: false, reminderText: reminder.reminderText})
     }
-  //   if (currentDate - date < (24 * 60 * 60 * 1000)) {
-  //     this.setState({
-  //       completed: true
-  //     })
-  //   } else {
-  //     this.setState({
-  //       completed: false
-  //     })
-  //   }
   }
 
   render() {
@@ -64,9 +48,6 @@ class RemindersHomePage extends React.Component {
     const lastUpdate = m + '/' + d + '/' + y;
     const currentDate = new Date();
     const overdued = new Date(date.getTime() + (reminder.frequency * 24 * 60 * 60 * 1000));
-    // console.log(currentDate)
-    // console.log(overdued)
-    // console.log(currentDate > overdued)
 
     const displayPlantProfilePic = (plant) => {
       if (!posts[plant.plantPosts[0]]) {
