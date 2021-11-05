@@ -9,6 +9,9 @@ Plant-Press is a mobile tracking app that allows plant owners to post their plan
 ![plant-press-home](https://user-images.githubusercontent.com/44277861/140561242-e9ac9b4d-b655-4d89-9c4c-03d56c9d5aae.gif)
 
 
+![image](https://user-images.githubusercontent.com/44277861/140561451-ae21f2bc-bf78-408b-85a7-01cb9d246245.png)
+
+
 
 ## Technologies Used
 
